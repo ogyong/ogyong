@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".FacebookPostFragment">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.facebook.widget.ProfilePictureView
+            android:id="@+id/facebook_profile_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:preset_size="normal" />
+
+        <com.facebook.widget.LoginButton
+            android:id="@+id/facebook_login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/facebook_profile_picture"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" />
+
+        <CheckBox
+            android:id="@+id/facebook_include_location_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/facebook_randomize_location_cb"
+            android:layout_alignStart="@+id/facebook_randomize_location_cb"
+            android:layout_below="@+id/facebook_login_button"
+            android:layout_marginTop="16dp"
+            android:checked="false"
+            android:text="@string/facebook_include_location" />
+
+        <CheckBox
+            android:id="@+id/facebook_randomize_location_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/facebook_include_location_cb"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:checked="false"
+            android:enabled="false"
+            android:text="@string/facebook_randomize_location" />
+
+        <TextView
+            android:id="@+id/facebook_lat_long_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/facebook_randomize_location_cb"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Loading location ..."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="italic"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/facebook_place_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/facebook_lat_long_text_view"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Loading place ..."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="italic"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/facebook_place_text_view"
+            android:layout_margin="8dp">
+
+            <EditText
+                android:id="@+id/facebook_status_edit_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:inputType="textMultiLine" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

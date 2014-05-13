@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:enabled="true"
+        android:key="automate_status_update"
+        android:summary="@string/pref_description_automate_update"
+        android:title="@string/pref_title_automate_update" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_template"
+        android:inputType="textCapWords"
+        android:key="status_template"
+        android:singleLine="false"
+        android:title="@string/pref_title_template" />
+
+    <PreferenceScreen
+        android:summary="@string/pref_description_status_template"
+        android:title="@string/pref_title_status_template">
+        <intent android:action="com.nribeka.ogyong.activity.STATUS_TEMPLATE" />
+    </PreferenceScreen>
+
+</PreferenceScreen>

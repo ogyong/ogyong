@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.nribeka.ogyong.activity.TemplateActivity$PlaceholderFragment">
+
+    <Button
+        android:id="@+id/button_white_star"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/button_black_star"
+        android:onClick="updateStatusTemplate"
+        android:text="☆" />
+
+    <Button
+        android:id="@+id/button_black_star"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/button_snow"
+        android:onClick="updateStatusTemplate"
+        android:text="★" />
+
+    <Button
+        android:id="@+id/button_snow"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/button_music"
+        android:onClick="updateStatusTemplate"
+        android:text="❄" />
+
+    <Button
+        android:id="@+id/button_music"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="updateStatusTemplate"
+        android:text="♫" />
+
+    <Button
+        android:id="@+id/button_xi"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button_music"
+        android:onClick="updateStatusTemplate"
+        android:text="♪" />
+
+    <Button
+        android:id="@+id/button_arrow"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button_xi"
+        android:onClick="updateStatusTemplate"
+        android:text="➣" />
+
+    <Button
+        android:id="@+id/button_black_sun"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button_arrow"
+        android:onClick="updateStatusTemplate"
+        android:text="☀" />
+
+    <Button
+        android:id="@+id/button_album"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button_artist"
+        android:layout_toLeftOf="@+id/button_artist"
+        android:onClick="updateStatusTemplate"
+        android:text="Album" />
+
+    <Button
+        android:id="@+id/button_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_music"
+        android:layout_centerHorizontal="true"
+        android:onClick="updateStatusTemplate"
+        android:text="Artist" />
+
+    <Button
+        android:id="@+id/button_track"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button_artist"
+        android:layout_toRightOf="@+id/button_artist"
+        android:onClick="updateStatusTemplate"
+        android:text="Track" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_artist"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/template_text_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

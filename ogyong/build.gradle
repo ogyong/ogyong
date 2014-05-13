@@ -1,0 +1,37 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.3"
+
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs {
+        release {
+            storeFile file("ogyong-release.keystore")
+            storePassword "winwinmoron1604?"
+            keyAlias "ogyong"
+            keyPassword "winwinmoron1604?"
+        }
+    }
+    buildTypes {
+        release {
+            runProguard false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':facebook')
+    compile 'com.android.support:appcompat-v7:19.1.0'
+    compile 'com.android.support:gridlayout-v7:19.1.0'
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'org.twitter4j:twitter4j-core:4.0.1'
+}

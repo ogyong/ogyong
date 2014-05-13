@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".TwitterPostFragment">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/twitter_profile_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/twitter_handle_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/twitter_profile_picture"
+            android:layout_centerHorizontal="true"
+            android:text="@string/twitter_loading_handle"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/twitter_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/twitter_handle_text_view"
+            android:layout_centerHorizontal="true"
+            android:text="@string/twitter_loading_name"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageButton
+            android:id="@+id/twitter_login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/twitter_name_text_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/sign_in_twitter" />
+
+        <ImageButton
+            android:id="@+id/twitter_logout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/twitter_login_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/sign_out_twitter" />
+
+        <CheckBox
+            android:id="@+id/twitter_include_location_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/twitter_randomize_location_cb"
+            android:layout_alignStart="@+id/twitter_randomize_location_cb"
+            android:layout_below="@+id/twitter_logout_button"
+            android:layout_marginTop="16dp"
+            android:checked="false"
+            android:text="@string/twitter_include_location" />
+
+        <CheckBox
+            android:id="@+id/twitter_randomize_location_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/twitter_include_location_cb"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:checked="false"
+            android:enabled="false"
+            android:text="@string/twitter_randomize_location" />
+
+        <TextView
+            android:id="@+id/twitter_lat_long_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/twitter_randomize_location_cb"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Loading location ..."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="italic"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/twitter_place_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/twitter_lat_long_text_view"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Loading place ..."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="italic"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/twitter_place_text_view"
+            android:layout_margin="8dp">
+
+            <EditText
+                android:id="@+id/twitter_status_edit_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:inputType="textMultiLine" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

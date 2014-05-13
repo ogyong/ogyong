@@ -1,0 +1,21 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="com.nribeka.ogyong.activity.SettingsActivity$StatusPreferenceFragment"
+        android:title="@string/pref_header_status" />
+
+    <header
+        android:fragment="com.nribeka.ogyong.activity.SettingsActivity$StickerPreferenceFragment"
+        android:title="@string/pref_header_sticker" />
+
+    <header
+        android:fragment="com.nribeka.ogyong.activity.SettingsActivity$NotificationPreferenceFragment"
+        android:title="@string/pref_header_notifications" />
+
+    <header
+        android:fragment="com.nribeka.ogyong.activity.SettingsActivity$LocationSyncPreferenceFragment"
+        android:title="@string/pref_header_location_sync" />
+
+</preference-headers>
