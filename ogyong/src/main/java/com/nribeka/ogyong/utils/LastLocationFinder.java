@@ -41,8 +41,7 @@ import java.util.List;
  */
 public class LastLocationFinder {
 
-    protected static String TAG = "LastLocationFinder";
-    protected static String SINGLE_LOCATION_UPDATE_ACTION = "com.radioactiveyak.places.SINGLE_LOCATION_UPDATE_ACTION";
+    protected static String TAG = LastLocationFinder.class.getSimpleName();
 
     protected PendingIntent singleUpatePI;
     protected LocationListener locationListener;
@@ -66,7 +65,7 @@ public class LastLocationFinder {
 
         // Construct the Pending Intent that will be broadcast by the oneshot
         // location update.
-        Intent updateIntent = new Intent(SINGLE_LOCATION_UPDATE_ACTION);
+        Intent updateIntent = new Intent(AppConstants.SINGLE_LOCATION_UPDATE_ACTION);
         singleUpatePI = PendingIntent.getBroadcast(context, 0, updateIntent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
@@ -111,7 +110,7 @@ public class LastLocationFinder {
         // This check simply implements the same conditions we set when requesting regular
         // location updates every [minTime] and [minDistance].
         if (locationListener != null && (bestTime < minTime || bestAccuracy > minDistance)) {
-            IntentFilter locIntentFilter = new IntentFilter(SINGLE_LOCATION_UPDATE_ACTION);
+            IntentFilter locIntentFilter = new IntentFilter(AppConstants.SINGLE_LOCATION_UPDATE_ACTION);
             context.registerReceiver(singleUpdateReceiver, locIntentFilter);
             locationManager.requestSingleUpdate(criteria, singleUpatePI);
         }

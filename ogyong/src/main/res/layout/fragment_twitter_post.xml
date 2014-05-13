@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/twitter_profile_picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp" />
@@ -29,7 +29,8 @@
             android:layout_centerHorizontal="true"
             android:text="@string/twitter_loading_handle"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/twitter_name_text_view"
@@ -38,24 +39,26 @@
             android:layout_below="@+id/twitter_handle_text_view"
             android:layout_centerHorizontal="true"
             android:text="@string/twitter_loading_name"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/twitter_login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="32dp"
             android:layout_below="@+id/twitter_name_text_view"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:background="@android:color/transparent"
             android:padding="0dp"
             android:scaleType="fitXY"
-            android:src="@drawable/sign_in_twitter" />
+            android:src="@drawable/sign_in_twitter"
+            android:visibility="visible" />
 
         <ImageButton
             android:id="@+id/twitter_logout_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="32dp"
             android:layout_below="@+id/twitter_login_button"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
@@ -73,7 +76,8 @@
             android:layout_below="@+id/twitter_logout_button"
             android:layout_marginTop="16dp"
             android:checked="false"
-            android:text="@string/twitter_include_location" />
+            android:text="@string/twitter_include_location"
+            android:visibility="gone" />
 
         <CheckBox
             android:id="@+id/twitter_randomize_location_cb"
@@ -84,7 +88,8 @@
             android:layout_marginTop="8dp"
             android:checked="false"
             android:enabled="false"
-            android:text="@string/twitter_randomize_location" />
+            android:text="@string/twitter_randomize_location"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/twitter_lat_long_text_view"
@@ -125,7 +130,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:visibility="gone" />
 
         </RelativeLayout>
 

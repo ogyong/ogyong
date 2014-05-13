@@ -54,6 +54,7 @@ public class AppConstants {
     public static final String INTENT_LOCATION_UPDATED = "com.nribeka.ogyong.INTENT_LOCATION_UPDATED";
     public static final String INTENT_STATUS_POSTED_ACTION = "com.nribeka.ogyong.INTENT_STATUS_POSTED";
     public static final String INTENT_LOCATION_PROVIDER_DISABLED = "com.nribeka.ogyong.INTENT_LOCATION_PROVIDER_DISABLED";
+    public static final String SINGLE_LOCATION_UPDATE_ACTION = "com.nribeka.ogyong.SINGLE_LOCATION_UPDATE_ACTION";
 
     public static final String INTENT_EXTRA_RADIUS = "intent_extra.radius";
     public static final String INTENT_EXTRA_LOCATION = "intent_extra.location";

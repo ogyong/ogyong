@@ -97,7 +97,6 @@
         <receiver android:name=".receiver.ConnectivityChangedReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="com.radioactiveyak.places.retry_queued_checkins" />
             </intent-filter>
         </receiver>
         <receiver android:name=".receiver.PowerStateChangedReceiver">
@@ -106,7 +105,7 @@
                 <action android:name="android.intent.action.ACTION_BATTERY_OKAY" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.StatusPostedReceiver">
+        <receiver android:name=".receiver.StatusUpdatedReceiver">
             <intent-filter>
                 <action android:name="com.nribeka.ogyong.INTENT_STATUS_POSTED" />
             </intent-filter>

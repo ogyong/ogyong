@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -120,6 +121,16 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
         twitterHandleTextView = (TextView) view.findViewById(R.id.twitter_handle_text_view);
         twitterProfilePicture = (ImageView) view.findViewById(R.id.twitter_profile_picture);
         twitterStatusEditText = (EditText) view.findViewById(R.id.twitter_status_edit_text);
+        twitterStatusEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    postMenuItem.setVisible(true);
+                } else {
+                    postMenuItem.setVisible(false);
+                }
+            }
+        });
 
         twitterLoginButton = (ImageButton) view.findViewById(R.id.twitter_login_button);
         twitterLoginButton.setOnClickListener(this);
@@ -143,8 +154,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private void useBlankBitmap() {
         int blankImageResource = R.drawable.blank_profile_picture;
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), blankImageResource);
-        twitterProfileBitmap = Bitmap.createScaledBitmap(bitmap, 200, 200, false);
+        twitterProfileBitmap = BitmapFactory.decodeResource(getResources(), blankImageResource);
         twitterProfilePicture.setImageBitmap(twitterProfileBitmap);
     }
 
@@ -249,6 +259,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private boolean isOauthVerified() {
         String oauthVerifier = preferences.getString(AppConstants.SP_TWITTER_OAUTH_VERIFIER, AppConstants.EMPTY_STRING);
+        Log.i("OAUTH VERIFIER INFO", "Oauth verifier information: " + oauthVerifier);
         return !AppConstants.EMPTY_STRING.equals(oauthVerifier);
     }
 

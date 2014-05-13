@@ -29,8 +29,7 @@ public class DownloadBitmapTask extends AsyncTask<Void, Void, Bitmap> {
     protected Bitmap doInBackground(Void... params) {
         Bitmap bitmap = null;
         try {
-            Bitmap originalBitmap = BitmapFactory.decodeStream(new URL(bitmapUrl).openStream());
-            bitmap = Bitmap.createScaledBitmap(originalBitmap, 200, 200, false);
+            return BitmapFactory.decodeStream(new URL(bitmapUrl).openStream());
         } catch (Exception e) {
             Log.e(TAG, "Unable to download user twitter profile picture information.", e);
         }

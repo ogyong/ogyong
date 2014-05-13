@@ -14,7 +14,7 @@ import com.nribeka.ogyong.utils.AppConstants;
 
 /**
  * Service that handles background notifications.
- * This Service will be started by the {@link com.nribeka.ogyong.receiver.StatusPostedReceiver}
+ * This Service will be started by the {@link com.nribeka.ogyong.receiver.StatusUpdatedReceiver}
  * when the Application isn't visible and trigger a Notification
  * telling the user that they have posted a new status in facebook or twitter.
  * <p/>
@@ -50,9 +50,9 @@ public class StatusUpdateNotifierService extends IntentService {
         PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setSmallIcon(R.drawable.ogyong);
+        builder.setSmallIcon(R.drawable.ogyong_small);
         builder.setContentTitle("Ogyong");
-        builder.setContentText("Music player status posted to " + destination + "!");
+        builder.setContentText("Music player information posted to " + destination + "!");
         builder.setContentIntent(resultPendingIntent);
 
         int notifyId = AppConstants.STATUS_NOTIFICATION;

@@ -14,9 +14,9 @@ import com.nribeka.ogyong.utils.AppConstants;
  * be announced while the app is running, so this receiver is disabled whenever the
  * main Activity is visible.
  */
-public class StatusPostedReceiver extends BroadcastReceiver {
+public class StatusUpdatedReceiver extends BroadcastReceiver {
 
-    protected static String TAG = StatusPostedReceiver.class.getSimpleName();
+    protected static String TAG = StatusUpdatedReceiver.class.getSimpleName();
 
     /**
      * When a successful status posted is announced, extract the unique ID of the place

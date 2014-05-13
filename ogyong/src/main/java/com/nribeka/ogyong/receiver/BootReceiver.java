@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.preference.PreferenceManager;
 
 import com.nribeka.ogyong.utils.AppConstants;
+import com.nribeka.ogyong.utils.LocationUpdateRequester;
 
 /**
  * This Receiver class is designed to listen for system boot.

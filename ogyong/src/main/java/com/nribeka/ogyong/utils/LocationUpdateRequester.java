@@ -1,4 +1,4 @@
-package com.nribeka.ogyong.receiver;
+package com.nribeka.ogyong.utils;
 
 import android.app.PendingIntent;
 import android.location.Criteria;

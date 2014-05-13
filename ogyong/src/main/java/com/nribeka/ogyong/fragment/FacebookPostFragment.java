@@ -36,7 +36,7 @@ import java.util.List;
  */
 public class FacebookPostFragment extends Fragment implements View.OnClickListener {
 
-    private static final String TAG = "FacebookPostFragment";
+    private static final String TAG = FacebookPostFragment.class.getSimpleName();
     private static final List<String> PERMISSIONS = Arrays.asList("basic_info");
     private static final String FRAGMENT_NAME = "facebook.fragment.name";
     private static final String FRAGMENT_DESCRIPTION = "facebook.fragment.description";
@@ -88,6 +88,16 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         editor = preferences.edit();
 
         facebookStatusEditText = (EditText) view.findViewById(R.id.facebook_status_edit_text);
+        facebookStatusEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    postMenuItem.setVisible(true);
+                } else {
+                    postMenuItem.setVisible(false);
+                }
+            }
+        });
         profilePictureView = (ProfilePictureView) view.findViewById(R.id.facebook_profile_picture);
 
         facebookIncludeLocationCb = (CheckBox) view.findViewById(R.id.facebook_include_location_cb);

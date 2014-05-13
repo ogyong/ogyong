@@ -29,6 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.nribeka.ogyong.R;
 import com.nribeka.ogyong.adapter.SmartFragmentStatePagerAdapter;
@@ -37,12 +38,12 @@ import com.nribeka.ogyong.fragment.TwitterPostFragment;
 import com.nribeka.ogyong.listener.OnLocationTrackingListener;
 import com.nribeka.ogyong.receiver.LocationChangedActiveReceiver;
 import com.nribeka.ogyong.receiver.LocationChangedPassiveReceiver;
-import com.nribeka.ogyong.receiver.LocationUpdateRequester;
-import com.nribeka.ogyong.receiver.StatusPostedReceiver;
+import com.nribeka.ogyong.receiver.StatusUpdatedReceiver;
 import com.nribeka.ogyong.service.PlaceUpdaterService;
 import com.nribeka.ogyong.utils.AppConstants;
 import com.nribeka.ogyong.utils.AppUtils;
 import com.nribeka.ogyong.utils.LastLocationFinder;
+import com.nribeka.ogyong.utils.LocationUpdateRequester;
 
 import java.text.DecimalFormat;
 
@@ -59,9 +60,9 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
     protected PendingIntent locationListenerActivePendingIntent;
     protected PendingIntent locationListenerPassivePendingIntent;
     protected ComponentName statusReceiverName;
-    protected IntentFilter statusPostedIntentFilter;
     protected IntentFilter locationUpdatedIntentFilter;
     protected IntentFilter musicUpdatedIntentFilter;
+    protected IntentFilter statusUpdatedIntentFilter;
     /**
      * One-off location listener that receives updates from the {@link LastLocationFinder}.
      * This is triggered where the last known location is outside the bounds of our maximum
@@ -136,10 +137,10 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
             DecimalFormat decimalFormat = new DecimalFormat("#.000000");
             String latLongText = decimalFormat.format(latitude) + ", " + decimalFormat.format(longitude);
 
-            TwitterPostFragment twitterPostFragment = (TwitterPostFragment) sectionsPagerAdapter.getRegisteredFragment(0);
+            TwitterPostFragment twitterPostFragment = (TwitterPostFragment) sectionsPagerAdapter.getRegisteredFragment(1);
             twitterPostFragment.setLatLongTextView(latLongText);
             twitterPostFragment.setPlaceTextView(twitterPlace);
-            FacebookPostFragment facebookPostFragment = (FacebookPostFragment) sectionsPagerAdapter.getRegisteredFragment(1);
+            FacebookPostFragment facebookPostFragment = (FacebookPostFragment) sectionsPagerAdapter.getRegisteredFragment(0);
             facebookPostFragment.setLatLongTextView(latLongText);
             facebookPostFragment.setPlaceTextView(facebookPlace);
         }
@@ -149,10 +150,20 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         @Override
         public void onReceive(Context context, Intent intent) {
             String statusMessage = AppUtils.generateStatus(context);
-            TwitterPostFragment twitterPostFragment = (TwitterPostFragment) sectionsPagerAdapter.getRegisteredFragment(0);
+            TwitterPostFragment twitterPostFragment = (TwitterPostFragment) sectionsPagerAdapter.getRegisteredFragment(1);
             twitterPostFragment.setStatusMessage(statusMessage);
-            FacebookPostFragment facebookPostFragment = (FacebookPostFragment) sectionsPagerAdapter.getRegisteredFragment(1);
+            FacebookPostFragment facebookPostFragment = (FacebookPostFragment) sectionsPagerAdapter.getRegisteredFragment(0);
             facebookPostFragment.setStatusMessage(statusMessage);
+        }
+    };
+
+    private BroadcastReceiver statusUpdatedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String destination = intent.getStringExtra(AppConstants.INTENT_EXTRA_MESSAGE_DESTINATION);
+            String message = "Music player information posted to " + destination;
+            Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+            toast.show();
         }
     };
 
@@ -185,10 +196,10 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         locationUpdateRequester = new LocationUpdateRequester(locationManager);
 
         // Create an Intent Filter to listen for status update
-        statusReceiverName = new ComponentName(this, StatusPostedReceiver.class);
-        statusPostedIntentFilter = new IntentFilter(AppConstants.INTENT_STATUS_POSTED_ACTION);
-        locationUpdatedIntentFilter = new IntentFilter(AppConstants.INTENT_LOCATION_UPDATED);
+        statusReceiverName = new ComponentName(this, StatusUpdatedReceiver.class);
         musicUpdatedIntentFilter = new IntentFilter(AppConstants.INTENT_MUSIC_UPDATED);
+        locationUpdatedIntentFilter = new IntentFilter(AppConstants.INTENT_LOCATION_UPDATED);
+        statusUpdatedIntentFilter = new IntentFilter(AppConstants.INTENT_STATUS_POSTED_ACTION);
 
         criteria = new Criteria();
         if (AppConstants.USE_GPS_WHEN_ACTIVITY_VISIBLE) {
@@ -238,6 +249,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         editor.commit();
 
         unregisterReceiver(musicUpdatedReceiver);
+        unregisterReceiver(statusUpdatedReceiver);
         unregisterReceiver(locationUpdatedReceiver);
         // Enable the Manifest Checkin Receiver when the Activity isn't active.
         // The Manifest Checkin Receiver is designed to run only when the Application
@@ -257,18 +269,19 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
     public void onResume() {
         super.onResume();
         Intent intent = getIntent();
-        if (intent != null) {
+        if (intent != null && intent.getData() != null) {
             Uri uri = intent.getData();
-            if (uri != null && uri.toString().startsWith(AppConstants.TWITTER_CALLBACK)) {
+            if (uri.toString().startsWith(AppConstants.TWITTER_CALLBACK)) {
                 String verifier = uri.getQueryParameter(AppConstants.SP_TWITTER_OAUTH_VERIFIER);
                 editor.putString(AppConstants.SP_TWITTER_OAUTH_VERIFIER, verifier);
-                editor.commit();
+                intent.setData(null);
             }
         }
         editor.putBoolean(AppConstants.SP_APP_IN_BACKGROUND, false);
         editor.commit();
 
         registerReceiver(musicUpdatedReceiver, musicUpdatedIntentFilter);
+        registerReceiver(statusUpdatedReceiver, statusUpdatedIntentFilter);
         registerReceiver(locationUpdatedReceiver, locationUpdatedIntentFilter);
         boolean facebookIncludeLocation = preferences.getBoolean(AppConstants.SP_FACEBOOK_INCLUDE_LOCATION, false);
         boolean facebookRandomizeLocation = preferences.getBoolean(AppConstants.SP_FACEBOOK_RANDOMIZE_LOCATION, false);
@@ -484,9 +497,9 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case 0:
-                    return TwitterPostFragment.newInstance("Twitter", "Twitter integration.");
                 case 1:
+                    return TwitterPostFragment.newInstance("Twitter", "Twitter integration.");
+                case 0:
                     return FacebookPostFragment.newInstance("Facebook", "Facebook integration.");
             }
             return null;
@@ -500,9 +513,9 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case 0:
-                    return "Twitter";
                 case 1:
+                    return "Twitter";
+                case 0:
                     return "Facebook";
             }
             return "Unknown Page";
