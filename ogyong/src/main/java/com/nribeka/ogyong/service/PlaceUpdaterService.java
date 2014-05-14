@@ -167,7 +167,7 @@ public class PlaceUpdaterService extends IntentService {
                 refreshPlaces(location);
             }
         }
-        Log.d(TAG, "Place list download service complete.");
+        Log.d(TAG, "Place updater service completed.");
         Intent updatePlaceIntent = new Intent();
         updatePlaceIntent.setAction(AppConstants.INTENT_LOCATION_UPDATED);
         sendBroadcast(updatePlaceIntent);
@@ -183,8 +183,6 @@ public class PlaceUpdaterService extends IntentService {
         Session session = Session.getActiveSession();
         boolean inFacebook = (session != null && session.isOpened());
         boolean inTwitter = preferences.getBoolean(AppConstants.SP_TWITTER_LOGGED_IN, false);
-
-        Log.i(TAG, "Lat: " + location.getLatitude() + ", Long: " + location.getLongitude());
 
         boolean facebookIncludeLocation = preferences.getBoolean(AppConstants.SP_FACEBOOK_INCLUDE_LOCATION, false);
         boolean twitterIncludeLocation = preferences.getBoolean(AppConstants.SP_TWITTER_INCLUDE_LOCATION, false);
@@ -240,7 +238,7 @@ public class PlaceUpdaterService extends IntentService {
                     Log.e(TAG, "Unable to fetch places based on the current location.", e);
                 }
             } else {
-                Log.i(TAG, "Twitter place already in cache: " + placeId + " -> " + placeName);
+                Log.i(TAG, "Twitter place found in cache: " + placeId + " -> " + placeName);
             }
         }
 
@@ -281,7 +279,7 @@ public class PlaceUpdaterService extends IntentService {
                     }
                 }
             } else {
-                Log.i(TAG, "Facebook place already in cache: " + facebookPlaceId + " -> " + facebookPlace);
+                Log.i(TAG, "Facebook place found in cache: " + facebookPlaceId + " -> " + facebookPlace);
             }
         }
         // Save the last update time and place to the Shared Preferences.

@@ -91,10 +91,12 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         facebookStatusEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    postMenuItem.setVisible(true);
-                } else {
-                    postMenuItem.setVisible(false);
+                if (postMenuItem != null) {
+                    if (hasFocus) {
+                        postMenuItem.setVisible(true);
+                    } else {
+                        postMenuItem.setVisible(false);
+                    }
                 }
             }
         });
@@ -201,11 +203,11 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
 
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (state != null) {
-            Log.i(TAG, "State isOpened: " + state.isOpened() + ", isClosed: " + state.isClosed());
+            Log.i(TAG, "Facebook state isOpened: " + state.isOpened() + ", isClosed: " + state.isClosed());
         }
 
         if (exception != null) {
-            Log.i(TAG, "Exception message: " + exception.getLocalizedMessage(), exception);
+            Log.i(TAG, "Facebook exception message: " + exception.getLocalizedMessage(), exception);
         }
 
         // check the session

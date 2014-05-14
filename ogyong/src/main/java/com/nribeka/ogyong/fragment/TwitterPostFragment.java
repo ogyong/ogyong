@@ -9,7 +9,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -60,6 +61,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private TextView placeTextView;
     private TextView latLongTextView;
+    private TextView longTextWarningTextView;
 
     private ImageButton twitterLoginButton;
     private ImageButton twitterLogoutButton;
@@ -116,6 +118,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
         placeTextView = (TextView) view.findViewById(R.id.twitter_place_text_view);
         latLongTextView = (TextView) view.findViewById(R.id.twitter_lat_long_text_view);
+        longTextWarningTextView = (TextView) view.findViewById(R.id.long_text_warning_text_view);
 
         twitterNameTextView = (TextView) view.findViewById(R.id.twitter_name_text_view);
         twitterHandleTextView = (TextView) view.findViewById(R.id.twitter_handle_text_view);
@@ -124,11 +127,33 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
         twitterStatusEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    postMenuItem.setVisible(true);
-                } else {
-                    postMenuItem.setVisible(false);
+                if (postMenuItem != null) {
+                    if (hasFocus) {
+                        postMenuItem.setVisible(true);
+                    } else {
+                        postMenuItem.setVisible(false);
+                    }
                 }
+            }
+        });
+        twitterStatusEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (longTextWarningTextView != null) {
+                    if (start + count > 140) {
+                        longTextWarningTextView.setVisibility(View.VISIBLE);
+                    } else {
+                        longTextWarningTextView.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
             }
         });
 
@@ -259,7 +284,6 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private boolean isOauthVerified() {
         String oauthVerifier = preferences.getString(AppConstants.SP_TWITTER_OAUTH_VERIFIER, AppConstants.EMPTY_STRING);
-        Log.i("OAUTH VERIFIER INFO", "Oauth verifier information: " + oauthVerifier);
         return !AppConstants.EMPTY_STRING.equals(oauthVerifier);
     }
 

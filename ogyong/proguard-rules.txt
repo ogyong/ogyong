@@ -15,3 +15,9 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-dontwarn com.facebook.android.BuildConfig
+-dontwarn twitter4j.**
+-keep class twitter4j.** { *; }
+-keep class com.facebook.** { *; }
+-keepattributes Signature

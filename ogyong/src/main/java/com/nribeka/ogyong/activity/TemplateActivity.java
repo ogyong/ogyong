@@ -38,7 +38,10 @@ public class TemplateActivity extends ActionBarActivity {
             case R.id.button_xi:
             case R.id.button_arrow:
             case R.id.button_black_sun:
-                templateEditText.append(button.getText());
+                int start = Math.max(templateEditText.getSelectionStart(), 0);
+                int end = Math.max(templateEditText.getSelectionEnd(), 0);
+                templateEditText.getText().replace(Math.min(start, end), Math.max(start, end),
+                        button.getText(), 0, button.getText().length());
                 break;
             case R.id.button_album:
                 templateEditText.append("@album");

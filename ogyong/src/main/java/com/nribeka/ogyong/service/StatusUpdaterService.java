@@ -74,12 +74,23 @@ public class StatusUpdaterService extends IntentService {
             twitter.setOAuthAccessToken(accessToken);
 
             try {
-                StatusUpdate statusUpdate = new StatusUpdate(statusMessage);
-                if (twitterIncludeLocation && !AppConstants.EMPTY_STRING.equals(twitterPlace)) {
-                    statusUpdate.setPlaceId(twitterPlace);
-                    statusUpdate.setLocation(new GeoLocation(latitude, longitude));
+                boolean hasMessage = (statusMessage.length() > 0);
+                while (hasMessage) {
+                    String twitterMessage;
+                    if (statusMessage.length() > 140) {
+                        statusMessage = statusMessage.substring(130);
+                        twitterMessage = statusMessage.substring(0, 130) + "... (cont)";
+                    } else {
+                        twitterMessage = statusMessage;
+                        hasMessage = false;
+                    }
+                    StatusUpdate statusUpdate = new StatusUpdate(twitterMessage);
+                    if (twitterIncludeLocation && !AppConstants.EMPTY_STRING.equals(twitterPlace)) {
+                        statusUpdate.setPlaceId(twitterPlace);
+                        statusUpdate.setLocation(new GeoLocation(latitude, longitude));
+                    }
+                    twitter.updateStatus(statusUpdate);
                 }
-                twitter.updateStatus(statusUpdate);
                 Intent notifierIntent = new Intent(AppConstants.INTENT_STATUS_POSTED_ACTION);
                 notifierIntent.putExtra(AppConstants.INTENT_EXTRA_MESSAGE_DESTINATION, "twitter");
                 context.sendBroadcast(notifierIntent);
