@@ -246,37 +246,44 @@ public class PlaceUpdaterService extends IntentService {
             String facebookPlace = preferences.getString("facebook:name:" + hashValue, AppConstants.EMPTY_STRING);
             String facebookPlaceId = preferences.getString("facebook:id:" + hashValue, AppConstants.EMPTY_STRING);
             if (AppConstants.EMPTY_STRING.equals(facebookPlaceId)) {
-                Request request = Request.newPlacesSearchRequest(session, location, 50, 10, AppConstants.EMPTY_STRING, null);
-                Response response = request.executeAndWait();
-                GraphObject graphObject = response.getGraphObject();
-                if (graphObject != null && graphObject.getInnerJSONObject() != null) {
+                int count = 0;
+                // just do max 5 retry until we find some sort of location
+                // maximum radius would be 250 m from the original location
+                while (count < 5) {
+                    Request request = Request.newPlacesSearchRequest(session, location, 50 + (50 * count), 10, AppConstants.EMPTY_STRING, null);
+                    Response response = request.executeAndWait();
                     try {
+                        GraphObject graphObject = response.getGraphObject();
                         JSONArray jsonArray = graphObject.getInnerJSONObject().getJSONArray("data");
-                        JSONObject jsonObject = jsonArray.getJSONObject(0);
-                        if (jsonObject != null) {
-                            // we need to remove the oldest location
-                            int locationCount = preferences.getInt(AppConstants.SP_FACEBOOK_LOCATION_COUNT, 0);
-                            // when it's empty, this will be initialized with hash value of the current location
-                            String locationHashes = preferences.getString(AppConstants.SP_FACEBOOK_LOCATION_HASHES, hashValue);
-                            if (locationCount > 10) {
-                                int indexOfSeparator = locationHashes.indexOf("|");
-                                String theFirstHash = locationHashes.substring(0, indexOfSeparator);
-                                locationHashes = locationHashes.substring(indexOfSeparator + 1);
-                                // remove it from the preferences
-                                editor.remove("facebook:id:" + theFirstHash);
-                                editor.remove("facebook:name:" + theFirstHash);
+                        if (jsonArray.length() > 0) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
+                            if (jsonObject != null) {
+                                // we need to remove the oldest location
+                                int locationCount = preferences.getInt(AppConstants.SP_FACEBOOK_LOCATION_COUNT, 0);
+                                // when it's empty, this will be initialized with hash value of the current location
+                                String locationHashes = preferences.getString(AppConstants.SP_FACEBOOK_LOCATION_HASHES, hashValue);
+                                if (locationCount > 10) {
+                                    int indexOfSeparator = locationHashes.indexOf("|");
+                                    String theFirstHash = locationHashes.substring(0, indexOfSeparator);
+                                    locationHashes = locationHashes.substring(indexOfSeparator + 1);
+                                    // remove it from the preferences
+                                    editor.remove("facebook:id:" + theFirstHash);
+                                    editor.remove("facebook:name:" + theFirstHash);
+                                }
+                                editor.putString("facebook:id:" + hashValue, jsonObject.getString("id"));
+                                editor.putString("facebook:name:" + hashValue, jsonObject.getString("name"));
+                                editor.putInt(AppConstants.SP_FACEBOOK_LOCATION_COUNT, locationCount + 1);
+                                if (locationCount > 0) {
+                                    locationHashes = locationHashes + "|" + hashValue;
+                                }
+                                editor.putString(AppConstants.SP_FACEBOOK_LOCATION_HASHES, locationHashes);
+                                break;
                             }
-                            editor.putString("facebook:id:" + hashValue, jsonObject.getString("id"));
-                            editor.putString("facebook:name:" + hashValue, jsonObject.getString("name"));
-                            editor.putInt(AppConstants.SP_FACEBOOK_LOCATION_COUNT, locationCount + 1);
-                            if (locationCount > 0) {
-                                locationHashes = locationHashes + "|" + hashValue;
-                            }
-                            editor.putString(AppConstants.SP_FACEBOOK_LOCATION_HASHES, locationHashes);
                         }
                     } catch (JSONException e) {
                         Log.e(TAG, "Unable to fetch data from json based on the current location.", e);
                     }
+                    count = count + 1;
                 }
             } else {
                 Log.i(TAG, "Facebook place found in cache: " + facebookPlaceId + " -> " + facebookPlace);

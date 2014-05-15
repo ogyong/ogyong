@@ -114,7 +114,7 @@
             android:layout_marginTop="8dp"
             android:text="Loading place ..."
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:visibility="gone" />
 
         <RelativeLayout

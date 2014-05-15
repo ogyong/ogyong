@@ -10,6 +10,7 @@ public class AppConstants {
     public static final String TWITTER_CALLBACK = "oauth://oauthUri";
 
     public static final String EMPTY_STRING = "";
+    public static final String PLACE_UNKNOWN = "-No place info-";
 
     public static final String SP_TWITTER_NAME = "twitter.name";
     public static final String SP_TWITTER_SCREEN_NAME = "twitter.screen_name";

@@ -131,8 +131,8 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
             String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
             String hashValue = AppUtils.generateHash(latLong);
 
-            String twitterPlace = preferences.getString("twitter:name:" + hashValue, AppConstants.EMPTY_STRING);
-            String facebookPlace = preferences.getString("facebook:name:" + hashValue, AppConstants.EMPTY_STRING);
+            String twitterPlace = preferences.getString("twitter:name:" + hashValue, AppConstants.PLACE_UNKNOWN);
+            String facebookPlace = preferences.getString("facebook:name:" + hashValue, AppConstants.PLACE_UNKNOWN);
 
             DecimalFormat decimalFormat = new DecimalFormat("#.000000");
             String latLongText = decimalFormat.format(latitude) + ", " + decimalFormat.format(longitude);

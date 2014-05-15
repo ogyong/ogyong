@@ -141,16 +141,11 @@ public class LastLocationFinder {
         @Override
         public void onReceive(Context context, Intent intent) {
             context.unregisterReceiver(singleUpdateReceiver);
-
             String key = LocationManager.KEY_LOCATION_CHANGED;
             Location location = (Location) intent.getExtras().get(key);
-
             if (locationListener != null && location != null)
                 locationListener.onLocationChanged(location);
-
             locationManager.removeUpdates(singleUpatePI);
         }
     };
-
-
 }
