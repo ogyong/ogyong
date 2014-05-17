@@ -225,7 +225,7 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
             facebookStatusEditText.setText(OgyongUtils.generateStatus(getActivity()));
             includeLocationCb.setChecked(includeLocation);
             randomizeLocationCb.setChecked(randomizeLocation);
-            if (includeLocation && randomizeLocation) {
+            if (includeLocation) {
                 randomizeLocationCb.setEnabled(true);
             }
         }
@@ -233,9 +233,6 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         int locationVisible = (isOpened && includeLocation) ? View.VISIBLE : View.GONE;
         placeTextView.setVisibility(locationVisible);
         latLongTextView.setVisibility(locationVisible);
-        if (locationVisible == View.VISIBLE) {
-            // update the lat long and place here
-        }
     }
 
     @Override
@@ -252,7 +249,7 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
 
     private void onRandomizeLocationChecked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
-        locationSelectionListener.onRandomLocationSelected(checked);
+        locationSelectionListener.onRandomLocation(Constants.FACEBOOK_UPDATE_DESTINATION, checked);
 
         editor.putBoolean(Constants.FACEBOOK_RANDOMIZE_LOCATION, checked);
         editor.commit();
@@ -263,11 +260,11 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         randomizeLocationCb.setEnabled(checked);
 
         if (!checked) {
-            editor.remove(Constants.FACEBOOK_RANDOMIZE_LOCATION);
             randomizeLocationCb.setChecked(false);
+            editor.remove(Constants.FACEBOOK_RANDOMIZE_LOCATION);
         }
 
-        locationSelectionListener.onIncludeLocationSelected();
+        locationSelectionListener.onIncludeLocation(Constants.FACEBOOK_UPDATE_DESTINATION, checked);
 
         int visibility = checked ? View.VISIBLE : View.GONE;
         placeTextView.setVisibility(visibility);

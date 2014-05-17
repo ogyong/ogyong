@@ -25,7 +25,7 @@ import twitter4j.auth.AccessToken;
  */
 public class TwitterPlaceUpdaterService extends IntentService {
 
-    private static final String TAG = FacebookPlaceUpdaterService.class.getSimpleName();
+    private static final String TAG = TwitterPlaceUpdaterService.class.getSimpleName();
 
     protected Context context;
     protected SharedPreferences preferences;
@@ -47,7 +47,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
     protected void onHandleIntent(final Intent intent) {
         boolean inTwitter = preferences.getBoolean(Constants.TWITTER_LOGGED_IN, false);
         boolean includeLocation = preferences.getBoolean(Constants.TWITTER_INCLUDE_LOCATION, false);
-        boolean randomize = preferences.getBoolean(Constants.FACEBOOK_RANDOMIZE_LOCATION, false);
+        boolean randomize = preferences.getBoolean(Constants.TWITTER_RANDOMIZE_LOCATION, false);
 
         Location location;
         if (intent.hasExtra(Constants.INTENT_EXTRA_LOCATION)) {
@@ -84,7 +84,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
             }
 
             Intent updatePlaceIntent = new Intent();
-            updatePlaceIntent.setAction(Constants.INTENT_LOCATION_UPDATED);
+            updatePlaceIntent.setAction(Constants.INTENT_TWITTER_LOCATION_UPDATED);
             sendBroadcast(updatePlaceIntent);
         }
     }
@@ -119,5 +119,6 @@ public class TwitterPlaceUpdaterService extends IntentService {
             locationHashes = locationHashes + "|" + hashValue;
         }
         editor.putString(Constants.TWITTER_LOCATION_HASHES, locationHashes);
+        editor.commit();
     }
 }

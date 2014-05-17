@@ -3,7 +3,7 @@ package com.nribeka.ogyong.listener;
 /**
  */
 public interface LocationSelectionListener {
-    void onIncludeLocationSelected();
+    void onRandomLocation(int source, boolean checked);
 
-    void onRandomLocationSelected(boolean randomize);
+    void onIncludeLocation(int source, boolean checked);
 }

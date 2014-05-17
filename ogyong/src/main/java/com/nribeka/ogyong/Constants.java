@@ -51,9 +51,7 @@ public interface Constants {
     String CONSTRUCTED_LOCATION_PROVIDER = "location_provider.constructed";
 
     String INTENT_MUSIC_UPDATED = "com.nribeka.ogyong.INTENT_MUSIC_UPDATED";
-    String INTENT_LOCATION_UPDATED = "com.nribeka.ogyong.INTENT_LOCATION_UPDATED";
     String INTENT_STATUS_POSTED_ACTION = "com.nribeka.ogyong.INTENT_STATUS_POSTED";
-    String INTENT_LOCATION_PROVIDER_DISABLED = "com.nribeka.ogyong.INTENT_LOCATION_PROVIDER_DISABLED";
     String SINGLE_LOCATION_UPDATE_ACTION = "com.nribeka.ogyong.SINGLE_LOCATION_UPDATE_ACTION";
 
     String INTENT_EXTRA_RADIUS = "intent_extra.radius";
@@ -72,6 +70,10 @@ public interface Constants {
     String FACEBOOK_LOCATION_COUNT = "facebook.location_count";
     String FACEBOOK_LOCATION_HASHES = "facebook.location_hashes";
 
-    int FACEBOOK_UPDATE_DESTINATION = 0;
     int TWITTER_UPDATE_DESTINATION = 1;
+    int FACEBOOK_UPDATE_DESTINATION = 0;
+    int UNSPECIFIED_UPDATE_DESTINATION = -1;
+
+    String INTENT_TWITTER_LOCATION_UPDATED = "com.nribeka.ogyong.INTENT_TWITTER_LOCATION_UPDATED";
+    String INTENT_FACEBOOK_LOCATION_UPDATED = "com.nribeka.ogyong.INTENT_FACEBOOK_LOCATION_UPDATED";
 }

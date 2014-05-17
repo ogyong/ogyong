@@ -59,9 +59,10 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
     protected PendingIntent locationListenerActivePendingIntent;
     protected PendingIntent locationListenerPassivePendingIntent;
     protected ComponentName statusUpdatedReceiverComponentName;
-    protected IntentFilter locationUpdatedIntentFilter;
     protected IntentFilter musicUpdatedIntentFilter;
     protected IntentFilter statusUpdatedIntentFilter;
+    protected IntentFilter twitterLocationUpdatedIntentFilter;
+    protected IntentFilter facebookLocationUpdatedIntentFilter;
     /**
      * One-off location listener that receives updates from the {@link LastLocationFinder}.
      * This is triggered where the last known location is outside the bounds of our maximum
@@ -69,7 +70,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
      */
     protected LocationListener oneShotLastLocationUpdateListener = new LocationListener() {
         public void onLocationChanged(final Location location) {
-            updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, true);
+            updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, -1, true);
         }
 
         public void onProviderDisabled(final String provider) {
@@ -84,7 +85,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
     /**
      * If the best Location Provider (usually GPS) is not available when we request location
      * updates, this listener will be notified if / when it becomes available. It calls
-     * requestLocationUpdates to re-register the location listeners using the better Location
+     * enableLocationUpdates to re-register the location listeners using the better Location
      * Provider.
      */
     protected LocationListener bestInactiveLocationProviderListener = new LocationListener() {
@@ -99,7 +100,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
 
         public void onProviderEnabled(final String provider) {
             // Re-register the location listeners using the better Location Provider.
-            requestLocationUpdates();
+            enableLocationUpdates();
         }
     };
     /**
@@ -114,7 +115,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
                     LocationManager.KEY_PROVIDER_ENABLED, false);
             // Re-register the location listeners using the best available Location Provider.
             if (providerDisabled)
-                requestLocationUpdates();
+                enableLocationUpdates();
         }
     };
     private ActionBar actionBar;
@@ -122,34 +123,42 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
     private SmartFragmentAdapter sectionsPagerAdapter;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
-    private BroadcastReceiver locationUpdatedReceiver = new BroadcastReceiver() {
+    private BroadcastReceiver facebookLocationUpdatedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(final Context context, final Intent intent) {
-            double latitude = Double.longBitsToDouble(preferences.getLong(
-                    Constants.LAST_UPDATED_LATITUDE, Long.MIN_VALUE));
-            double longitude = Double.longBitsToDouble(preferences.getLong(
-                    Constants.LAST_UPDATED_LONGITUDE, Long.MIN_VALUE));
+            double latitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LATITUDE, Long.MIN_VALUE));
+            double longitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LONGITUDE, Long.MIN_VALUE));
 
             String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
             String hashValue = OgyongUtils.generateHash(latLong);
 
-            String twitterPlace = preferences.getString(
-                    "twitter:name:" + hashValue, Constants.PLACE_UNKNOWN);
-            String facebookPlace = preferences.getString(
-                    "facebook:name:" + hashValue, Constants.PLACE_UNKNOWN);
+            String facebookPlace = preferences.getString("facebook:name:" + hashValue, Constants.PLACE_UNKNOWN);
 
             DecimalFormat decimalFormat = new DecimalFormat("#.000000");
-            String latLongText = decimalFormat.format(latitude) + ", " +
-                    "" + decimalFormat.format(longitude);
+            String latLongText = decimalFormat.format(latitude) + ", " + decimalFormat.format(longitude);
 
-            TwitterPostFragment twitterPostFragment =
-                    (TwitterPostFragment) sectionsPagerAdapter.getRegisteredFragment(1);
-            twitterPostFragment.setLatLongTextView(latLongText);
-            twitterPostFragment.setPlaceTextView(twitterPlace);
-            FacebookPostFragment facebookPostFragment =
-                    (FacebookPostFragment) sectionsPagerAdapter.getRegisteredFragment(0);
+            FacebookPostFragment facebookPostFragment = (FacebookPostFragment) sectionsPagerAdapter.getRegisteredFragment(0);
             facebookPostFragment.setLatLongTextView(latLongText);
             facebookPostFragment.setPlaceTextView(facebookPlace);
+        }
+    };
+    private BroadcastReceiver twitterLocationUpdatedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(final Context context, final Intent intent) {
+            double latitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LATITUDE, Long.MIN_VALUE));
+            double longitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LONGITUDE, Long.MIN_VALUE));
+
+            String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
+            String hashValue = OgyongUtils.generateHash(latLong);
+
+            String twitterPlace = preferences.getString("twitter:name:" + hashValue, Constants.PLACE_UNKNOWN);
+
+            DecimalFormat decimalFormat = new DecimalFormat("#.000000");
+            String latLongText = decimalFormat.format(latitude) + ", " + decimalFormat.format(longitude);
+
+            TwitterPostFragment twitterPostFragment = (TwitterPostFragment) sectionsPagerAdapter.getRegisteredFragment(1);
+            twitterPostFragment.setLatLongTextView(latLongText);
+            twitterPostFragment.setPlaceTextView(twitterPlace);
         }
     };
 
@@ -157,11 +166,11 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         @Override
         public void onReceive(final Context context, final Intent intent) {
             String statusMessage = OgyongUtils.generateStatus(context);
-            TwitterPostFragment twitterPostFragment =
-                    (TwitterPostFragment) sectionsPagerAdapter.getRegisteredFragment(1);
+
+            TwitterPostFragment twitterPostFragment = (TwitterPostFragment) sectionsPagerAdapter.getRegisteredFragment(1);
             twitterPostFragment.setStatusMessage(statusMessage);
-            FacebookPostFragment facebookPostFragment =
-                    (FacebookPostFragment) sectionsPagerAdapter.getRegisteredFragment(0);
+
+            FacebookPostFragment facebookPostFragment = (FacebookPostFragment) sectionsPagerAdapter.getRegisteredFragment(0);
             facebookPostFragment.setStatusMessage(statusMessage);
         }
     };
@@ -169,8 +178,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
     private BroadcastReceiver statusUpdatedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(final Context context, final Intent intent) {
-            String destination = intent.getStringExtra(
-                    Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
+            String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
             String message = "Music player information posted to " + destination;
             Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
             toast.show();
@@ -185,7 +193,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         packageManager = getPackageManager();
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         editor = preferences.edit();
         editor.putBoolean(Constants.RUN_ONCE, true);
@@ -211,8 +219,9 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         statusUpdatedReceiverComponentName = new ComponentName(this, StatusUpdatedReceiver.class);
 
         musicUpdatedIntentFilter = new IntentFilter(Constants.INTENT_MUSIC_UPDATED);
-        locationUpdatedIntentFilter = new IntentFilter(Constants.INTENT_LOCATION_UPDATED);
         statusUpdatedIntentFilter = new IntentFilter(Constants.INTENT_STATUS_POSTED_ACTION);
+        twitterLocationUpdatedIntentFilter = new IntentFilter(Constants.INTENT_TWITTER_LOCATION_UPDATED);
+        facebookLocationUpdatedIntentFilter = new IntentFilter(Constants.INTENT_FACEBOOK_LOCATION_UPDATED);
 
         criteria = new Criteria();
         if (Constants.USE_GPS_WHEN_ACTIVITY_VISIBLE) {
@@ -263,7 +272,8 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
 
         unregisterReceiver(musicUpdatedReceiver);
         unregisterReceiver(statusUpdatedReceiver);
-        unregisterReceiver(locationUpdatedReceiver);
+        unregisterReceiver(twitterLocationUpdatedReceiver);
+        unregisterReceiver(facebookLocationUpdatedReceiver);
 
         packageManager.setComponentEnabledSetting(
                 statusUpdatedReceiverComponentName,
@@ -292,12 +302,24 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
 
         registerReceiver(musicUpdatedReceiver, musicUpdatedIntentFilter);
         registerReceiver(statusUpdatedReceiver, statusUpdatedIntentFilter);
-        registerReceiver(locationUpdatedReceiver, locationUpdatedIntentFilter);
+        registerReceiver(twitterLocationUpdatedReceiver, twitterLocationUpdatedIntentFilter);
+        registerReceiver(facebookLocationUpdatedReceiver, facebookLocationUpdatedIntentFilter);
 
         packageManager.setComponentEnabledSetting(
                 statusUpdatedReceiverComponentName,
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
+
+        boolean facebookIncludeLocation = preferences.getBoolean(Constants.FACEBOOK_INCLUDE_LOCATION, false);
+        boolean facebookRandomizeLocation = preferences.getBoolean(Constants.FACEBOOK_RANDOMIZE_LOCATION, false);
+        if (facebookIncludeLocation) {
+            onRandomLocation(Constants.FACEBOOK_UPDATE_DESTINATION, facebookRandomizeLocation);
+        }
+        boolean twitterIncludeLocation = preferences.getBoolean(Constants.TWITTER_INCLUDE_LOCATION, false);
+        boolean twitterRandomizeLocation = preferences.getBoolean(Constants.TWITTER_RANDOMIZE_LOCATION, false);
+        if (twitterIncludeLocation) {
+            onRandomLocation(Constants.TWITTER_UPDATE_DESTINATION, twitterRandomizeLocation);
+        }
 
         notificationManager.cancel(Constants.STATUS_NOTIFICATION);
     }
@@ -355,18 +377,18 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
                 // so we don't want to flood the server
                 // unless the location has changed or a minimum latency or distance has been
                 // covered.
-                updatePlaces(lastKnownLocation, Constants.LOCATION_DEFAULT_RADIUS, false);
+                updatePlaces(lastKnownLocation, Constants.LOCATION_DEFAULT_RADIUS, -1, false);
                 return null;
             }
         };
         findLastLocationTask.execute();
-        requestLocationUpdates();
+        enableLocationUpdates();
     }
 
     /**
      * Start listening for location updates.
      */
-    protected void requestLocationUpdates() {
+    protected void enableLocationUpdates() {
         // Normal updates while activity is visible.
         locationUpdateRequester.requestLocationUpdates(
                 Constants.LOCATION_MAX_TIME, Constants.LOCATION_MAX_DISTANCE,
@@ -411,33 +433,38 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
      * @param radius       Radius (meters)
      * @param forceRefresh Force Refresh
      */
-    protected void updatePlaces(final Location location, final int radius, final boolean forceRefresh) {
+    protected void updatePlaces(final Location location, final int radius, final int destination,
+                                final boolean forceRefresh) {
         if (location != null) {
             Log.d(TAG, "Updating place by calling the service.");
             Intent updateServiceIntent = new Intent(this, PlaceUpdaterService.class);
             updateServiceIntent.putExtra(Constants.INTENT_EXTRA_LOCATION, location);
             updateServiceIntent.putExtra(Constants.INTENT_EXTRA_RADIUS, radius);
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, destination);
             updateServiceIntent.putExtra(Constants.INTENT_EXTRA_FORCE_REFRESH, forceRefresh);
             startService(updateServiceIntent);
         }
     }
 
     @Override
-    public void onRandomLocationSelected(final boolean randomize) {
-        if (randomize) {
+    public void onRandomLocation(final int source, final boolean checked) {
+        if (checked) {
             Location location = OgyongUtils.getRandomLocation(getApplicationContext());
-            updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, true);
+            updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, source, true);
         } else {
             Location location = lastLocationFinder.getLastBestLocation(
                     Constants.LOCATION_MAX_DISTANCE, System.currentTimeMillis() - Constants.LOCATION_MAX_TIME);
-            updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, true);
+            updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, source, true);
         }
     }
 
-    public void onIncludeLocationSelected() {
-        Location location = lastLocationFinder.getLastBestLocation(
-                Constants.LOCATION_MAX_DISTANCE, System.currentTimeMillis() - Constants.LOCATION_MAX_TIME);
-        updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, true);
+    public void onIncludeLocation(final int source, final boolean checked) {
+        if (checked) {
+            Location location = lastLocationFinder.getLastBestLocation(
+                    Constants.LOCATION_MAX_DISTANCE, System.currentTimeMillis() - Constants.LOCATION_MAX_TIME);
+            updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, source, true);
+            enableLocationUpdates();
+        }
     }
 
     /**

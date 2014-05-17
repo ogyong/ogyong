@@ -29,13 +29,6 @@ public class LocationChangedActiveReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String locationKey = LocationManager.KEY_LOCATION_CHANGED;
-        String providerEnabledKey = LocationManager.KEY_PROVIDER_ENABLED;
-        if (intent.hasExtra(providerEnabledKey)) {
-            if (!intent.getBooleanExtra(providerEnabledKey, true)) {
-                Intent providerDisabledIntent = new Intent(Constants.INTENT_LOCATION_PROVIDER_DISABLED);
-                context.sendBroadcast(providerDisabledIntent);
-            }
-        }
         if (intent.hasExtra(locationKey)) {
             Location location = (Location) intent.getExtras().get(locationKey);
             Log.d(TAG, "Actively updating place list");

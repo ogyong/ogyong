@@ -105,7 +105,7 @@ public class FacebookPlaceUpdaterService extends IntentService {
             }
 
             Intent updatePlaceIntent = new Intent();
-            updatePlaceIntent.setAction(Constants.INTENT_LOCATION_UPDATED);
+            updatePlaceIntent.setAction(Constants.INTENT_FACEBOOK_LOCATION_UPDATED);
             sendBroadcast(updatePlaceIntent);
         }
     }
@@ -139,5 +139,6 @@ public class FacebookPlaceUpdaterService extends IntentService {
             locationHashes = locationHashes + "|" + hashValue;
         }
         editor.putString(Constants.FACEBOOK_LOCATION_HASHES, locationHashes);
+        editor.commit();
     }
 }

@@ -23,17 +23,14 @@ public class StatusUpdaterService extends IntentService {
         }
 
         switch (updateDestination) {
-            case Constants.TWITTER_UPDATE_DESTINATION: {
+            case Constants.TWITTER_UPDATE_DESTINATION:
                 sendTwitterUpdate();
                 break;
-            }
-            case Constants.FACEBOOK_UPDATE_DESTINATION: {
+            case Constants.FACEBOOK_UPDATE_DESTINATION:
                 sendFacebookUpdate();
                 break;
-            }
-            default: {
+            default:
                 break;
-            }
         }
     }
 

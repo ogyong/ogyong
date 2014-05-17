@@ -235,7 +235,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
         if (visible == View.VISIBLE) {
             includeLocationCb.setChecked(includeLocation);
             randomizeLocationCb.setChecked(randomizeLocation);
-            if (includeLocation && randomizeLocation) {
+            if (includeLocation) {
                 randomizeLocationCb.setEnabled(true);
             }
 
@@ -291,7 +291,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private void onRandomizeLocationChecked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
-        locationSelectionListener.onRandomLocationSelected(checked);
+        locationSelectionListener.onRandomLocation(Constants.TWITTER_UPDATE_DESTINATION, checked);
 
         editor.putBoolean(Constants.TWITTER_RANDOMIZE_LOCATION, checked);
         editor.commit();
@@ -300,12 +300,13 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     private void onIncludeLocationChecked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
         randomizeLocationCb.setEnabled(checked);
-        locationSelectionListener.onIncludeLocationSelected();
 
         if (!checked) {
-            editor.remove(Constants.TWITTER_RANDOMIZE_LOCATION);
             randomizeLocationCb.setChecked(false);
+            editor.remove(Constants.TWITTER_RANDOMIZE_LOCATION);
         }
+
+        locationSelectionListener.onIncludeLocation(Constants.TWITTER_UPDATE_DESTINATION, checked);
 
         int visibility = checked ? View.VISIBLE : View.GONE;
         placeTextView.setVisibility(visibility);

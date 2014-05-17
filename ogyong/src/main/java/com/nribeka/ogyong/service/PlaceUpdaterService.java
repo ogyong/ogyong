@@ -12,9 +12,7 @@ import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.BatteryManager;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.receiver.ConnectivityChangedReceiver;
@@ -33,6 +31,9 @@ public class PlaceUpdaterService extends IntentService {
     protected ConnectivityManager connectivityManager;
     protected boolean lowBattery = false;
     protected boolean mobileData = false;
+
+    protected int destination;
+    protected Location location;
 
     public PlaceUpdaterService() {
         super(TAG);
@@ -82,11 +83,13 @@ public class PlaceUpdaterService extends IntentService {
         if (inBackground && (!backgroundAllowed || !networkConnected)) return;
 
         // Extract the location and radius around which to conduct our search.
-        Location location = new Location(Constants.CONSTRUCTED_LOCATION_PROVIDER);
-
-        Bundle extras = intent.getExtras();
+        location = new Location(Constants.CONSTRUCTED_LOCATION_PROVIDER);
         if (intent.hasExtra(Constants.INTENT_EXTRA_LOCATION)) {
-            location = (Location) (extras.get(Constants.INTENT_EXTRA_LOCATION));
+            location = (Location) intent.getExtras().get(Constants.INTENT_EXTRA_LOCATION);
+        }
+
+        if (intent.hasExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION)) {
+            destination = intent.getIntExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, -1);
         }
 
         // Check if we're in a low battery situation.
@@ -146,27 +149,44 @@ public class PlaceUpdaterService extends IntentService {
             }
 
             if (doUpdate) {
-                refreshPlaces(location);
+                refreshPlaces();
             }
         }
-        Log.d(TAG, "Place updater service completed.");
-        Intent updatePlaceIntent = new Intent();
-        updatePlaceIntent.setAction(Constants.INTENT_LOCATION_UPDATED);
-        sendBroadcast(updatePlaceIntent);
     }
 
     /**
      * Polls the underlying service to return a list of places within the specified
      * radius of the specified Location.
-     *
-     * @param location Location
      */
-    protected void refreshPlaces(Location location) {
-
+    protected void refreshPlaces() {
         // Save the last update time and place to the Shared Preferences.
+        editor.putLong(Constants.LAST_UPDATED_TIME, System.currentTimeMillis());
         editor.putLong(Constants.LAST_UPDATED_LATITUDE, Double.doubleToLongBits(location.getLatitude()));
         editor.putLong(Constants.LAST_UPDATED_LONGITUDE, Double.doubleToLongBits(location.getLongitude()));
-        editor.putLong(Constants.LAST_UPDATED_TIME, System.currentTimeMillis());
         editor.commit();
+        switch (destination) {
+            case Constants.TWITTER_UPDATE_DESTINATION:
+                requestTwitterPlaceUpdate();
+                break;
+            case Constants.FACEBOOK_UPDATE_DESTINATION:
+                requestFacebookPlaceUpdate();
+                break;
+            default:
+                requestFacebookPlaceUpdate();
+                requestTwitterPlaceUpdate();
+                break;
+        }
+    }
+
+    private void requestFacebookPlaceUpdate() {
+        Intent updateServiceIntent = new Intent(this, FacebookPlaceUpdaterService.class);
+        updateServiceIntent.putExtra(Constants.INTENT_EXTRA_LOCATION, location);
+        startService(updateServiceIntent);
+    }
+
+    private void requestTwitterPlaceUpdate() {
+        Intent updateServiceIntent = new Intent(this, TwitterPlaceUpdaterService.class);
+        updateServiceIntent.putExtra(Constants.INTENT_EXTRA_LOCATION, location);
+        startService(updateServiceIntent);
     }
 }
