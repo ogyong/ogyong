@@ -15,7 +15,7 @@
     <!-- Example General settings -->
     <string name="pref_header_sticker">Sticker</string>
     <string name="pref_title_template">Status template</string>
-    <string name="pref_default_template">Now playing \&#39;@track\&#39; \n\r by \&#39;@artist\&#39; \n\r from album \&#39;@album\&#39;</string>
+    <string name="pref_default_template">Now playing \&#39;@track\&#39; \nby \&#39;@artist\&#39; \nfrom album \&#39;@album\&#39;</string>
     <string name="pref_title_status_template">Design status template</string>
     <string name="pref_description_status_template">Press here to start designing your status template.</string>
     <string name="pref_title_randomize_sticker">Randomize sticker media</string>
@@ -67,5 +67,3015 @@
     <string name="pref_header_status">Status</string>
     <string name="pref_description_automate_update">Allow the background service to post updates on your behalf.</string>
     <string name="pref_title_automate_update">Automate status posting</string>
-
+    <string-array name="random_location_seed">
+        <item>random_location_0</item>
+        <item>random_location_1</item>
+        <item>random_location_2</item>
+        <item>random_location_3</item>
+        <item>random_location_4</item>
+        <item>random_location_5</item>
+        <item>random_location_6</item>
+        <item>random_location_7</item>
+        <item>random_location_8</item>
+        <item>random_location_9</item>
+        <item>random_location_10</item>
+        <item>random_location_11</item>
+        <item>random_location_12</item>
+        <item>random_location_13</item>
+        <item>random_location_14</item>
+        <item>random_location_15</item>
+        <item>random_location_16</item>
+        <item>random_location_17</item>
+        <item>random_location_18</item>
+        <item>random_location_19</item>
+        <item>random_location_20</item>
+        <item>random_location_21</item>
+        <item>random_location_22</item>
+        <item>random_location_23</item>
+        <item>random_location_24</item>
+        <item>random_location_25</item>
+        <item>random_location_26</item>
+        <item>random_location_27</item>
+        <item>random_location_28</item>
+        <item>random_location_29</item>
+        <item>random_location_30</item>
+        <item>random_location_31</item>
+        <item>random_location_32</item>
+        <item>random_location_33</item>
+        <item>random_location_34</item>
+        <item>random_location_35</item>
+        <item>random_location_36</item>
+        <item>random_location_37</item>
+        <item>random_location_38</item>
+        <item>random_location_39</item>
+        <item>random_location_40</item>
+        <item>random_location_41</item>
+        <item>random_location_42</item>
+        <item>random_location_43</item>
+        <item>random_location_44</item>
+        <item>random_location_45</item>
+        <item>random_location_46</item>
+        <item>random_location_47</item>
+        <item>random_location_48</item>
+        <item>random_location_49</item>
+        <item>random_location_50</item>
+        <item>random_location_51</item>
+        <item>random_location_52</item>
+        <item>random_location_53</item>
+        <item>random_location_54</item>
+        <item>random_location_55</item>
+        <item>random_location_56</item>
+        <item>random_location_57</item>
+        <item>random_location_58</item>
+        <item>random_location_59</item>
+        <item>random_location_60</item>
+        <item>random_location_61</item>
+        <item>random_location_62</item>
+        <item>random_location_63</item>
+        <item>random_location_64</item>
+        <item>random_location_65</item>
+        <item>random_location_66</item>
+        <item>random_location_67</item>
+        <item>random_location_68</item>
+        <item>random_location_69</item>
+        <item>random_location_70</item>
+        <item>random_location_71</item>
+        <item>random_location_72</item>
+        <item>random_location_73</item>
+        <item>random_location_74</item>
+        <item>random_location_75</item>
+        <item>random_location_76</item>
+        <item>random_location_77</item>
+        <item>random_location_78</item>
+        <item>random_location_79</item>
+        <item>random_location_80</item>
+        <item>random_location_81</item>
+        <item>random_location_82</item>
+        <item>random_location_83</item>
+        <item>random_location_84</item>
+        <item>random_location_85</item>
+        <item>random_location_86</item>
+        <item>random_location_87</item>
+        <item>random_location_88</item>
+        <item>random_location_89</item>
+        <item>random_location_90</item>
+        <item>random_location_91</item>
+        <item>random_location_92</item>
+        <item>random_location_93</item>
+        <item>random_location_94</item>
+        <item>random_location_95</item>
+        <item>random_location_96</item>
+        <item>random_location_97</item>
+        <item>random_location_98</item>
+        <item>random_location_99</item>
+        <item>random_location_100</item>
+        <item>random_location_101</item>
+        <item>random_location_102</item>
+        <item>random_location_103</item>
+        <item>random_location_104</item>
+        <item>random_location_105</item>
+        <item>random_location_106</item>
+        <item>random_location_107</item>
+        <item>random_location_108</item>
+        <item>random_location_109</item>
+        <item>random_location_110</item>
+        <item>random_location_111</item>
+        <item>random_location_112</item>
+        <item>random_location_113</item>
+        <item>random_location_114</item>
+        <item>random_location_115</item>
+        <item>random_location_116</item>
+        <item>random_location_117</item>
+        <item>random_location_118</item>
+        <item>random_location_119</item>
+        <item>random_location_120</item>
+        <item>random_location_121</item>
+        <item>random_location_122</item>
+        <item>random_location_123</item>
+        <item>random_location_124</item>
+        <item>random_location_125</item>
+        <item>random_location_126</item>
+        <item>random_location_127</item>
+        <item>random_location_128</item>
+        <item>random_location_129</item>
+        <item>random_location_130</item>
+        <item>random_location_131</item>
+        <item>random_location_132</item>
+        <item>random_location_133</item>
+        <item>random_location_134</item>
+        <item>random_location_135</item>
+        <item>random_location_136</item>
+        <item>random_location_137</item>
+        <item>random_location_138</item>
+        <item>random_location_139</item>
+        <item>random_location_140</item>
+        <item>random_location_141</item>
+        <item>random_location_142</item>
+        <item>random_location_143</item>
+        <item>random_location_144</item>
+        <item>random_location_145</item>
+        <item>random_location_146</item>
+        <item>random_location_147</item>
+        <item>random_location_148</item>
+        <item>random_location_149</item>
+        <item>random_location_150</item>
+        <item>random_location_151</item>
+        <item>random_location_152</item>
+        <item>random_location_153</item>
+        <item>random_location_154</item>
+        <item>random_location_155</item>
+        <item>random_location_156</item>
+        <item>random_location_157</item>
+        <item>random_location_158</item>
+        <item>random_location_159</item>
+        <item>random_location_160</item>
+        <item>random_location_161</item>
+        <item>random_location_162</item>
+        <item>random_location_163</item>
+        <item>random_location_164</item>
+        <item>random_location_165</item>
+        <item>random_location_166</item>
+        <item>random_location_167</item>
+        <item>random_location_168</item>
+        <item>random_location_169</item>
+        <item>random_location_170</item>
+        <item>random_location_171</item>
+        <item>random_location_172</item>
+        <item>random_location_173</item>
+        <item>random_location_174</item>
+        <item>random_location_175</item>
+        <item>random_location_176</item>
+        <item>random_location_177</item>
+        <item>random_location_178</item>
+        <item>random_location_179</item>
+        <item>random_location_180</item>
+        <item>random_location_181</item>
+        <item>random_location_182</item>
+        <item>random_location_183</item>
+        <item>random_location_184</item>
+        <item>random_location_185</item>
+        <item>random_location_186</item>
+        <item>random_location_187</item>
+        <item>random_location_188</item>
+        <item>random_location_189</item>
+        <item>random_location_190</item>
+        <item>random_location_191</item>
+        <item>random_location_192</item>
+        <item>random_location_193</item>
+        <item>random_location_194</item>
+        <item>random_location_195</item>
+        <item>random_location_196</item>
+        <item>random_location_197</item>
+        <item>random_location_198</item>
+        <item>random_location_199</item>
+        <item>random_location_200</item>
+        <item>random_location_201</item>
+        <item>random_location_202</item>
+        <item>random_location_203</item>
+        <item>random_location_204</item>
+        <item>random_location_205</item>
+        <item>random_location_206</item>
+        <item>random_location_207</item>
+        <item>random_location_208</item>
+        <item>random_location_209</item>
+        <item>random_location_210</item>
+        <item>random_location_211</item>
+        <item>random_location_212</item>
+        <item>random_location_213</item>
+        <item>random_location_214</item>
+        <item>random_location_215</item>
+        <item>random_location_216</item>
+        <item>random_location_217</item>
+        <item>random_location_218</item>
+        <item>random_location_219</item>
+        <item>random_location_220</item>
+        <item>random_location_221</item>
+        <item>random_location_222</item>
+        <item>random_location_223</item>
+        <item>random_location_224</item>
+        <item>random_location_225</item>
+        <item>random_location_226</item>
+        <item>random_location_227</item>
+        <item>random_location_228</item>
+        <item>random_location_229</item>
+        <item>random_location_230</item>
+        <item>random_location_231</item>
+        <item>random_location_232</item>
+        <item>random_location_233</item>
+        <item>random_location_234</item>
+        <item>random_location_235</item>
+        <item>random_location_236</item>
+        <item>random_location_237</item>
+        <item>random_location_238</item>
+        <item>random_location_239</item>
+        <item>random_location_240</item>
+        <item>random_location_241</item>
+        <item>random_location_242</item>
+        <item>random_location_243</item>
+        <item>random_location_244</item>
+        <item>random_location_245</item>
+        <item>random_location_246</item>
+        <item>random_location_247</item>
+        <item>random_location_248</item>
+        <item>random_location_249</item>
+        <item>random_location_250</item>
+        <item>random_location_251</item>
+        <item>random_location_252</item>
+        <item>random_location_253</item>
+        <item>random_location_254</item>
+        <item>random_location_255</item>
+        <item>random_location_256</item>
+        <item>random_location_257</item>
+        <item>random_location_258</item>
+        <item>random_location_259</item>
+        <item>random_location_260</item>
+        <item>random_location_261</item>
+        <item>random_location_262</item>
+        <item>random_location_263</item>
+        <item>random_location_264</item>
+        <item>random_location_265</item>
+        <item>random_location_266</item>
+        <item>random_location_267</item>
+        <item>random_location_268</item>
+        <item>random_location_269</item>
+        <item>random_location_270</item>
+        <item>random_location_271</item>
+        <item>random_location_272</item>
+        <item>random_location_273</item>
+        <item>random_location_274</item>
+        <item>random_location_275</item>
+        <item>random_location_276</item>
+        <item>random_location_277</item>
+        <item>random_location_278</item>
+        <item>random_location_279</item>
+        <item>random_location_280</item>
+        <item>random_location_281</item>
+        <item>random_location_282</item>
+        <item>random_location_283</item>
+        <item>random_location_284</item>
+        <item>random_location_285</item>
+        <item>random_location_286</item>
+        <item>random_location_287</item>
+        <item>random_location_288</item>
+        <item>random_location_289</item>
+        <item>random_location_290</item>
+        <item>random_location_291</item>
+        <item>random_location_292</item>
+        <item>random_location_293</item>
+        <item>random_location_294</item>
+        <item>random_location_295</item>
+        <item>random_location_296</item>
+        <item>random_location_297</item>
+        <item>random_location_298</item>
+        <item>random_location_299</item>
+        <item>random_location_300</item>
+        <item>random_location_301</item>
+        <item>random_location_302</item>
+        <item>random_location_303</item>
+        <item>random_location_304</item>
+        <item>random_location_305</item>
+        <item>random_location_306</item>
+        <item>random_location_307</item>
+        <item>random_location_308</item>
+        <item>random_location_309</item>
+        <item>random_location_310</item>
+        <item>random_location_311</item>
+        <item>random_location_312</item>
+        <item>random_location_313</item>
+        <item>random_location_314</item>
+        <item>random_location_315</item>
+        <item>random_location_316</item>
+        <item>random_location_317</item>
+        <item>random_location_318</item>
+        <item>random_location_319</item>
+        <item>random_location_320</item>
+        <item>random_location_321</item>
+        <item>random_location_322</item>
+        <item>random_location_323</item>
+        <item>random_location_324</item>
+        <item>random_location_325</item>
+        <item>random_location_326</item>
+        <item>random_location_327</item>
+        <item>random_location_328</item>
+        <item>random_location_329</item>
+        <item>random_location_330</item>
+        <item>random_location_331</item>
+        <item>random_location_332</item>
+        <item>random_location_333</item>
+        <item>random_location_334</item>
+        <item>random_location_335</item>
+        <item>random_location_336</item>
+        <item>random_location_337</item>
+        <item>random_location_338</item>
+        <item>random_location_339</item>
+        <item>random_location_340</item>
+        <item>random_location_341</item>
+        <item>random_location_342</item>
+        <item>random_location_343</item>
+        <item>random_location_344</item>
+        <item>random_location_345</item>
+        <item>random_location_346</item>
+        <item>random_location_347</item>
+        <item>random_location_348</item>
+        <item>random_location_349</item>
+        <item>random_location_350</item>
+        <item>random_location_351</item>
+        <item>random_location_352</item>
+        <item>random_location_353</item>
+        <item>random_location_354</item>
+        <item>random_location_355</item>
+        <item>random_location_356</item>
+        <item>random_location_357</item>
+        <item>random_location_358</item>
+        <item>random_location_359</item>
+        <item>random_location_360</item>
+        <item>random_location_361</item>
+        <item>random_location_362</item>
+        <item>random_location_363</item>
+        <item>random_location_364</item>
+        <item>random_location_365</item>
+        <item>random_location_366</item>
+        <item>random_location_367</item>
+        <item>random_location_368</item>
+        <item>random_location_369</item>
+        <item>random_location_370</item>
+        <item>random_location_371</item>
+        <item>random_location_372</item>
+        <item>random_location_373</item>
+        <item>random_location_374</item>
+        <item>random_location_375</item>
+        <item>random_location_376</item>
+        <item>random_location_377</item>
+        <item>random_location_378</item>
+        <item>random_location_379</item>
+        <item>random_location_380</item>
+        <item>random_location_381</item>
+        <item>random_location_382</item>
+        <item>random_location_383</item>
+        <item>random_location_384</item>
+        <item>random_location_385</item>
+        <item>random_location_386</item>
+        <item>random_location_387</item>
+        <item>random_location_388</item>
+        <item>random_location_389</item>
+        <item>random_location_390</item>
+        <item>random_location_391</item>
+        <item>random_location_392</item>
+        <item>random_location_393</item>
+        <item>random_location_394</item>
+        <item>random_location_395</item>
+        <item>random_location_396</item>
+        <item>random_location_397</item>
+        <item>random_location_398</item>
+        <item>random_location_399</item>
+        <item>random_location_400</item>
+        <item>random_location_401</item>
+        <item>random_location_402</item>
+        <item>random_location_403</item>
+        <item>random_location_404</item>
+        <item>random_location_405</item>
+        <item>random_location_406</item>
+        <item>random_location_407</item>
+        <item>random_location_408</item>
+        <item>random_location_409</item>
+        <item>random_location_410</item>
+        <item>random_location_411</item>
+        <item>random_location_412</item>
+        <item>random_location_413</item>
+        <item>random_location_414</item>
+        <item>random_location_415</item>
+        <item>random_location_416</item>
+        <item>random_location_417</item>
+        <item>random_location_418</item>
+        <item>random_location_419</item>
+        <item>random_location_420</item>
+        <item>random_location_421</item>
+        <item>random_location_422</item>
+        <item>random_location_423</item>
+        <item>random_location_424</item>
+        <item>random_location_425</item>
+        <item>random_location_426</item>
+        <item>random_location_427</item>
+        <item>random_location_428</item>
+        <item>random_location_429</item>
+        <item>random_location_430</item>
+        <item>random_location_431</item>
+        <item>random_location_432</item>
+        <item>random_location_433</item>
+        <item>random_location_434</item>
+        <item>random_location_435</item>
+        <item>random_location_436</item>
+        <item>random_location_437</item>
+        <item>random_location_438</item>
+        <item>random_location_439</item>
+        <item>random_location_440</item>
+        <item>random_location_441</item>
+        <item>random_location_442</item>
+        <item>random_location_443</item>
+        <item>random_location_444</item>
+        <item>random_location_445</item>
+        <item>random_location_446</item>
+        <item>random_location_447</item>
+        <item>random_location_448</item>
+        <item>random_location_449</item>
+        <item>random_location_450</item>
+        <item>random_location_451</item>
+        <item>random_location_452</item>
+        <item>random_location_453</item>
+        <item>random_location_454</item>
+        <item>random_location_455</item>
+        <item>random_location_456</item>
+        <item>random_location_457</item>
+        <item>random_location_458</item>
+        <item>random_location_459</item>
+        <item>random_location_460</item>
+        <item>random_location_461</item>
+        <item>random_location_462</item>
+        <item>random_location_463</item>
+        <item>random_location_464</item>
+        <item>random_location_465</item>
+        <item>random_location_466</item>
+        <item>random_location_467</item>
+        <item>random_location_468</item>
+        <item>random_location_469</item>
+        <item>random_location_470</item>
+        <item>random_location_471</item>
+        <item>random_location_472</item>
+        <item>random_location_473</item>
+        <item>random_location_474</item>
+        <item>random_location_475</item>
+        <item>random_location_476</item>
+        <item>random_location_477</item>
+        <item>random_location_478</item>
+        <item>random_location_479</item>
+        <item>random_location_480</item>
+        <item>random_location_481</item>
+        <item>random_location_482</item>
+        <item>random_location_483</item>
+        <item>random_location_484</item>
+        <item>random_location_485</item>
+        <item>random_location_486</item>
+        <item>random_location_487</item>
+        <item>random_location_488</item>
+        <item>random_location_489</item>
+        <item>random_location_490</item>
+        <item>random_location_491</item>
+        <item>random_location_492</item>
+        <item>random_location_493</item>
+        <item>random_location_494</item>
+        <item>random_location_495</item>
+        <item>random_location_496</item>
+        <item>random_location_497</item>
+        <item>random_location_498</item>
+        <item>random_location_499</item>
+        <item>random_location_500</item>
+        <item>random_location_501</item>
+        <item>random_location_502</item>
+        <item>random_location_503</item>
+        <item>random_location_504</item>
+        <item>random_location_505</item>
+        <item>random_location_506</item>
+        <item>random_location_507</item>
+        <item>random_location_508</item>
+        <item>random_location_509</item>
+        <item>random_location_510</item>
+        <item>random_location_511</item>
+        <item>random_location_512</item>
+        <item>random_location_513</item>
+        <item>random_location_514</item>
+        <item>random_location_515</item>
+        <item>random_location_516</item>
+        <item>random_location_517</item>
+        <item>random_location_518</item>
+        <item>random_location_519</item>
+        <item>random_location_520</item>
+        <item>random_location_521</item>
+        <item>random_location_522</item>
+        <item>random_location_523</item>
+        <item>random_location_524</item>
+        <item>random_location_525</item>
+        <item>random_location_526</item>
+        <item>random_location_527</item>
+        <item>random_location_528</item>
+        <item>random_location_529</item>
+        <item>random_location_530</item>
+        <item>random_location_531</item>
+        <item>random_location_532</item>
+        <item>random_location_533</item>
+        <item>random_location_534</item>
+        <item>random_location_535</item>
+        <item>random_location_536</item>
+        <item>random_location_537</item>
+        <item>random_location_538</item>
+        <item>random_location_539</item>
+        <item>random_location_540</item>
+        <item>random_location_541</item>
+        <item>random_location_542</item>
+        <item>random_location_543</item>
+        <item>random_location_544</item>
+        <item>random_location_545</item>
+        <item>random_location_546</item>
+        <item>random_location_547</item>
+        <item>random_location_548</item>
+        <item>random_location_549</item>
+        <item>random_location_550</item>
+        <item>random_location_551</item>
+        <item>random_location_552</item>
+        <item>random_location_553</item>
+        <item>random_location_554</item>
+        <item>random_location_555</item>
+        <item>random_location_556</item>
+        <item>random_location_557</item>
+        <item>random_location_558</item>
+        <item>random_location_559</item>
+        <item>random_location_560</item>
+        <item>random_location_561</item>
+        <item>random_location_562</item>
+        <item>random_location_563</item>
+        <item>random_location_564</item>
+        <item>random_location_565</item>
+        <item>random_location_566</item>
+        <item>random_location_567</item>
+        <item>random_location_568</item>
+        <item>random_location_569</item>
+        <item>random_location_570</item>
+        <item>random_location_571</item>
+        <item>random_location_572</item>
+        <item>random_location_573</item>
+        <item>random_location_574</item>
+        <item>random_location_575</item>
+        <item>random_location_576</item>
+        <item>random_location_577</item>
+        <item>random_location_578</item>
+        <item>random_location_579</item>
+        <item>random_location_580</item>
+        <item>random_location_581</item>
+        <item>random_location_582</item>
+        <item>random_location_583</item>
+        <item>random_location_584</item>
+        <item>random_location_585</item>
+        <item>random_location_586</item>
+        <item>random_location_587</item>
+        <item>random_location_588</item>
+        <item>random_location_589</item>
+        <item>random_location_590</item>
+        <item>random_location_591</item>
+        <item>random_location_592</item>
+        <item>random_location_593</item>
+        <item>random_location_594</item>
+        <item>random_location_595</item>
+        <item>random_location_596</item>
+        <item>random_location_597</item>
+        <item>random_location_598</item>
+        <item>random_location_599</item>
+        <item>random_location_600</item>
+        <item>random_location_601</item>
+        <item>random_location_602</item>
+        <item>random_location_603</item>
+        <item>random_location_604</item>
+        <item>random_location_605</item>
+        <item>random_location_606</item>
+        <item>random_location_607</item>
+        <item>random_location_608</item>
+        <item>random_location_609</item>
+        <item>random_location_610</item>
+        <item>random_location_611</item>
+        <item>random_location_612</item>
+        <item>random_location_613</item>
+        <item>random_location_614</item>
+        <item>random_location_615</item>
+        <item>random_location_616</item>
+        <item>random_location_617</item>
+        <item>random_location_618</item>
+        <item>random_location_619</item>
+        <item>random_location_620</item>
+        <item>random_location_621</item>
+        <item>random_location_622</item>
+        <item>random_location_623</item>
+        <item>random_location_624</item>
+        <item>random_location_625</item>
+        <item>random_location_626</item>
+        <item>random_location_627</item>
+        <item>random_location_628</item>
+        <item>random_location_629</item>
+        <item>random_location_630</item>
+        <item>random_location_631</item>
+        <item>random_location_632</item>
+        <item>random_location_633</item>
+        <item>random_location_634</item>
+        <item>random_location_635</item>
+        <item>random_location_636</item>
+        <item>random_location_637</item>
+        <item>random_location_638</item>
+        <item>random_location_639</item>
+        <item>random_location_640</item>
+        <item>random_location_641</item>
+        <item>random_location_642</item>
+        <item>random_location_643</item>
+        <item>random_location_644</item>
+        <item>random_location_645</item>
+        <item>random_location_646</item>
+        <item>random_location_647</item>
+        <item>random_location_648</item>
+        <item>random_location_649</item>
+        <item>random_location_650</item>
+        <item>random_location_651</item>
+        <item>random_location_652</item>
+        <item>random_location_653</item>
+        <item>random_location_654</item>
+        <item>random_location_655</item>
+        <item>random_location_656</item>
+        <item>random_location_657</item>
+        <item>random_location_658</item>
+        <item>random_location_659</item>
+        <item>random_location_660</item>
+        <item>random_location_661</item>
+        <item>random_location_662</item>
+        <item>random_location_663</item>
+        <item>random_location_664</item>
+        <item>random_location_665</item>
+        <item>random_location_666</item>
+        <item>random_location_667</item>
+        <item>random_location_668</item>
+        <item>random_location_669</item>
+        <item>random_location_670</item>
+        <item>random_location_671</item>
+        <item>random_location_672</item>
+        <item>random_location_673</item>
+        <item>random_location_674</item>
+        <item>random_location_675</item>
+        <item>random_location_676</item>
+        <item>random_location_677</item>
+        <item>random_location_678</item>
+        <item>random_location_679</item>
+        <item>random_location_680</item>
+        <item>random_location_681</item>
+        <item>random_location_682</item>
+        <item>random_location_683</item>
+        <item>random_location_684</item>
+        <item>random_location_685</item>
+        <item>random_location_686</item>
+        <item>random_location_687</item>
+        <item>random_location_688</item>
+        <item>random_location_689</item>
+        <item>random_location_690</item>
+        <item>random_location_691</item>
+        <item>random_location_692</item>
+        <item>random_location_693</item>
+        <item>random_location_694</item>
+        <item>random_location_695</item>
+        <item>random_location_696</item>
+        <item>random_location_697</item>
+        <item>random_location_698</item>
+        <item>random_location_699</item>
+        <item>random_location_700</item>
+        <item>random_location_701</item>
+        <item>random_location_702</item>
+        <item>random_location_703</item>
+        <item>random_location_704</item>
+        <item>random_location_705</item>
+        <item>random_location_706</item>
+        <item>random_location_707</item>
+        <item>random_location_708</item>
+        <item>random_location_709</item>
+        <item>random_location_710</item>
+        <item>random_location_711</item>
+        <item>random_location_712</item>
+        <item>random_location_713</item>
+        <item>random_location_714</item>
+        <item>random_location_715</item>
+        <item>random_location_716</item>
+        <item>random_location_717</item>
+        <item>random_location_718</item>
+        <item>random_location_719</item>
+        <item>random_location_720</item>
+        <item>random_location_721</item>
+        <item>random_location_722</item>
+        <item>random_location_723</item>
+        <item>random_location_724</item>
+        <item>random_location_725</item>
+        <item>random_location_726</item>
+        <item>random_location_727</item>
+        <item>random_location_728</item>
+        <item>random_location_729</item>
+        <item>random_location_730</item>
+        <item>random_location_731</item>
+        <item>random_location_732</item>
+        <item>random_location_733</item>
+        <item>random_location_734</item>
+        <item>random_location_735</item>
+        <item>random_location_736</item>
+        <item>random_location_737</item>
+        <item>random_location_738</item>
+        <item>random_location_739</item>
+        <item>random_location_740</item>
+        <item>random_location_741</item>
+        <item>random_location_742</item>
+        <item>random_location_743</item>
+        <item>random_location_744</item>
+        <item>random_location_745</item>
+        <item>random_location_746</item>
+        <item>random_location_747</item>
+        <item>random_location_748</item>
+        <item>random_location_749</item>
+        <item>random_location_750</item>
+        <item>random_location_751</item>
+        <item>random_location_752</item>
+        <item>random_location_753</item>
+        <item>random_location_754</item>
+        <item>random_location_755</item>
+        <item>random_location_756</item>
+        <item>random_location_757</item>
+        <item>random_location_758</item>
+        <item>random_location_759</item>
+        <item>random_location_760</item>
+        <item>random_location_761</item>
+        <item>random_location_762</item>
+        <item>random_location_763</item>
+        <item>random_location_764</item>
+        <item>random_location_765</item>
+        <item>random_location_766</item>
+        <item>random_location_767</item>
+        <item>random_location_768</item>
+        <item>random_location_769</item>
+        <item>random_location_770</item>
+        <item>random_location_771</item>
+        <item>random_location_772</item>
+        <item>random_location_773</item>
+        <item>random_location_774</item>
+        <item>random_location_775</item>
+        <item>random_location_776</item>
+        <item>random_location_777</item>
+        <item>random_location_778</item>
+        <item>random_location_779</item>
+        <item>random_location_780</item>
+        <item>random_location_781</item>
+        <item>random_location_782</item>
+        <item>random_location_783</item>
+        <item>random_location_784</item>
+        <item>random_location_785</item>
+        <item>random_location_786</item>
+        <item>random_location_787</item>
+        <item>random_location_788</item>
+        <item>random_location_789</item>
+        <item>random_location_790</item>
+        <item>random_location_791</item>
+        <item>random_location_792</item>
+        <item>random_location_793</item>
+        <item>random_location_794</item>
+        <item>random_location_795</item>
+        <item>random_location_796</item>
+        <item>random_location_797</item>
+        <item>random_location_798</item>
+        <item>random_location_799</item>
+        <item>random_location_800</item>
+        <item>random_location_801</item>
+        <item>random_location_802</item>
+        <item>random_location_803</item>
+        <item>random_location_804</item>
+        <item>random_location_805</item>
+        <item>random_location_806</item>
+        <item>random_location_807</item>
+        <item>random_location_808</item>
+        <item>random_location_809</item>
+        <item>random_location_810</item>
+        <item>random_location_811</item>
+        <item>random_location_812</item>
+        <item>random_location_813</item>
+        <item>random_location_814</item>
+        <item>random_location_815</item>
+        <item>random_location_816</item>
+        <item>random_location_817</item>
+        <item>random_location_818</item>
+        <item>random_location_819</item>
+        <item>random_location_820</item>
+        <item>random_location_821</item>
+        <item>random_location_822</item>
+        <item>random_location_823</item>
+        <item>random_location_824</item>
+        <item>random_location_825</item>
+        <item>random_location_826</item>
+        <item>random_location_827</item>
+        <item>random_location_828</item>
+        <item>random_location_829</item>
+        <item>random_location_830</item>
+        <item>random_location_831</item>
+        <item>random_location_832</item>
+        <item>random_location_833</item>
+        <item>random_location_834</item>
+        <item>random_location_835</item>
+        <item>random_location_836</item>
+        <item>random_location_837</item>
+        <item>random_location_838</item>
+        <item>random_location_839</item>
+        <item>random_location_840</item>
+        <item>random_location_841</item>
+        <item>random_location_842</item>
+        <item>random_location_843</item>
+        <item>random_location_844</item>
+        <item>random_location_845</item>
+        <item>random_location_846</item>
+        <item>random_location_847</item>
+        <item>random_location_848</item>
+        <item>random_location_849</item>
+        <item>random_location_850</item>
+        <item>random_location_851</item>
+        <item>random_location_852</item>
+        <item>random_location_853</item>
+        <item>random_location_854</item>
+        <item>random_location_855</item>
+        <item>random_location_856</item>
+        <item>random_location_857</item>
+        <item>random_location_858</item>
+        <item>random_location_859</item>
+        <item>random_location_860</item>
+        <item>random_location_861</item>
+        <item>random_location_862</item>
+        <item>random_location_863</item>
+        <item>random_location_864</item>
+        <item>random_location_865</item>
+        <item>random_location_866</item>
+        <item>random_location_867</item>
+        <item>random_location_868</item>
+        <item>random_location_869</item>
+        <item>random_location_870</item>
+        <item>random_location_871</item>
+        <item>random_location_872</item>
+        <item>random_location_873</item>
+        <item>random_location_874</item>
+        <item>random_location_875</item>
+        <item>random_location_876</item>
+        <item>random_location_877</item>
+        <item>random_location_878</item>
+        <item>random_location_879</item>
+        <item>random_location_880</item>
+        <item>random_location_881</item>
+        <item>random_location_882</item>
+        <item>random_location_883</item>
+        <item>random_location_884</item>
+        <item>random_location_885</item>
+        <item>random_location_886</item>
+        <item>random_location_887</item>
+        <item>random_location_888</item>
+        <item>random_location_889</item>
+        <item>random_location_890</item>
+        <item>random_location_891</item>
+        <item>random_location_892</item>
+        <item>random_location_893</item>
+        <item>random_location_894</item>
+        <item>random_location_895</item>
+        <item>random_location_896</item>
+        <item>random_location_897</item>
+        <item>random_location_898</item>
+        <item>random_location_899</item>
+        <item>random_location_900</item>
+        <item>random_location_901</item>
+        <item>random_location_902</item>
+        <item>random_location_903</item>
+        <item>random_location_904</item>
+        <item>random_location_905</item>
+        <item>random_location_906</item>
+        <item>random_location_907</item>
+        <item>random_location_908</item>
+        <item>random_location_909</item>
+        <item>random_location_910</item>
+        <item>random_location_911</item>
+        <item>random_location_912</item>
+        <item>random_location_913</item>
+        <item>random_location_914</item>
+        <item>random_location_915</item>
+        <item>random_location_916</item>
+        <item>random_location_917</item>
+        <item>random_location_918</item>
+        <item>random_location_919</item>
+        <item>random_location_920</item>
+        <item>random_location_921</item>
+        <item>random_location_922</item>
+        <item>random_location_923</item>
+        <item>random_location_924</item>
+        <item>random_location_925</item>
+        <item>random_location_926</item>
+        <item>random_location_927</item>
+        <item>random_location_928</item>
+        <item>random_location_929</item>
+        <item>random_location_930</item>
+        <item>random_location_931</item>
+        <item>random_location_932</item>
+        <item>random_location_933</item>
+        <item>random_location_934</item>
+        <item>random_location_935</item>
+        <item>random_location_936</item>
+        <item>random_location_937</item>
+        <item>random_location_938</item>
+        <item>random_location_939</item>
+        <item>random_location_940</item>
+        <item>random_location_941</item>
+        <item>random_location_942</item>
+        <item>random_location_943</item>
+        <item>random_location_944</item>
+        <item>random_location_945</item>
+        <item>random_location_946</item>
+        <item>random_location_947</item>
+        <item>random_location_948</item>
+        <item>random_location_949</item>
+        <item>random_location_950</item>
+        <item>random_location_951</item>
+        <item>random_location_952</item>
+        <item>random_location_953</item>
+        <item>random_location_954</item>
+        <item>random_location_955</item>
+        <item>random_location_956</item>
+        <item>random_location_957</item>
+        <item>random_location_958</item>
+        <item>random_location_959</item>
+        <item>random_location_960</item>
+        <item>random_location_961</item>
+        <item>random_location_962</item>
+        <item>random_location_963</item>
+        <item>random_location_964</item>
+        <item>random_location_965</item>
+        <item>random_location_966</item>
+        <item>random_location_967</item>
+        <item>random_location_968</item>
+        <item>random_location_969</item>
+        <item>random_location_970</item>
+        <item>random_location_971</item>
+        <item>random_location_972</item>
+        <item>random_location_973</item>
+        <item>random_location_974</item>
+        <item>random_location_975</item>
+        <item>random_location_976</item>
+        <item>random_location_977</item>
+        <item>random_location_978</item>
+        <item>random_location_979</item>
+        <item>random_location_980</item>
+        <item>random_location_981</item>
+        <item>random_location_982</item>
+        <item>random_location_983</item>
+        <item>random_location_984</item>
+        <item>random_location_985</item>
+        <item>random_location_986</item>
+        <item>random_location_987</item>
+        <item>random_location_988</item>
+        <item>random_location_989</item>
+        <item>random_location_990</item>
+        <item>random_location_991</item>
+        <item>random_location_992</item>
+        <item>random_location_993</item>
+        <item>random_location_994</item>
+        <item>random_location_995</item>
+        <item>random_location_996</item>
+        <item>random_location_997</item>
+        <item>random_location_998</item>
+        <item>random_location_999</item>
+        <item>random_location_1000</item>
+        <item>random_location_1001</item>
+        <item>random_location_1002</item>
+    </string-array>
+    <string name="random_location_0_latitude">82_deg_30_min_n</string>
+    <string name="random_location_1_latitude">81_deg_36_min_n</string>
+    <string name="random_location_2_latitude">79_deg_59_min_n</string>
+    <string name="random_location_3_latitude">78_deg_55_min_n</string>
+    <string name="random_location_4_latitude">78_deg_13_min_n</string>
+    <string name="random_location_5_latitude">77_deg_28_min_n</string>
+    <string name="random_location_6_latitude">76_deg_25_min_n</string>
+    <string name="random_location_7_latitude">73_deg_30_min_n</string>
+    <string name="random_location_8_latitude">72_deg_47_min_n</string>
+    <string name="random_location_9_latitude">71_deg_39_min_n</string>
+    <string name="random_location_10_latitude">71_deg_18_min_n</string>
+    <string name="random_location_11_latitude">70_deg_59_min_n</string>
+    <string name="random_location_12_latitude">70_deg_40_min_n</string>
+    <string name="random_location_13_latitude">70_deg_12_min_n</string>
+    <string name="random_location_14_latitude">70_deg_05_min_n</string>
+    <string name="random_location_15_latitude">70_deg_05_min_n</string>
+    <string name="random_location_16_latitude">69_deg_54_min_n</string>
+    <string name="random_location_17_latitude">69_deg_41_min_n</string>
+    <string name="random_location_18_latitude">69_deg_27_min_n</string>
+    <string name="random_location_19_latitude">69_deg_20_min_n</string>
+    <string name="random_location_20_latitude">68_deg_58_min_n</string>
+    <string name="random_location_21_latitude">68_deg_25_min_n</string>
+    <string name="random_location_22_latitude">67_deg_51_min_n</string>
+    <string name="random_location_23_latitude">67_deg_33_min_n</string>
+    <string name="random_location_24_latitude">67_deg_18_min_n</string>
+    <string name="random_location_25_latitude">67_deg_13_min_n</string>
+    <string name="random_location_26_latitude">66_deg_43_min_n</string>
+    <string name="random_location_27_latitude">66_deg_30_min_n</string>
+    <string name="random_location_28_latitude">66_deg_05_min_n</string>
+    <string name="random_location_29_latitude">65_deg_58_min_n</string>
+    <string name="random_location_30_latitude">65_deg_51_min_n</string>
+    <string name="random_location_31_latitude">65_deg_50_min_n</string>
+    <string name="random_location_32_latitude">65_deg_50_min_n</string>
+    <string name="random_location_33_latitude">65_deg_44_min_n</string>
+    <string name="random_location_34_latitude">65_deg_41_min_n</string>
+    <string name="random_location_35_latitude">65_deg_35_min_n</string>
+    <string name="random_location_36_latitude">65_deg_22_min_n</string>
+    <string name="random_location_37_latitude">65_deg_20_min_n</string>
+    <string name="random_location_38_latitude">65_deg_01_min_n</string>
+    <string name="random_location_39_latitude">64_deg_51_min_n</string>
+    <string name="random_location_40_latitude">64_deg_45_min_n</string>
+    <string name="random_location_41_latitude">64_deg_44_min_n</string>
+    <string name="random_location_42_latitude">64_deg_32_min_n</string>
+    <string name="random_location_43_latitude">64_deg_11_min_n</string>
+    <string name="random_location_44_latitude">64_deg_08_min_n</string>
+    <string name="random_location_45_latitude">63_deg_50_min_n</string>
+    <string name="random_location_46_latitude">63_deg_45_min_n</string>
+    <string name="random_location_47_latitude">63_deg_29_min_n</string>
+    <string name="random_location_48_latitude">63_deg_26_min_n</string>
+    <string name="random_location_49_latitude">63_deg_17_min_n</string>
+    <string name="random_location_50_latitude">63_deg_11_min_n</string>
+    <string name="random_location_51_latitude">63_deg_06_min_n</string>
+    <string name="random_location_52_latitude">62_deg_54_min_n</string>
+    <string name="random_location_53_latitude">62_deg_27_min_n</string>
+    <string name="random_location_54_latitude">62_deg_24_min_n</string>
+    <string name="random_location_55_latitude">62_deg_15_min_n</string>
+    <string name="random_location_56_latitude">62_deg_02_min_n</string>
+    <string name="random_location_57_latitude">62_deg_01_min_n</string>
+    <string name="random_location_58_latitude">61_deg_30_min_n</string>
+    <string name="random_location_59_latitude">61_deg_13_min_n</string>
+    <string name="random_location_60_latitude">61_deg_08_min_n</string>
+    <string name="random_location_61_latitude">60_deg_59_min_n</string>
+    <string name="random_location_62_latitude">60_deg_43_min_n</string>
+    <string name="random_location_63_latitude">60_deg_43_min_n</string>
+    <string name="random_location_64_latitude">60_deg_27_min_n</string>
+    <string name="random_location_65_latitude">60_deg_23_min_n</string>
+    <string name="random_location_66_latitude">60_deg_18_min_n</string>
+    <string name="random_location_67_latitude">60_deg_12_min_n</string>
+    <string name="random_location_68_latitude">60_deg_10_min_n</string>
+    <string name="random_location_69_latitude">59_deg_57_min_n</string>
+    <string name="random_location_70_latitude">59_deg_57_min_n</string>
+    <string name="random_location_71_latitude">59_deg_51_min_n</string>
+    <string name="random_location_72_latitude">59_deg_34_min_n</string>
+    <string name="random_location_73_latitude">59_deg_26_min_n</string>
+    <string name="random_location_74_latitude">59_deg_20_min_n</string>
+    <string name="random_location_75_latitude">59_deg_17_min_n</string>
+    <string name="random_location_76_latitude">58_deg_36_min_n</string>
+    <string name="random_location_77_latitude">58_deg_23_min_n</string>
+    <string name="random_location_78_latitude">58_deg_18_min_n</string>
+    <string name="random_location_79_latitude">58_deg_10_min_n</string>
+    <string name="random_location_80_latitude">58_deg_00_min_n</string>
+    <string name="random_location_81_latitude">57_deg_42_min_n</string>
+    <string name="random_location_82_latitude">57_deg_37_min_n</string>
+    <string name="random_location_83_latitude">57_deg_28_min_n</string>
+    <string name="random_location_84_latitude">57_deg_09_min_n</string>
+    <string name="random_location_85_latitude">57_deg_03_min_n</string>
+    <string name="random_location_86_latitude">56_deg_57_min_n</string>
+    <string name="random_location_87_latitude">56_deg_50_min_n</string>
+    <string name="random_location_88_latitude">56_deg_50_min_n</string>
+    <string name="random_location_89_latitude">56_deg_44_min_n</string>
+    <string name="random_location_90_latitude">56_deg_20_min_n</string>
+    <string name="random_location_91_latitude">56_deg_07_min_n</string>
+    <string name="random_location_92_latitude">56_deg_09_min_n</string>
+    <string name="random_location_93_latitude">56_deg_01_min_n</string>
+    <string name="random_location_94_latitude">55_deg_57_min_n</string>
+    <string name="random_location_95_latitude">55_deg_51_min_n</string>
+    <string name="random_location_96_latitude">55_deg_47_min_n</string>
+    <string name="random_location_97_latitude">55_deg_45_min_n</string>
+    <string name="random_location_98_latitude">55_deg_41_min_n</string>
+    <string name="random_location_99_latitude">55_deg_35_min_n</string>
+    <string name="random_location_100_latitude">55_deg_29_min_n</string>
+    <string name="random_location_101_latitude">55_deg_24_min_n</string>
+    <string name="random_location_102_latitude">55_deg_10_min_n</string>
+    <string name="random_location_103_latitude">55_deg_09_min_n</string>
+    <string name="random_location_104_latitude">55_deg_01_min_n</string>
+    <string name="random_location_105_latitude">54_deg_59_min_n</string>
+    <string name="random_location_106_latitude">54_deg_58_min_n</string>
+    <string name="random_location_107_latitude">54_deg_47_min_n</string>
+    <string name="random_location_108_latitude">54_deg_45_min_n</string>
+    <string name="random_location_109_latitude">54_deg_43_min_n</string>
+    <string name="random_location_110_latitude">54_deg_41_min_n</string>
+    <string name="random_location_111_latitude">54_deg_36_min_n</string>
+    <string name="random_location_112_latitude">54_deg_30_min_n</string>
+    <string name="random_location_113_latitude">54_deg_22_min_n</string>
+    <string name="random_location_114_latitude">54_deg_20_min_n</string>
+    <string name="random_location_115_latitude">54_deg_09_min_n</string>
+    <string name="random_location_116_latitude">54_deg_05_min_n</string>
+    <string name="random_location_117_latitude">53_deg_54_min_n</string>
+    <string name="random_location_118_latitude">53_deg_48_min_n</string>
+    <string name="random_location_119_latitude">53_deg_48_min_n</string>
+    <string name="random_location_120_latitude">53_deg_34_min_n</string>
+    <string name="random_location_121_latitude">53_deg_32_min_n</string>
+    <string name="random_location_122_latitude">53_deg_31_min_n</string>
+    <string name="random_location_123_latitude">53_deg_28_min_n</string>
+    <string name="random_location_124_latitude">53_deg_24_min_n</string>
+    <string name="random_location_125_latitude">53_deg_23_min_n</string>
+    <string name="random_location_126_latitude">53_deg_21_min_n</string>
+    <string name="random_location_127_latitude">53_deg_13_min_n</string>
+    <string name="random_location_128_latitude">53_deg_12_min_n</string>
+    <string name="random_location_129_latitude">53_deg_05_min_n</string>
+    <string name="random_location_130_latitude">53_deg_01_min_n</string>
+    <string name="random_location_131_latitude">52_deg_57_min_n</string>
+    <string name="random_location_132_latitude">52_deg_55_min_n</string>
+    <string name="random_location_133_latitude">52_deg_38_min_n</string>
+    <string name="random_location_134_latitude">52_deg_38_min_n</string>
+    <string name="random_location_135_latitude">52_deg_35_min_n</string>
+    <string name="random_location_136_latitude">52_deg_31_min_n</string>
+    <string name="random_location_137_latitude">52_deg_29_min_n</string>
+    <string name="random_location_138_latitude">52_deg_24_min_n</string>
+    <string name="random_location_139_latitude">52_deg_24_min_n</string>
+    <string name="random_location_140_latitude">52_deg_23_min_n</string>
+    <string name="random_location_141_latitude">52_deg_22_min_n</string>
+    <string name="random_location_142_latitude">52_deg_22_min_n</string>
+    <string name="random_location_143_latitude">52_deg_19_min_n</string>
+    <string name="random_location_144_latitude">52_deg_14_min_n</string>
+    <string name="random_location_145_latitude">52_deg_13_min_n</string>
+    <string name="random_location_146_latitude">52_deg_12_min_n</string>
+    <string name="random_location_147_latitude">52_deg_10_min_n</string>
+    <string name="random_location_148_latitude">52_deg_08_min_n</string>
+    <string name="random_location_149_latitude">52_deg_06_min_n</string>
+    <string name="random_location_150_latitude">52_deg_05_min_n</string>
+    <string name="random_location_151_latitude">51_deg_56_min_n</string>
+    <string name="random_location_152_latitude">51_deg_54_min_n</string>
+    <string name="random_location_153_latitude">51_deg_53_min_n</string>
+    <string name="random_location_154_latitude">51_deg_52_min_n</string>
+    <string name="random_location_155_latitude">51_deg_45_min_n</string>
+    <string name="random_location_156_latitude">51_deg_40_min_n</string>
+    <string name="random_location_157_latitude">51_deg_37_min_n</string>
+    <string name="random_location_158_latitude">51_deg_32_min_n</string>
+    <string name="random_location_159_latitude">51_deg_30_min_n</string>
+    <string name="random_location_160_latitude">51_deg_29_min_n</string>
+    <string name="random_location_161_latitude">51_deg_29_min_n</string>
+    <string name="random_location_162_latitude">51_deg_27_min_n</string>
+    <string name="random_location_163_latitude">51_deg_23_min_n</string>
+    <string name="random_location_164_latitude">51_deg_20_min_n</string>
+    <string name="random_location_165_latitude">51_deg_14_min_n</string>
+    <string name="random_location_166_latitude">51_deg_13_min_n</string>
+    <string name="random_location_167_latitude">51_deg_10_min_n</string>
+    <string name="random_location_168_latitude">51_deg_06_min_n</string>
+    <string name="random_location_169_latitude">51_deg_03_min_n</string>
+    <string name="random_location_170_latitude">51_deg_03_min_n</string>
+    <string name="random_location_171_latitude">51_deg_02_min_n</string>
+    <string name="random_location_172_latitude">50_deg_57_min_n</string>
+    <string name="random_location_173_latitude">50_deg_54_min_n</string>
+    <string name="random_location_174_latitude">50_deg_51_min_n</string>
+    <string name="random_location_175_latitude">50_deg_51_min_n</string>
+    <string name="random_location_176_latitude">50_deg_50_min_n</string>
+    <string name="random_location_177_latitude">50_deg_49_min_n</string>
+    <string name="random_location_178_latitude">50_deg_43_min_n</string>
+    <string name="random_location_179_latitude">50_deg_41_min_n</string>
+    <string name="random_location_180_latitude">50_deg_38_min_n</string>
+    <string name="random_location_181_latitude">50_deg_27_min_n</string>
+    <string name="random_location_182_latitude">50_deg_27_min_n</string>
+    <string name="random_location_183_latitude">50_deg_22_min_n</string>
+    <string name="random_location_184_latitude">50_deg_07_min_n</string>
+    <string name="random_location_185_latitude">50_deg_05_min_n</string>
+    <string name="random_location_186_latitude">50_deg_04_min_n</string>
+    <string name="random_location_187_latitude">50_deg_00_min_n</string>
+    <string name="random_location_188_latitude">49_deg_54_min_n</string>
+    <string name="random_location_189_latitude">49_deg_53_min_n</string>
+    <string name="random_location_190_latitude">49_deg_51_min_n</string>
+    <string name="random_location_191_latitude">49_deg_37_min_n</string>
+    <string name="random_location_192_latitude">49_deg_15_min_n</string>
+    <string name="random_location_193_latitude">48_deg_51_min_n</string>
+    <string name="random_location_194_latitude">48_deg_47_min_n</string>
+    <string name="random_location_195_latitude">48_deg_42_min_n</string>
+    <string name="random_location_196_latitude">48_deg_35_min_n</string>
+    <string name="random_location_197_latitude">48_deg_26_min_n</string>
+    <string name="random_location_198_latitude">48_deg_23_min_n</string>
+    <string name="random_location_199_latitude">48_deg_18_min_n</string>
+    <string name="random_location_200_latitude">48_deg_13_min_n</string>
+    <string name="random_location_201_latitude">48_deg_09_min_n</string>
+    <string name="random_location_202_latitude">48_deg_08_min_n</string>
+    <string name="random_location_203_latitude">48_deg_00_min_n</string>
+    <string name="random_location_204_latitude">47_deg_55_min_n</string>
+    <string name="random_location_205_latitude">47_deg_48_min_n</string>
+    <string name="random_location_206_latitude">47_deg_37_min_n</string>
+    <string name="random_location_207_latitude">47_deg_34_min_n</string>
+    <string name="random_location_208_latitude">47_deg_34_min_n</string>
+    <string name="random_location_209_latitude">47_deg_28_min_n</string>
+    <string name="random_location_210_latitude">47_deg_26_min_n</string>
+    <string name="random_location_211_latitude">47_deg_22_min_n</string>
+    <string name="random_location_212_latitude">47_deg_16_min_n</string>
+    <string name="random_location_213_latitude">47_deg_14_min_n</string>
+    <string name="random_location_214_latitude">47_deg_13_min_n</string>
+    <string name="random_location_215_latitude">47_deg_08_min_n</string>
+    <string name="random_location_216_latitude">47_deg_04_min_n</string>
+    <string name="random_location_217_latitude">47_deg_00_min_n</string>
+    <string name="random_location_218_latitude">46_deg_57_min_n</string>
+    <string name="random_location_219_latitude">46_deg_51_min_n</string>
+    <string name="random_location_220_latitude">46_deg_49_min_n</string>
+    <string name="random_location_221_latitude">46_deg_49_min_n</string>
+    <string name="random_location_222_latitude">46_deg_47_min_n</string>
+    <string name="random_location_223_latitude">46_deg_46_min_n</string>
+    <string name="random_location_224_latitude">46_deg_44_min_n</string>
+    <string name="random_location_225_latitude">46_deg_36_min_n</string>
+    <string name="random_location_226_latitude">46_deg_32_min_n</string>
+    <string name="random_location_227_latitude">46_deg_31_min_n</string>
+    <string name="random_location_228_latitude">46_deg_29_min_n</string>
+    <string name="random_location_229_latitude">46_deg_28_min_n</string>
+    <string name="random_location_230_latitude">46_deg_18_min_n</string>
+    <string name="random_location_231_latitude">46_deg_14_min_n</string>
+    <string name="random_location_232_latitude">46_deg_12_min_n</string>
+    <string name="random_location_233_latitude">46_deg_08_min_n</string>
+    <string name="random_location_234_latitude">46_deg_03_min_n</string>
+    <string name="random_location_235_latitude">45_deg_57_min_n</string>
+    <string name="random_location_236_latitude">45_deg_49_min_n</string>
+    <string name="random_location_237_latitude">45_deg_46_min_n</string>
+    <string name="random_location_238_latitude">45_deg_45_min_n</string>
+    <string name="random_location_239_latitude">45_deg_31_min_n</string>
+    <string name="random_location_240_latitude">45_deg_30_min_n</string>
+    <string name="random_location_241_latitude">45_deg_28_min_n</string>
+    <string name="random_location_242_latitude">45_deg_26_min_n</string>
+    <string name="random_location_243_latitude">45_deg_25_min_n</string>
+    <string name="random_location_244_latitude">45_deg_25_min_n</string>
+    <string name="random_location_245_latitude">45_deg_17_min_n</string>
+    <string name="random_location_246_latitude">45_deg_15_min_n</string>
+    <string name="random_location_247_latitude">45_deg_04_min_n</string>
+    <string name="random_location_248_latitude">45_deg_02_min_n</string>
+    <string name="random_location_249_latitude">44_deg_59_min_n</string>
+    <string name="random_location_250_latitude">44_deg_57_min_n</string>
+    <string name="random_location_251_latitude">44_deg_51_min_n</string>
+    <string name="random_location_252_latitude">44_deg_50_min_n</string>
+    <string name="random_location_253_latitude">44_deg_49_min_n</string>
+    <string name="random_location_254_latitude">44_deg_45_min_n</string>
+    <string name="random_location_255_latitude">44_deg_30_min_n</string>
+    <string name="random_location_256_latitude">44_deg_26_min_n</string>
+    <string name="random_location_257_latitude">44_deg_22_min_n</string>
+    <string name="random_location_258_latitude">44_deg_20_min_n</string>
+    <string name="random_location_259_latitude">44_deg_19_min_n</string>
+    <string name="random_location_260_latitude">44_deg_15_min_n</string>
+    <string name="random_location_261_latitude">43_deg_56_min_n</string>
+    <string name="random_location_262_latitude">43_deg_54_min_n</string>
+    <string name="random_location_263_latitude">43_deg_51_min_n</string>
+    <string name="random_location_264_latitude">43_deg_50_min_n</string>
+    <string name="random_location_265_latitude">43_deg_50_min_n</string>
+    <string name="random_location_266_latitude">43_deg_47_min_n</string>
+    <string name="random_location_267_latitude">43_deg_46_min_n</string>
+    <string name="random_location_268_latitude">43_deg_44_min_n</string>
+    <string name="random_location_269_latitude">43_deg_42_min_n</string>
+    <string name="random_location_270_latitude">43_deg_42_min_n</string>
+    <string name="random_location_271_latitude">43_deg_37_min_n</string>
+    <string name="random_location_272_latitude">43_deg_36_min_n</string>
+    <string name="random_location_273_latitude">43_deg_35_min_n</string>
+    <string name="random_location_274_latitude">43_deg_33_min_n</string>
+    <string name="random_location_275_latitude">43_deg_32_min_n</string>
+    <string name="random_location_276_latitude">43_deg_30_min_n</string>
+    <string name="random_location_277_latitude">43_deg_20_min_n</string>
+    <string name="random_location_278_latitude">43_deg_19_min_n</string>
+    <string name="random_location_279_latitude">43_deg_18_min_n</string>
+    <string name="random_location_280_latitude">43_deg_17_min_n</string>
+    <string name="random_location_281_latitude">43_deg_15_min_n</string>
+    <string name="random_location_282_latitude">43_deg_12_min_n</string>
+    <string name="random_location_283_latitude">43_deg_10_min_n</string>
+    <string name="random_location_284_latitude">43_deg_08_min_n</string>
+    <string name="random_location_285_latitude">43_deg_04_min_n</string>
+    <string name="random_location_286_latitude">43_deg_03_min_n</string>
+    <string name="random_location_287_latitude">43_deg_00_min_n</string>
+    <string name="random_location_288_latitude">42_deg_59_min_n</string>
+    <string name="random_location_289_latitude">42_deg_55_min_n</string>
+    <string name="random_location_290_latitude">42_deg_54_min_n</string>
+    <string name="random_location_291_latitude">42_deg_52_min_n</string>
+    <string name="random_location_292_latitude">42_deg_51_min_n</string>
+    <string name="random_location_293_latitude">42_deg_42_min_n</string>
+    <string name="random_location_294_latitude">42_deg_40_min_n</string>
+    <string name="random_location_295_latitude">42_deg_30_min_n</string>
+    <string name="random_location_296_latitude">42_deg_28_min_n</string>
+    <string name="random_location_297_latitude">42_deg_26_min_n</string>
+    <string name="random_location_298_latitude">42_deg_21_min_n</string>
+    <string name="random_location_299_latitude">42_deg_20_min_n</string>
+    <string name="random_location_300_latitude">42_deg_17_min_n</string>
+    <string name="random_location_301_latitude">42_deg_14_min_n</string>
+    <string name="random_location_302_latitude">42_deg_00_min_n</string>
+    <string name="random_location_303_latitude">41_deg_99_min_n</string>
+    <string name="random_location_304_latitude">41_deg_54_min_n</string>
+    <string name="random_location_305_latitude">41_deg_54_min_n</string>
+    <string name="random_location_306_latitude">41_deg_53_min_n</string>
+    <string name="random_location_307_latitude">41_deg_49_min_n</string>
+    <string name="random_location_308_latitude">41_deg_49_min_n</string>
+    <string name="random_location_309_latitude">41_deg_48_min_n</string>
+    <string name="random_location_310_latitude">41_deg_46_min_n</string>
+    <string name="random_location_311_latitude">41_deg_46_min_n</string>
+    <string name="random_location_312_latitude">41_deg_43_min_n</string>
+    <string name="random_location_313_latitude">41_deg_39_min_n</string>
+    <string name="random_location_314_latitude">41_deg_35_min_n</string>
+    <string name="random_location_315_latitude">41_deg_29_min_n</string>
+    <string name="random_location_316_latitude">41_deg_23_min_n</string>
+    <string name="random_location_317_latitude">41_deg_20_min_n</string>
+    <string name="random_location_318_latitude">41_deg_16_min_n</string>
+    <string name="random_location_319_latitude">41_deg_10_min_n</string>
+    <string name="random_location_320_latitude">41_deg_09_min_n</string>
+    <string name="random_location_321_latitude">41_deg_05_min_n</string>
+    <string name="random_location_322_latitude">41_deg_01_min_n</string>
+    <string name="random_location_323_latitude">41_deg_00_min_n</string>
+    <string name="random_location_324_latitude">40_deg_51_min_n</string>
+    <string name="random_location_325_latitude">40_deg_49_min_n</string>
+    <string name="random_location_326_latitude">40_deg_49_min_n</string>
+    <string name="random_location_327_latitude">40_deg_46_min_n</string>
+    <string name="random_location_328_latitude">40_deg_45_min_n</string>
+    <string name="random_location_329_latitude">40_deg_43_min_n</string>
+    <string name="random_location_330_latitude">40_deg_40_min_n</string>
+    <string name="random_location_331_latitude">40_deg_39_min_n</string>
+    <string name="random_location_332_latitude">40_deg_27_min_n</string>
+    <string name="random_location_333_latitude">40_deg_24_min_n</string>
+    <string name="random_location_334_latitude">40_deg_24_min_n</string>
+    <string name="random_location_335_latitude">40_deg_13_min_n</string>
+    <string name="random_location_336_latitude">40_deg_11_min_n</string>
+    <string name="random_location_337_latitude">40_deg_11_min_n</string>
+    <string name="random_location_338_latitude">40_deg_01_min_n</string>
+    <string name="random_location_339_latitude">39_deg_59_min_n</string>
+    <string name="random_location_340_latitude">39_deg_57_min_n</string>
+    <string name="random_location_341_latitude">39_deg_54_min_n</string>
+    <string name="random_location_342_latitude">39_deg_47_min_n</string>
+    <string name="random_location_343_latitude">39_deg_46_min_n</string>
+    <string name="random_location_344_latitude">39_deg_44_min_n</string>
+    <string name="random_location_345_latitude">39_deg_43_min_n</string>
+    <string name="random_location_346_latitude">39_deg_41_min_n</string>
+    <string name="random_location_347_latitude">39_deg_34_min_n</string>
+    <string name="random_location_348_latitude">39_deg_32_min_n</string>
+    <string name="random_location_349_latitude">39_deg_28_min_n</string>
+    <string name="random_location_350_latitude">39_deg_28_min_n</string>
+    <string name="random_location_351_latitude">39_deg_17_min_n</string>
+    <string name="random_location_352_latitude">39_deg_15_min_n</string>
+    <string name="random_location_353_latitude">39_deg_10_min_n</string>
+    <string name="random_location_354_latitude">39_deg_09_min_n</string>
+    <string name="random_location_355_latitude">39_deg_08_min_n</string>
+    <string name="random_location_356_latitude">39_deg_06_min_n</string>
+    <string name="random_location_357_latitude">39_deg_06_min_n</string>
+    <string name="random_location_358_latitude">39_deg_01_min_n</string>
+    <string name="random_location_359_latitude">38_deg_59_min_n</string>
+    <string name="random_location_360_latitude">38_deg_55_min_n</string>
+    <string name="random_location_361_latitude">38_deg_54_min_n</string>
+    <string name="random_location_362_latitude">38_deg_43_min_n</string>
+    <string name="random_location_363_latitude">38_deg_38_min_n</string>
+    <string name="random_location_364_latitude">38_deg_35_min_n</string>
+    <string name="random_location_365_latitude">38_deg_33_min_n</string>
+    <string name="random_location_366_latitude">38_deg_32_min_n</string>
+    <string name="random_location_367_latitude">38_deg_29_min_n</string>
+    <string name="random_location_368_latitude">38_deg_28_min_n</string>
+    <string name="random_location_369_latitude">38_deg_26_min_n</string>
+    <string name="random_location_370_latitude">38_deg_21_min_n</string>
+    <string name="random_location_371_latitude">38_deg_16_min_n</string>
+    <string name="random_location_372_latitude">38_deg_15_min_n</string>
+    <string name="random_location_373_latitude">38_deg_15_min_n</string>
+    <string name="random_location_374_latitude">38_deg_11_min_n</string>
+    <string name="random_location_375_latitude">38_deg_07_min_n</string>
+    <string name="random_location_376_latitude">38_deg_04_min_n</string>
+    <string name="random_location_377_latitude">38_deg_03_min_n</string>
+    <string name="random_location_378_latitude">37_deg_58_min_n</string>
+    <string name="random_location_379_latitude">37_deg_58_min_n</string>
+    <string name="random_location_380_latitude">37_deg_56_min_n</string>
+    <string name="random_location_381_latitude">37_deg_55_min_n</string>
+    <string name="random_location_382_latitude">37_deg_52_min_n</string>
+    <string name="random_location_383_latitude">37_deg_52_min_n</string>
+    <string name="random_location_384_latitude">37_deg_49_min_n</string>
+    <string name="random_location_385_latitude">37_deg_47_min_n</string>
+    <string name="random_location_386_latitude">37_deg_46_min_n</string>
+    <string name="random_location_387_latitude">37_deg_41_min_n</string>
+    <string name="random_location_388_latitude">37_deg_34_min_n</string>
+    <string name="random_location_389_latitude">37_deg_30_min_n</string>
+    <string name="random_location_390_latitude">37_deg_29_min_n</string>
+    <string name="random_location_391_latitude">37_deg_23_min_n</string>
+    <string name="random_location_392_latitude">37_deg_12_min_n</string>
+    <string name="random_location_393_latitude">37_deg_04_min_n</string>
+    <string name="random_location_394_latitude">37_deg_00_min_n</string>
+    <string name="random_location_395_latitude">36_deg_51_min_n</string>
+    <string name="random_location_396_latitude">36_deg_48_min_n</string>
+    <string name="random_location_397_latitude">36_deg_48_min_n</string>
+    <string name="random_location_398_latitude">36_deg_46_min_n</string>
+    <string name="random_location_399_latitude">36_deg_43_min_n</string>
+    <string name="random_location_400_latitude">36_deg_42_min_n</string>
+    <string name="random_location_401_latitude">36_deg_40_min_n</string>
+    <string name="random_location_402_latitude">36_deg_38_min_n</string>
+    <string name="random_location_403_latitude">36_deg_38_min_n</string>
+    <string name="random_location_404_latitude">36_deg_36_min_n</string>
+    <string name="random_location_405_latitude">36_deg_34_min_n</string>
+    <string name="random_location_406_latitude">36_deg_33_min_n</string>
+    <string name="random_location_407_latitude">36_deg_23_min_n</string>
+    <string name="random_location_408_latitude">36_deg_22_min_n</string>
+    <string name="random_location_409_latitude">36_deg_20_min_n</string>
+    <string name="random_location_410_latitude">36_deg_18_min_n</string>
+    <string name="random_location_411_latitude">36_deg_11_min_n</string>
+    <string name="random_location_412_latitude">36_deg_11_min_n</string>
+    <string name="random_location_413_latitude">36_deg_10_min_n</string>
+    <string name="random_location_414_latitude">36_deg_08_min_n</string>
+    <string name="random_location_415_latitude">36_deg_08_min_n</string>
+    <string name="random_location_416_latitude">36_deg_04_min_n</string>
+    <string name="random_location_417_latitude">36_deg_04_min_n</string>
+    <string name="random_location_418_latitude">36_deg_02_min_n</string>
+    <string name="random_location_419_latitude">35_deg_58_min_n</string>
+    <string name="random_location_420_latitude">35_deg_54_min_n</string>
+    <string name="random_location_421_latitude">35_deg_54_min_n</string>
+    <string name="random_location_422_latitude">35_deg_52_min_n</string>
+    <string name="random_location_423_latitude">35_deg_49_min_n</string>
+    <string name="random_location_424_latitude">35_deg_42_min_n</string>
+    <string name="random_location_425_latitude">35_deg_41_min_n</string>
+    <string name="random_location_426_latitude">35_deg_40_min_n</string>
+    <string name="random_location_427_latitude">35_deg_40_min_n</string>
+    <string name="random_location_428_latitude">35_deg_36_min_n</string>
+    <string name="random_location_429_latitude">35_deg_31_min_n</string>
+    <string name="random_location_430_latitude">35_deg_31_min_n</string>
+    <string name="random_location_431_latitude">35_deg_30_min_n</string>
+    <string name="random_location_432_latitude">35_deg_29_min_n</string>
+    <string name="random_location_433_latitude">35_deg_28_min_n</string>
+    <string name="random_location_434_latitude">35_deg_28_min_n</string>
+    <string name="random_location_435_latitude">35_deg_27_min_n</string>
+    <string name="random_location_436_latitude">35_deg_25_min_n</string>
+    <string name="random_location_437_latitude">35_deg_20_min_n</string>
+    <string name="random_location_438_latitude">35_deg_14_min_n</string>
+    <string name="random_location_439_latitude">35_deg_11_min_n</string>
+    <string name="random_location_440_latitude">35_deg_11_min_n</string>
+    <string name="random_location_441_latitude">35_deg_10_min_n</string>
+    <string name="random_location_442_latitude">35_deg_07_min_n</string>
+    <string name="random_location_443_latitude">35_deg_07_min_n</string>
+    <string name="random_location_444_latitude">35_deg_01_min_n</string>
+    <string name="random_location_445_latitude">34_deg_59_min_n</string>
+    <string name="random_location_446_latitude">34_deg_46_min_n</string>
+    <string name="random_location_447_latitude">34_deg_44_min_n</string>
+    <string name="random_location_448_latitude">34_deg_44_min_n</string>
+    <string name="random_location_449_latitude">34_deg_43_min_n</string>
+    <string name="random_location_450_latitude">34_deg_42_min_n</string>
+    <string name="random_location_451_latitude">34_deg_41_min_n</string>
+    <string name="random_location_452_latitude">34_deg_41_min_n</string>
+    <string name="random_location_453_latitude">34_deg_39_min_n</string>
+    <string name="random_location_454_latitude">34_deg_32_min_n</string>
+    <string name="random_location_455_latitude">34_deg_26_min_n</string>
+    <string name="random_location_456_latitude">34_deg_23_min_n</string>
+    <string name="random_location_457_latitude">34_deg_21_min_n</string>
+    <string name="random_location_458_latitude">34_deg_16_min_n</string>
+    <string name="random_location_459_latitude">34_deg_14_min_n</string>
+    <string name="random_location_460_latitude">34_deg_13_min_n</string>
+    <string name="random_location_461_latitude">34_deg_11_min_n</string>
+    <string name="random_location_462_latitude">34_deg_05_min_n</string>
+    <string name="random_location_463_latitude">34_deg_04_min_n</string>
+    <string name="random_location_464_latitude">34_deg_03_min_n</string>
+    <string name="random_location_465_latitude">34_deg_02_min_n</string>
+    <string name="random_location_466_latitude">34_deg_01_min_n</string>
+    <string name="random_location_467_latitude">34_deg_00_min_n</string>
+    <string name="random_location_468_latitude">33_deg_57_min_n</string>
+    <string name="random_location_469_latitude">33_deg_53_min_n</string>
+    <string name="random_location_470_latitude">33_deg_50_min_n</string>
+    <string name="random_location_471_latitude">33_deg_45_min_n</string>
+    <string name="random_location_472_latitude">33_deg_43_min_n</string>
+    <string name="random_location_473_latitude">33_deg_39_min_n</string>
+    <string name="random_location_474_latitude">33_deg_36_min_n</string>
+    <string name="random_location_475_latitude">33_deg_35_min_n</string>
+    <string name="random_location_476_latitude">33_deg_34_min_n</string>
+    <string name="random_location_477_latitude">33_deg_32_min_n</string>
+    <string name="random_location_478_latitude">33_deg_31_min_n</string>
+    <string name="random_location_479_latitude">33_deg_27_min_n</string>
+    <string name="random_location_480_latitude">33_deg_20_min_n</string>
+    <string name="random_location_481_latitude">33_deg_16_min_n</string>
+    <string name="random_location_482_latitude">33_deg_14_min_n</string>
+    <string name="random_location_483_latitude">32_deg_54_min_n</string>
+    <string name="random_location_484_latitude">32_deg_47_min_n</string>
+    <string name="random_location_485_latitude">32_deg_47_min_n</string>
+    <string name="random_location_486_latitude">32_deg_47_min_n</string>
+    <string name="random_location_487_latitude">32_deg_47_min_n</string>
+    <string name="random_location_488_latitude">32_deg_43_min_n</string>
+    <string name="random_location_489_latitude">32_deg_40_min_n</string>
+    <string name="random_location_490_latitude">32_deg_39_min_n</string>
+    <string name="random_location_491_latitude">32_deg_38_min_n</string>
+    <string name="random_location_492_latitude">32_deg_38_min_n</string>
+    <string name="random_location_493_latitude">32_deg_32_min_n</string>
+    <string name="random_location_494_latitude">32_deg_28_min_n</string>
+    <string name="random_location_495_latitude">32_deg_18_min_n</string>
+    <string name="random_location_496_latitude">32_deg_18_min_n</string>
+    <string name="random_location_497_latitude">32_deg_13_min_n</string>
+    <string name="random_location_498_latitude">32_deg_07_min_n</string>
+    <string name="random_location_499_latitude">32_deg_04_min_n</string>
+    <string name="random_location_500_latitude">32_deg_03_min_n</string>
+    <string name="random_location_501_latitude">31_deg_56_min_n</string>
+    <string name="random_location_502_latitude">31_deg_55_min_n</string>
+    <string name="random_location_503_latitude">31_deg_51_min_n</string>
+    <string name="random_location_504_latitude">31_deg_47_min_n</string>
+    <string name="random_location_505_latitude">31_deg_47_min_n</string>
+    <string name="random_location_506_latitude">31_deg_44_min_n</string>
+    <string name="random_location_507_latitude">31_deg_38_min_n</string>
+    <string name="random_location_508_latitude">31_deg_38_min_n</string>
+    <string name="random_location_509_latitude">31_deg_37_min_n</string>
+    <string name="random_location_510_latitude">31_deg_36_min_n</string>
+    <string name="random_location_511_latitude">31_deg_33_min_n</string>
+    <string name="random_location_512_latitude">31_deg_31_min_n</string>
+    <string name="random_location_513_latitude">31_deg_25_min_n</string>
+    <string name="random_location_514_latitude">31_deg_15_min_n</string>
+    <string name="random_location_515_latitude">31_deg_12_min_n</string>
+    <string name="random_location_516_latitude">31_deg_12_min_n</string>
+    <string name="random_location_517_latitude">31_deg_06_min_n</string>
+    <string name="random_location_518_latitude">30_deg_55_min_n</string>
+    <string name="random_location_519_latitude">30_deg_45_min_n</string>
+    <string name="random_location_520_latitude">30_deg_42_min_n</string>
+    <string name="random_location_521_latitude">30_deg_40_min_n</string>
+    <string name="random_location_522_latitude">30_deg_35_min_n</string>
+    <string name="random_location_523_latitude">30_deg_30_min_n</string>
+    <string name="random_location_524_latitude">30_deg_20_min_n</string>
+    <string name="random_location_525_latitude">30_deg_15_min_n</string>
+    <string name="random_location_526_latitude">30_deg_15_min_n</string>
+    <string name="random_location_527_latitude">30_deg_12_min_n</string>
+    <string name="random_location_528_latitude">30_deg_03_min_n</string>
+    <string name="random_location_529_latitude">29_deg_58_min_n</string>
+    <string name="random_location_530_latitude">29_deg_58_min_n</string>
+    <string name="random_location_531_latitude">29_deg_46_min_n</string>
+    <string name="random_location_532_latitude">29_deg_39_min_n</string>
+    <string name="random_location_533_latitude">29_deg_34_min_n</string>
+    <string name="random_location_534_latitude">29_deg_33_min_n</string>
+    <string name="random_location_535_latitude">29_deg_25_min_n</string>
+    <string name="random_location_536_latitude">29_deg_22_min_n</string>
+    <string name="random_location_537_latitude">29_deg_16_min_n</string>
+    <string name="random_location_538_latitude">29_deg_06_min_n</string>
+    <string name="random_location_539_latitude">28_deg_38_min_n</string>
+    <string name="random_location_540_latitude">28_deg_37_min_n</string>
+    <string name="random_location_541_latitude">28_deg_28_min_n</string>
+    <string name="random_location_542_latitude">28_deg_25_min_n</string>
+    <string name="random_location_543_latitude">28_deg_09_min_n</string>
+    <string name="random_location_544_latitude">27_deg_57_min_n</string>
+    <string name="random_location_545_latitude">27_deg_42_min_n</string>
+    <string name="random_location_546_latitude">27_deg_29_min_n</string>
+    <string name="random_location_547_latitude">27_deg_28_min_n</string>
+    <string name="random_location_548_latitude">27_deg_20_min_n</string>
+    <string name="random_location_549_latitude">27_deg_11_min_n</string>
+    <string name="random_location_550_latitude">27_deg_09_min_n</string>
+    <string name="random_location_551_latitude">27_deg_02_min_n</string>
+    <string name="random_location_552_latitude">26_deg_56_min_n</string>
+    <string name="random_location_553_latitude">26_deg_51_min_n</string>
+    <string name="random_location_554_latitude">26_deg_43_min_n</string>
+    <string name="random_location_555_latitude">26_deg_38_min_n</string>
+    <string name="random_location_556_latitude">26_deg_28_min_n</string>
+    <string name="random_location_557_latitude">26_deg_17_min_n</string>
+    <string name="random_location_558_latitude">26_deg_13_min_n</string>
+    <string name="random_location_559_latitude">26_deg_13_min_n</string>
+    <string name="random_location_560_latitude">26_deg_11_min_n</string>
+    <string name="random_location_561_latitude">25_deg_47_min_n</string>
+    <string name="random_location_562_latitude">25_deg_41_min_n</string>
+    <string name="random_location_563_latitude">25_deg_40_min_n</string>
+    <string name="random_location_564_latitude">25_deg_37_min_n</string>
+    <string name="random_location_565_latitude">25_deg_34_min_n</string>
+    <string name="random_location_566_latitude">25_deg_32_min_n</string>
+    <string name="random_location_567_latitude">25_deg_19_min_n</string>
+    <string name="random_location_568_latitude">25_deg_17_min_n</string>
+    <string name="random_location_569_latitude">25_deg_15_min_n</string>
+    <string name="random_location_570_latitude">25_deg_23_min_n</string>
+    <string name="random_location_571_latitude">25_deg_04_min_n</string>
+    <string name="random_location_572_latitude">25_deg_04_min_n</string>
+    <string name="random_location_573_latitude">25_deg_02_min_n</string>
+    <string name="random_location_574_latitude">24_deg_52_min_n</string>
+    <string name="random_location_575_latitude">24_deg_48_min_n</string>
+    <string name="random_location_576_latitude">24_deg_38_min_n</string>
+    <string name="random_location_577_latitude">24_deg_34_min_n</string>
+    <string name="random_location_578_latitude">24_deg_28_min_n</string>
+    <string name="random_location_579_latitude">24_deg_28_min_n</string>
+    <string name="random_location_580_latitude">24_deg_09_min_n</string>
+    <string name="random_location_581_latitude">24_deg_01_min_n</string>
+    <string name="random_location_582_latitude">23_deg_50_min_n</string>
+    <string name="random_location_583_latitude">23_deg_42_min_n</string>
+    <string name="random_location_584_latitude">23_deg_37_min_n</string>
+    <string name="random_location_585_latitude">23_deg_08_min_n</string>
+    <string name="random_location_586_latitude">23_deg_08_min_n</string>
+    <string name="random_location_587_latitude">23_deg_02_min_n</string>
+    <string name="random_location_588_latitude">23_deg_02_min_n</string>
+    <string name="random_location_589_latitude">22_deg_59_min_n</string>
+    <string name="random_location_590_latitude">22_deg_53_min_n</string>
+    <string name="random_location_591_latitude">22_deg_49_min_n</string>
+    <string name="random_location_592_latitude">22_deg_38_min_n</string>
+    <string name="random_location_593_latitude">22_deg_34_min_n</string>
+    <string name="random_location_594_latitude">22_deg_33_min_n</string>
+    <string name="random_location_595_latitude">22_deg_22_min_n</string>
+    <string name="random_location_596_latitude">22_deg_17_min_n</string>
+    <string name="random_location_597_latitude">22_deg_15_min_n</string>
+    <string name="random_location_598_latitude">22_deg_10_min_n</string>
+    <string name="random_location_599_latitude">22_deg_09_min_n</string>
+    <string name="random_location_600_latitude">21_deg_53_min_n</string>
+    <string name="random_location_601_latitude">21_deg_33_min_n</string>
+    <string name="random_location_602_latitude">21_deg_28_min_n</string>
+    <string name="random_location_603_latitude">21_deg_25_min_n</string>
+    <string name="random_location_604_latitude">21_deg_19_min_n</string>
+    <string name="random_location_605_latitude">21_deg_10_min_n</string>
+    <string name="random_location_606_latitude">21_deg_10_min_n</string>
+    <string name="random_location_607_latitude">21_deg_08_min_n</string>
+    <string name="random_location_608_latitude">21_deg_07_min_n</string>
+    <string name="random_location_609_latitude">21_deg_02_min_n</string>
+    <string name="random_location_610_latitude">20_deg_58_min_n</string>
+    <string name="random_location_611_latitude">20_deg_51_min_n</string>
+    <string name="random_location_612_latitude">20_deg_43_min_n</string>
+    <string name="random_location_613_latitude">20_deg_40_min_n</string>
+    <string name="random_location_614_latitude">20_deg_40_min_n</string>
+    <string name="random_location_615_latitude">20_deg_35_min_n</string>
+    <string name="random_location_616_latitude">20_deg_01_min_n</string>
+    <string name="random_location_617_latitude">19_deg_55_min_n</string>
+    <string name="random_location_618_latitude">19_deg_45_min_n</string>
+    <string name="random_location_619_latitude">19_deg_42_min_n</string>
+    <string name="random_location_620_latitude">19_deg_26_min_n</string>
+    <string name="random_location_621_latitude">19_deg_18_min_n</string>
+    <string name="random_location_622_latitude">19_deg_11_min_n</string>
+    <string name="random_location_623_latitude">19_deg_03_min_n</string>
+    <string name="random_location_624_latitude">18_deg_59_min_n</string>
+    <string name="random_location_625_latitude">18_deg_48_min_n</string>
+    <string name="random_location_626_latitude">18_deg_32_min_n</string>
+    <string name="random_location_627_latitude">18_deg_31_min_n</string>
+    <string name="random_location_628_latitude">18_deg_28_min_n</string>
+    <string name="random_location_629_latitude">18_deg_27_min_n</string>
+    <string name="random_location_630_latitude">18_deg_26_min_n</string>
+    <string name="random_location_631_latitude">18_deg_21_min_n</string>
+    <string name="random_location_632_latitude">18_deg_13_min_n</string>
+    <string name="random_location_633_latitude">18_deg_06_min_n</string>
+    <string name="random_location_634_latitude">17_deg_59_min_n</string>
+    <string name="random_location_635_latitude">17_deg_58_min_n</string>
+    <string name="random_location_636_latitude">17_deg_41_min_n</string>
+    <string name="random_location_637_latitude">17_deg_30_min_n</string>
+    <string name="random_location_638_latitude">17_deg_25_min_n</string>
+    <string name="random_location_639_latitude">17_deg_22_min_n</string>
+    <string name="random_location_640_latitude">17_deg_18_min_n</string>
+    <string name="random_location_641_latitude">17_deg_15_min_n</string>
+    <string name="random_location_642_latitude">17_deg_07_min_n</string>
+    <string name="random_location_643_latitude">17_deg_01_min_n</string>
+    <string name="random_location_644_latitude">16_deg_52_min_n</string>
+    <string name="random_location_645_latitude">16_deg_48_min_n</string>
+    <string name="random_location_646_latitude">16_deg_47_min_n</string>
+    <string name="random_location_647_latitude">16_deg_28_min_n</string>
+    <string name="random_location_648_latitude">16_deg_26_min_n</string>
+    <string name="random_location_649_latitude">16_deg_04_min_n</string>
+    <string name="random_location_650_latitude">16_deg_00_min_n</string>
+    <string name="random_location_651_latitude">15_deg_39_min_n</string>
+    <string name="random_location_652_latitude">15_deg_38_min_n</string>
+    <string name="random_location_653_latitude">15_deg_21_min_n</string>
+    <string name="random_location_654_latitude">15_deg_20_min_n</string>
+    <string name="random_location_655_latitude">15_deg_18_min_n</string>
+    <string name="random_location_656_latitude">15_deg_11_min_n</string>
+    <string name="random_location_657_latitude">14_deg_59_min_n</string>
+    <string name="random_location_658_latitude">14_deg_55_min_n</string>
+    <string name="random_location_659_latitude">14_deg_54_min_n</string>
+    <string name="random_location_660_latitude">14_deg_50_min_n</string>
+    <string name="random_location_661_latitude">14_deg_47_min_n</string>
+    <string name="random_location_662_latitude">14_deg_42_min_n</string>
+    <string name="random_location_663_latitude">14_deg_38_min_n</string>
+    <string name="random_location_664_latitude">14_deg_37_min_n</string>
+    <string name="random_location_665_latitude">14_deg_36_min_n</string>
+    <string name="random_location_666_latitude">14_deg_35_min_n</string>
+    <string name="random_location_667_latitude">14_deg_33_min_n</string>
+    <string name="random_location_668_latitude">14_deg_21_min_n</string>
+    <string name="random_location_669_latitude">14_deg_06_min_n</string>
+    <string name="random_location_670_latitude">14_deg_01_min_n</string>
+    <string name="random_location_671_latitude">13_deg_45_min_n</string>
+    <string name="random_location_672_latitude">13_deg_41_min_n</string>
+    <string name="random_location_673_latitude">13_deg_31_min_n</string>
+    <string name="random_location_674_latitude">13_deg_31_min_n</string>
+    <string name="random_location_675_latitude">13_deg_29_min_n</string>
+    <string name="random_location_676_latitude">13_deg_27_min_n</string>
+    <string name="random_location_677_latitude">13_deg_26_min_n</string>
+    <string name="random_location_678_latitude">13_deg_22_min_n</string>
+    <string name="random_location_679_latitude">13_deg_16_min_n</string>
+    <string name="random_location_680_latitude">13_deg_09_min_n</string>
+    <string name="random_location_681_latitude">13_deg_06_min_n</string>
+    <string name="random_location_682_latitude">13_deg_05_min_n</string>
+    <string name="random_location_683_latitude">12_deg_58_min_n</string>
+    <string name="random_location_684_latitude">12_deg_56_min_n</string>
+    <string name="random_location_685_latitude">12_deg_52_min_n</string>
+    <string name="random_location_686_latitude">12_deg_39_min_n</string>
+    <string name="random_location_687_latitude">12_deg_37_min_n</string>
+    <string name="random_location_688_latitude">12_deg_31_min_n</string>
+    <string name="random_location_689_latitude">12_deg_21_min_n</string>
+    <string name="random_location_690_latitude">12_deg_08_min_n</string>
+    <string name="random_location_691_latitude">12_deg_07_min_n</string>
+    <string name="random_location_692_latitude">12_deg_07_min_n</string>
+    <string name="random_location_693_latitude">12_deg_03_min_n</string>
+    <string name="random_location_694_latitude">12_deg_00_min_n</string>
+    <string name="random_location_695_latitude">11_deg_51_min_n</string>
+    <string name="random_location_696_latitude">11_deg_40_min_n</string>
+    <string name="random_location_697_latitude">11_deg_35_min_n</string>
+    <string name="random_location_698_latitude">11_deg_33_min_n</string>
+    <string name="random_location_699_latitude">11_deg_11_min_n</string>
+    <string name="random_location_700_latitude">10_deg_58_min_n</string>
+    <string name="random_location_701_latitude">10_deg_46_min_n</string>
+    <string name="random_location_702_latitude">10_deg_43_min_n</string>
+    <string name="random_location_703_latitude">10_deg_40_min_n</string>
+    <string name="random_location_704_latitude">10_deg_39_min_n</string>
+    <string name="random_location_705_latitude">10_deg_38_min_n</string>
+    <string name="random_location_706_latitude">10_deg_30_min_n</string>
+    <string name="random_location_707_latitude">10_deg_30_min_n</string>
+    <string name="random_location_708_latitude">10_deg_24_min_n</string>
+    <string name="random_location_709_latitude">10_deg_17_min_n</string>
+    <string name="random_location_710_latitude">10_deg_17_min_n</string>
+    <string name="random_location_711_latitude">10_deg_15_min_n</string>
+    <string name="random_location_712_latitude">10_deg_01_min_n</string>
+    <string name="random_location_713_latitude">9_deg_33_min_n</string>
+    <string name="random_location_714_latitude">9_deg_59_min_n</string>
+    <string name="random_location_715_latitude">9_deg_58_min_n</string>
+    <string name="random_location_716_latitude">9_deg_58_min_n</string>
+    <string name="random_location_717_latitude">9_deg_56_min_n</string>
+    <string name="random_location_718_latitude">9_deg_39_min_n</string>
+    <string name="random_location_719_latitude">9_deg_31_min_n</string>
+    <string name="random_location_720_latitude">9_deg_24_min_n</string>
+    <string name="random_location_721_latitude">9_deg_08_min_n</string>
+    <string name="random_location_722_latitude">9_deg_04_min_n</string>
+    <string name="random_location_723_latitude">9_deg_02_min_n</string>
+    <string name="random_location_724_latitude">8_deg_59_min_n</string>
+    <string name="random_location_725_latitude">8_deg_34_min_n</string>
+    <string name="random_location_726_latitude">8_deg_29_min_n</string>
+    <string name="random_location_727_latitude">8_deg_29_min_n</string>
+    <string name="random_location_728_latitude">8_deg_07_min_n</string>
+    <string name="random_location_729_latitude">7_deg_54_min_n</string>
+    <string name="random_location_730_latitude">7_deg_53_min_n</string>
+    <string name="random_location_731_latitude">7_deg_45_min_n</string>
+    <string name="random_location_732_latitude">7_deg_43_min_n</string>
+    <string name="random_location_733_latitude">7_deg_29_min_n</string>
+    <string name="random_location_734_latitude">7_deg_27_min_n</string>
+    <string name="random_location_735_latitude">7_deg_24_min_n</string>
+    <string name="random_location_736_latitude">7_deg_22_min_n</string>
+    <string name="random_location_737_latitude">7_deg_18_min_n</string>
+    <string name="random_location_738_latitude">7_deg_04_min_n</string>
+    <string name="random_location_739_latitude">7_deg_04_min_n</string>
+    <string name="random_location_740_latitude">7_deg_01_min_n</string>
+    <string name="random_location_741_latitude">6_deg_56_min_n</string>
+    <string name="random_location_742_latitude">6_deg_55_min_n</string>
+    <string name="random_location_743_latitude">6_deg_55_min_n</string>
+    <string name="random_location_744_latitude">6_deg_54_min_n</string>
+    <string name="random_location_745_latitude">6_deg_49_min_n</string>
+    <string name="random_location_746_latitude">6_deg_48_min_n</string>
+    <string name="random_location_747_latitude">6_deg_40_min_n</string>
+    <string name="random_location_748_latitude">6_deg_30_min_n</string>
+    <string name="random_location_749_latitude">6_deg_27_min_n</string>
+    <string name="random_location_750_latitude">6_deg_27_min_n</string>
+    <string name="random_location_751_latitude">6_deg_22_min_n</string>
+    <string name="random_location_752_latitude">6_deg_19_min_n</string>
+    <string name="random_location_753_latitude">6_deg_19_min_n</string>
+    <string name="random_location_754_latitude">6_deg_14_min_n</string>
+    <string name="random_location_755_latitude">6_deg_08_min_n</string>
+    <string name="random_location_756_latitude">6_deg_08_min_n</string>
+    <string name="random_location_757_latitude">6_deg_07_min_n</string>
+    <string name="random_location_758_latitude">5_deg_58_min_n</string>
+    <string name="random_location_759_latitude">5_deg_52_min_n</string>
+    <string name="random_location_760_latitude">5_deg_40_min_n</string>
+    <string name="random_location_761_latitude">5_deg_33_min_n</string>
+    <string name="random_location_762_latitude">5_deg_33_min_n</string>
+    <string name="random_location_763_latitude">5_deg_25_min_n</string>
+    <string name="random_location_764_latitude">5_deg_19_min_n</string>
+    <string name="random_location_765_latitude">4_deg_55_min_n</string>
+    <string name="random_location_766_latitude">4_deg_55_min_n</string>
+    <string name="random_location_767_latitude">4_deg_53_min_n</string>
+    <string name="random_location_768_latitude">4_deg_51_min_n</string>
+    <string name="random_location_769_latitude">4_deg_45_min_n</string>
+    <string name="random_location_770_latitude">4_deg_36_min_n</string>
+    <string name="random_location_771_latitude">4_deg_36_min_n</string>
+    <string name="random_location_772_latitude">4_deg_24_min_n</string>
+    <string name="random_location_773_latitude">4_deg_22_min_n</string>
+    <string name="random_location_774_latitude">4_deg_11_min_n</string>
+    <string name="random_location_775_latitude">4_deg_03_min_n</string>
+    <string name="random_location_776_latitude">3_deg_52_min_n</string>
+    <string name="random_location_777_latitude">3_deg_45_min_n</string>
+    <string name="random_location_778_latitude">3_deg_35_min_n</string>
+    <string name="random_location_779_latitude">3_deg_25_min_n</string>
+    <string name="random_location_780_latitude">3_deg_09_min_n</string>
+    <string name="random_location_781_latitude">2_deg_49_min_n</string>
+    <string name="random_location_782_latitude">2_deg_12_min_n</string>
+    <string name="random_location_783_latitude">2_deg_02_min_n</string>
+    <string name="random_location_784_latitude">1_deg_34_min_n</string>
+    <string name="random_location_785_latitude">1_deg_29_min_n</string>
+    <string name="random_location_786_latitude">1_deg_26_min_n</string>
+    <string name="random_location_787_latitude">1_deg_17_min_n</string>
+    <string name="random_location_788_latitude">0_deg_32_min_n</string>
+    <string name="random_location_789_latitude">0_deg_23_min_n</string>
+    <string name="random_location_790_latitude">0_deg_20_min_n</string>
+    <string name="random_location_791_latitude">0_deg_19_min_n</string>
+    <string name="random_location_792_latitude">0_deg_03_min_n</string>
+    <string name="random_location_793_latitude">0_deg_02_min_n</string>
+    <string name="random_location_794_latitude">0_deg_01_min_s</string>
+    <string name="random_location_795_latitude">0_deg_15_min_s</string>
+    <string name="random_location_796_latitude">0_deg_21_min_s</string>
+    <string name="random_location_797_latitude">0_deg_33_min_s</string>
+    <string name="random_location_798_latitude">0_deg_57_min_s</string>
+    <string name="random_location_799_latitude">1_deg_16_min_s</string>
+    <string name="random_location_800_latitude">1_deg_17_min_s</string>
+    <string name="random_location_801_latitude">1_deg_27_min_s</string>
+    <string name="random_location_802_latitude">1_deg_57_min_s</string>
+    <string name="random_location_803_latitude">2_deg_11_min_s</string>
+    <string name="random_location_804_latitude">2_deg_31_min_s</string>
+    <string name="random_location_805_latitude">2_deg_32_min_s</string>
+    <string name="random_location_806_latitude">2_deg_32_min_s</string>
+    <string name="random_location_807_latitude">2_deg_59_min_s</string>
+    <string name="random_location_808_latitude">3_deg_06_min_s</string>
+    <string name="random_location_809_latitude">3_deg_23_min_s</string>
+    <string name="random_location_810_latitude">3_deg_40_min_s</string>
+    <string name="random_location_811_latitude">3_deg_42_min_s</string>
+    <string name="random_location_812_latitude">3_deg_43_min_s</string>
+    <string name="random_location_813_latitude">3_deg_44_min_s</string>
+    <string name="random_location_814_latitude">3_deg_51_min_s</string>
+    <string name="random_location_815_latitude">4_deg_03_min_s</string>
+    <string name="random_location_816_latitude">4_deg_16_min_s</string>
+    <string name="random_location_817_latitude">4_deg_20_min_s</string>
+    <string name="random_location_818_latitude">4_deg_37_min_s</string>
+    <string name="random_location_819_latitude">5_deg_06_min_s</string>
+    <string name="random_location_820_latitude">5_deg_08_min_s</string>
+    <string name="random_location_821_latitude">5_deg_32_min_s</string>
+    <string name="random_location_822_latitude">5_deg_47_min_s</string>
+    <string name="random_location_823_latitude">6_deg_10_min_s</string>
+    <string name="random_location_824_latitude">6_deg_10_min_s</string>
+    <string name="random_location_825_latitude">6_deg_12_min_s</string>
+    <string name="random_location_826_latitude">6_deg_36_min_s</string>
+    <string name="random_location_827_latitude">6_deg_48_min_s</string>
+    <string name="random_location_828_latitude">6_deg_55_min_s</string>
+    <string name="random_location_829_latitude">6_deg_58_min_s</string>
+    <string name="random_location_830_latitude">7_deg_05_min_s</string>
+    <string name="random_location_831_latitude">7_deg_12_min_s</string>
+    <string name="random_location_832_latitude">7_deg_14_min_s</string>
+    <string name="random_location_833_latitude">7_deg_16_min_s</string>
+    <string name="random_location_834_latitude">7_deg_48_min_s</string>
+    <string name="random_location_835_latitude">7_deg_59_min_s</string>
+    <string name="random_location_836_latitude">8_deg_03_min_s</string>
+    <string name="random_location_837_latitude">8_deg_07_min_s</string>
+    <string name="random_location_838_latitude">8_deg_17_min_s</string>
+    <string name="random_location_839_latitude">8_deg_31_min_s</string>
+    <string name="random_location_840_latitude">8_deg_33_min_s</string>
+    <string name="random_location_841_latitude">8_deg_39_min_s</string>
+    <string name="random_location_842_latitude">8_deg_46_min_s</string>
+    <string name="random_location_843_latitude">8_deg_50_min_s</string>
+    <string name="random_location_844_latitude">8_deg_53_min_s</string>
+    <string name="random_location_845_latitude">9_deg_23_min_s</string>
+    <string name="random_location_846_latitude">9_deg_24_min_s</string>
+    <string name="random_location_847_latitude">9_deg_28_min_s</string>
+    <string name="random_location_848_latitude">9_deg_31_min_s</string>
+    <string name="random_location_849_latitude">9_deg_40_min_s</string>
+    <string name="random_location_850_latitude">9_deg_58_min_s</string>
+    <string name="random_location_851_latitude">10_deg_11_min_s</string>
+    <string name="random_location_852_latitude">10_deg_55_min_s</string>
+    <string name="random_location_853_latitude">11_deg_40_min_s</string>
+    <string name="random_location_854_latitude">11_deg_45_min_s</string>
+    <string name="random_location_855_latitude">11_deg_52_min_s</string>
+    <string name="random_location_856_latitude">12_deg_03_min_s</string>
+    <string name="random_location_857_latitude">12_deg_27_min_s</string>
+    <string name="random_location_858_latitude">12_deg_46_min_s</string>
+    <string name="random_location_859_latitude">12_deg_47_min_s</string>
+    <string name="random_location_860_latitude">12_deg_58_min_s</string>
+    <string name="random_location_861_latitude">12_deg_58_min_s</string>
+    <string name="random_location_862_latitude">13_deg_10_min_s</string>
+    <string name="random_location_863_latitude">13_deg_17_min_s</string>
+    <string name="random_location_864_latitude">13_deg_32_min_s</string>
+    <string name="random_location_865_latitude">13_deg_50_min_s</string>
+    <string name="random_location_866_latitude">13_deg_59_min_s</string>
+    <string name="random_location_867_latitude">14_deg_17_min_s</string>
+    <string name="random_location_868_latitude">14_deg_47_min_s</string>
+    <string name="random_location_869_latitude">15_deg_25_min_s</string>
+    <string name="random_location_870_latitude">15_deg_36_min_s</string>
+    <string name="random_location_871_latitude">15_deg_47_min_s</string>
+    <string name="random_location_872_latitude">15_deg_48_min_s</string>
+    <string name="random_location_873_latitude">15_deg_55_min_s</string>
+    <string name="random_location_874_latitude">16_deg_24_min_s</string>
+    <string name="random_location_875_latitude">16_deg_26_min_s</string>
+    <string name="random_location_876_latitude">16_deg_30_min_s</string>
+    <string name="random_location_877_latitude">16_deg_30_min_s</string>
+    <string name="random_location_878_latitude">16_deg_40_min_s</string>
+    <string name="random_location_879_latitude">16_deg_56_min_s</string>
+    <string name="random_location_880_latitude">17_deg_32_min_s</string>
+    <string name="random_location_881_latitude">17_deg_45_min_s</string>
+    <string name="random_location_882_latitude">17_deg_48_min_s</string>
+    <string name="random_location_883_latitude">17_deg_51_min_s</string>
+    <string name="random_location_884_latitude">17_deg_52_min_s</string>
+    <string name="random_location_885_latitude">18_deg_08_min_s</string>
+    <string name="random_location_886_latitude">18_deg_29_min_s</string>
+    <string name="random_location_887_latitude">18_deg_51_min_s</string>
+    <string name="random_location_888_latitude">18_deg_55_min_s</string>
+    <string name="random_location_889_latitude">18_deg_56_min_s</string>
+    <string name="random_location_890_latitude">19_deg_03_min_s</string>
+    <string name="random_location_891_latitude">19_deg_03_min_s</string>
+    <string name="random_location_892_latitude">19_deg_15_min_s</string>
+    <string name="random_location_893_latitude">19_deg_55_min_s</string>
+    <string name="random_location_894_latitude">20_deg_10_min_s</string>
+    <string name="random_location_895_latitude">20_deg_10_min_s</string>
+    <string name="random_location_896_latitude">20_deg_13_min_s</string>
+    <string name="random_location_897_latitude">20_deg_19_min_s</string>
+    <string name="random_location_898_latitude">20_deg_19_min_s</string>
+    <string name="random_location_899_latitude">20_deg_28_min_s</string>
+    <string name="random_location_900_latitude">20_deg_48_min_s</string>
+    <string name="random_location_901_latitude">20_deg_53_min_s</string>
+    <string name="random_location_902_latitude">21_deg_08_min_s</string>
+    <string name="random_location_903_latitude">21_deg_10_min_s</string>
+    <string name="random_location_904_latitude">21_deg_11_min_s</string>
+    <string name="random_location_905_latitude">21_deg_12_min_s</string>
+    <string name="random_location_906_latitude">21_deg_46_min_s</string>
+    <string name="random_location_907_latitude">21_deg_47_min_s</string>
+    <string name="random_location_908_latitude">21_deg_48_min_s</string>
+    <string name="random_location_909_latitude">22_deg_17_min_s</string>
+    <string name="random_location_910_latitude">22_deg_19_min_s</string>
+    <string name="random_location_911_latitude">22_deg_28_min_s</string>
+    <string name="random_location_912_latitude">22_deg_34_min_s</string>
+    <string name="random_location_913_latitude">22_deg_40_min_s</string>
+    <string name="random_location_914_latitude">22_deg_54_min_s</string>
+    <string name="random_location_915_latitude">22_deg_55_min_s</string>
+    <string name="random_location_916_latitude">23_deg_23_min_s</string>
+    <string name="random_location_917_latitude">23_deg_11_min_s</string>
+    <string name="random_location_918_latitude">23_deg_33_min_s</string>
+    <string name="random_location_919_latitude">23_deg_39_min_s</string>
+    <string name="random_location_920_latitude">23_deg_54_min_s</string>
+    <string name="random_location_921_latitude">24_deg_39_min_s</string>
+    <string name="random_location_922_latitude">24_deg_47_min_s</string>
+    <string name="random_location_923_latitude">25_deg_04_min_s</string>
+    <string name="random_location_924_latitude">25_deg_17_min_s</string>
+    <string name="random_location_925_latitude">25_deg_25_min_s</string>
+    <string name="random_location_926_latitude">25_deg_28_min_s</string>
+    <string name="random_location_927_latitude">25_deg_31_min_s</string>
+    <string name="random_location_928_latitude">25_deg_45_min_s</string>
+    <string name="random_location_929_latitude">25_deg_51_min_s</string>
+    <string name="random_location_930_latitude">25_deg_58_min_s</string>
+    <string name="random_location_931_latitude">26_deg_12_min_s</string>
+    <string name="random_location_932_latitude">26_deg_19_min_s</string>
+    <string name="random_location_933_latitude">26_deg_25_min_s</string>
+    <string name="random_location_934_latitude">26_deg_29_min_s</string>
+    <string name="random_location_935_latitude">26_deg_49_min_s</string>
+    <string name="random_location_936_latitude">27_deg_09_min_s</string>
+    <string name="random_location_937_latitude">27_deg_22_min_s</string>
+    <string name="random_location_938_latitude">27_deg_28_min_s</string>
+    <string name="random_location_939_latitude">27_deg_29_min_s</string>
+    <string name="random_location_940_latitude">27_deg_50_min_s</string>
+    <string name="random_location_941_latitude">28_deg_01_min_s</string>
+    <string name="random_location_942_latitude">28_deg_45_min_s</string>
+    <string name="random_location_943_latitude">29_deg_04_min_s</string>
+    <string name="random_location_944_latitude">29_deg_07_min_s</string>
+    <string name="random_location_945_latitude">29_deg_19_min_s</string>
+    <string name="random_location_946_latitude">29_deg_37_min_s</string>
+    <string name="random_location_947_latitude">29_deg_53_min_s</string>
+    <string name="random_location_948_latitude">29_deg_54_min_s</string>
+    <string name="random_location_949_latitude">30_deg_02_min_s</string>
+    <string name="random_location_950_latitude">31_deg_25_min_s</string>
+    <string name="random_location_951_latitude">31_deg_38_min_s</string>
+    <string name="random_location_952_latitude">31_deg_46_min_s</string>
+    <string name="random_location_953_latitude">31_deg_57_min_s</string>
+    <string name="random_location_954_latitude">32_deg_32_min_s</string>
+    <string name="random_location_955_latitude">32_deg_51_min_s</string>
+    <string name="random_location_956_latitude">32_deg_53_min_s</string>
+    <string name="random_location_957_latitude">32_deg_55_min_s</string>
+    <string name="random_location_958_latitude">32_deg_57_min_s</string>
+    <string name="random_location_959_latitude">33_deg_03_min_s</string>
+    <string name="random_location_960_latitude">33_deg_27_min_s</string>
+    <string name="random_location_961_latitude">33_deg_41_min_s</string>
+    <string name="random_location_962_latitude">33_deg_52_min_s</string>
+    <string name="random_location_963_latitude">33_deg_56_min_s</string>
+    <string name="random_location_964_latitude">33_deg_57_min_s</string>
+    <string name="random_location_965_latitude">34_deg_26_min_s</string>
+    <string name="random_location_966_latitude">34_deg_36_min_s</string>
+    <string name="random_location_967_latitude">34_deg_53_min_s</string>
+    <string name="random_location_968_latitude">34_deg_56_min_s</string>
+    <string name="random_location_969_latitude">35_deg_18_min_s</string>
+    <string name="random_location_970_latitude">36_deg_50_min_s</string>
+    <string name="random_location_971_latitude">36_deg_50_min_s</string>
+    <string name="random_location_972_latitude">37_deg_47_min_s</string>
+    <string name="random_location_973_latitude">37_deg_49_min_s</string>
+    <string name="random_location_974_latitude">38_deg_09_min_s</string>
+    <string name="random_location_975_latitude">38_deg_43_min_s</string>
+    <string name="random_location_976_latitude">38_deg_45_min_s</string>
+    <string name="random_location_977_latitude">39_deg_39_min_s</string>
+    <string name="random_location_978_latitude">39_deg_49_min_s</string>
+    <string name="random_location_979_latitude">41_deg_09_min_s</string>
+    <string name="random_location_980_latitude">41_deg_16_min_s</string>
+    <string name="random_location_981_latitude">41_deg_17_min_s</string>
+    <string name="random_location_982_latitude">41_deg_28_min_s</string>
+    <string name="random_location_983_latitude">42_deg_53_min_s</string>
+    <string name="random_location_984_latitude">43_deg_15_min_s</string>
+    <string name="random_location_985_latitude">43_deg_32_min_s</string>
+    <string name="random_location_986_latitude">45_deg_24_min_s</string>
+    <string name="random_location_987_latitude">45_deg_34_min_s</string>
+    <string name="random_location_988_latitude">45_deg_52_min_s</string>
+    <string name="random_location_989_latitude">45_deg_52_min_s</string>
+    <string name="random_location_990_latitude">46_deg_25_min_s</string>
+    <string name="random_location_991_latitude">51_deg_38_min_s</string>
+    <string name="random_location_992_latitude">51_deg_42_min_s</string>
+    <string name="random_location_993_latitude">53_deg_10_min_s</string>
+    <string name="random_location_994_latitude">54_deg_17_min_s</string>
+    <string name="random_location_995_latitude">54_deg_48_min_s</string>
+    <string name="random_location_996_latitude">54_deg_56_min_s</string>
+    <string name="random_location_997_latitude">55_deg_05_min_s</string>
+    <string name="random_location_998_latitude">63_deg_24_min_s</string>
+    <string name="random_location_999_latitude">67_deg_34_min_s</string>
+    <string name="random_location_1000_latitude">75_deg_06_min_s</string>
+    <string name="random_location_1001_latitude">77_deg_51_min_s</string>
+    <string name="random_location_1002_latitude">90_deg_00_min_s</string>
+    <string name="random_location_0_longitude">62_deg_20_min_w</string>
+    <string name="random_location_1_longitude">16_deg_40_min_w</string>
+    <string name="random_location_2_longitude">85_deg_56_min_w</string>
+    <string name="random_location_3_longitude">11_deg_56_min_e</string>
+    <string name="random_location_4_longitude">15_deg_39_min_e</string>
+    <string name="random_location_5_longitude">69_deg_14_min_w</string>
+    <string name="random_location_6_longitude">82_deg_54_min_w</string>
+    <string name="random_location_7_longitude">80_deg_31_min_e</string>
+    <string name="random_location_8_longitude">56_deg_09_min_w</string>
+    <string name="random_location_9_longitude">128_deg_52_min_e</string>
+    <string name="random_location_10_longitude">156_deg_46_min_w</string>
+    <string name="random_location_11_longitude">25_deg_59_min_e</string>
+    <string name="random_location_12_longitude">23_deg_41_min_e</string>
+    <string name="random_location_13_longitude">148_deg_31_min_w</string>
+    <string name="random_location_14_longitude">27_deg_53_min_e</string>
+    <string name="random_location_15_longitude">29_deg_44_min_e</string>
+    <string name="random_location_16_longitude">27_deg_01_min_e</string>
+    <string name="random_location_17_longitude">18_deg_57_min_e</string>
+    <string name="random_location_18_longitude">133_deg_02_min_w</string>
+    <string name="random_location_19_longitude">88_deg_13_min_e</string>
+    <string name="random_location_20_longitude">33_deg_05_min_e</string>
+    <string name="random_location_21_longitude">17_deg_34_min_e</string>
+    <string name="random_location_22_longitude">20_deg_13_min_e</string>
+    <string name="random_location_23_longitude">133_deg_23_min_e</string>
+    <string name="random_location_24_longitude">14_deg_33_min_e</string>
+    <string name="random_location_25_longitude">20_deg_66_min_e</string>
+    <string name="random_location_26_longitude">27_deg_26_min_e</string>
+    <string name="random_location_27_longitude">25_deg_44_min_e</string>
+    <string name="random_location_28_longitude">23_deg_08_min_w</string>
+    <string name="random_location_29_longitude">29_deg_11_min_e</string>
+    <string name="random_location_30_longitude">24_deg_09_min_e</string>
+    <string name="random_location_31_longitude">21_deg_43_min_e</string>
+    <string name="random_location_32_longitude">24_deg_08_min_e</string>
+    <string name="random_location_33_longitude">24_deg_34_min_e</string>
+    <string name="random_location_34_longitude">18_deg_06_min_w</string>
+    <string name="random_location_35_longitude">22_deg_09_min_e</string>
+    <string name="random_location_36_longitude">27_deg_00_min_e</string>
+    <string name="random_location_37_longitude">21_deg_30_min_e</string>
+    <string name="random_location_38_longitude">25_deg_28_min_e</string>
+    <string name="random_location_39_longitude">147_deg_43_min_w</string>
+    <string name="random_location_40_longitude">20_deg_57_min_e</string>
+    <string name="random_location_41_longitude">177_deg_31_min_e</string>
+    <string name="random_location_42_longitude">40_deg_32_min_e</string>
+    <string name="random_location_43_longitude">51_deg_44_min_w</string>
+    <string name="random_location_44_longitude">21_deg_56_min_w</string>
+    <string name="random_location_45_longitude">20_deg_16_min_e</string>
+    <string name="random_location_46_longitude">68_deg_31_min_w</string>
+    <string name="random_location_47_longitude">11_deg_10_min_e</string>
+    <string name="random_location_48_longitude">10_deg_24_min_e</string>
+    <string name="random_location_49_longitude">18_deg_44_min_e</string>
+    <string name="random_location_50_longitude">14_deg_40_min_e</string>
+    <string name="random_location_51_longitude">21_deg_37_min_e</string>
+    <string name="random_location_52_longitude">27_deg_41_min_e</string>
+    <string name="random_location_53_longitude">114_deg_24_min_w</string>
+    <string name="random_location_54_longitude">17_deg_19_min_e</string>
+    <string name="random_location_55_longitude">25_deg_45_min_e</string>
+    <string name="random_location_56_longitude">129_deg_44_min_e</string>
+    <string name="random_location_57_longitude">6_deg_46_min_w</string>
+    <string name="random_location_58_longitude">23_deg_46_min_e</string>
+    <string name="random_location_59_longitude">149_deg_54_min_w</string>
+    <string name="random_location_60_longitude">10_deg_26_min_e</string>
+    <string name="random_location_61_longitude">25_deg_39_min_e</string>
+    <string name="random_location_62_longitude">46_deg_02_min_w</string>
+    <string name="random_location_63_longitude">135_deg_03_min_w</string>
+    <string name="random_location_64_longitude">11_deg_16_min_e</string>
+    <string name="random_location_65_longitude">5_deg_20_min_e</string>
+    <string name="random_location_66_longitude">25_deg_02_min_e</string>
+    <string name="random_location_67_longitude">24_deg_39_min_e</string>
+    <string name="random_location_68_longitude">24_deg_56_min_e</string>
+    <string name="random_location_69_longitude">10_deg_45_min_e</string>
+    <string name="random_location_70_longitude">30_deg_18_min_e</string>
+    <string name="random_location_71_longitude">17_deg_39_min_e</string>
+    <string name="random_location_72_longitude">150_deg_48_min_e</string>
+    <string name="random_location_73_longitude">24_deg_45_min_e</string>
+    <string name="random_location_74_longitude">18_deg_04_min_e</string>
+    <string name="random_location_75_longitude">11_deg_12_min_e</string>
+    <string name="random_location_76_longitude">16_deg_12_min_e</string>
+    <string name="random_location_77_longitude">26_deg_43_min_e</string>
+    <string name="random_location_78_longitude">134_deg_25_min_w</string>
+    <string name="random_location_79_longitude">8_deg_00_min_e</string>
+    <string name="random_location_80_longitude">56_deg_19_min_e</string>
+    <string name="random_location_81_longitude">11_deg_58_min_e</string>
+    <string name="random_location_82_longitude">39_deg_51_min_e</string>
+    <string name="random_location_83_longitude">4_deg_14_min_w</string>
+    <string name="random_location_84_longitude">4_deg_07_min_w</string>
+    <string name="random_location_85_longitude">135_deg_20_min_w</string>
+    <string name="random_location_86_longitude">24_deg_06_min_e</string>
+    <string name="random_location_87_longitude">53_deg_11_min_e</string>
+    <string name="random_location_88_longitude">60_deg_35_min_e</string>
+    <string name="random_location_89_longitude">111_deg_23_min_w</string>
+    <string name="random_location_90_longitude">44_deg_00_min_e</string>
+    <string name="random_location_91_longitude">101_deg_36_min_e</string>
+    <string name="random_location_92_longitude">10_deg_13_min_e</string>
+    <string name="random_location_93_longitude">93_deg_04_min_e</string>
+    <string name="random_location_94_longitude">3_deg_11_min_w</string>
+    <string name="random_location_95_longitude">4_deg_16_min_w</string>
+    <string name="random_location_96_longitude">49_deg_08_min_e</string>
+    <string name="random_location_97_longitude">37_deg_37_min_e</string>
+    <string name="random_location_98_longitude">12_deg_34_min_e</string>
+    <string name="random_location_99_longitude">13_deg_02_min_e</string>
+    <string name="random_location_100_longitude">8_deg_27_min_e</string>
+    <string name="random_location_101_longitude">10_deg_23_min_e</string>
+    <string name="random_location_102_longitude">118_deg_48_min_w</string>
+    <string name="random_location_103_longitude">61_deg_23_min_e</string>
+    <string name="random_location_104_longitude">82_deg_56_min_e</string>
+    <string name="random_location_105_longitude">73_deg_22_min_e</string>
+    <string name="random_location_106_longitude">1_deg_37_min_w</string>
+    <string name="random_location_107_longitude">9_deg_26_min_e</string>
+    <string name="random_location_108_longitude">55_deg_58_min_e</string>
+    <string name="random_location_109_longitude">20_deg_31_min_e</string>
+    <string name="random_location_110_longitude">25_deg_17_min_e</string>
+    <string name="random_location_111_longitude">5_deg_56_min_w</string>
+    <string name="random_location_112_longitude">18_deg_33_min_e</string>
+    <string name="random_location_113_longitude">18_deg_38_min_e</string>
+    <string name="random_location_114_longitude">10_deg_08_min_e</string>
+    <string name="random_location_115_longitude">4_deg_29_min_w</string>
+    <string name="random_location_116_longitude">2_deg_80_min_w</string>
+    <string name="random_location_117_longitude">27_deg_34_min_e</string>
+    <string name="random_location_118_longitude">1_deg_45_min_w</string>
+    <string name="random_location_119_longitude">1_deg_33_min_w</string>
+    <string name="random_location_120_longitude">10_deg_00_min_e</string>
+    <string name="random_location_121_longitude">113_deg_30_min_w</string>
+    <string name="random_location_122_longitude">49_deg_25_min_e</string>
+    <string name="random_location_123_longitude">2_deg_14_min_w</string>
+    <string name="random_location_124_longitude">2_deg_59_min_w</string>
+    <string name="random_location_125_longitude">1_deg_28_min_w</string>
+    <string name="random_location_126_longitude">6_deg_16_min_w</string>
+    <string name="random_location_127_longitude">6_deg_33_min_e</string>
+    <string name="random_location_128_longitude">50_deg_08_min_e</string>
+    <string name="random_location_129_longitude">8_deg_48_min_e</string>
+    <string name="random_location_130_longitude">158_deg_39_min_e</string>
+    <string name="random_location_131_longitude">1_deg_08_min_w</string>
+    <string name="random_location_132_longitude">1_deg_28_min_w</string>
+    <string name="random_location_133_longitude">1_deg_08_min_w</string>
+    <string name="random_location_134_longitude">1_deg_18_min_e</string>
+    <string name="random_location_135_longitude">0_deg_15_min_w</string>
+    <string name="random_location_136_longitude">13_deg_23_min_e</string>
+    <string name="random_location_137_longitude">1_deg_54_min_w</string>
+    <string name="random_location_138_longitude">1_deg_31_min_w</string>
+    <string name="random_location_139_longitude">16_deg_55_min_e</string>
+    <string name="random_location_140_longitude">4_deg_38_min_e</string>
+    <string name="random_location_141_longitude">4_deg_54_min_e</string>
+    <string name="random_location_142_longitude">9_deg_43_min_e</string>
+    <string name="random_location_143_longitude">104_deg_18_min_e</string>
+    <string name="random_location_144_longitude">21_deg_01_min_e</string>
+    <string name="random_location_145_longitude">6_deg_54_min_e</string>
+    <string name="random_location_146_longitude">0_deg_07_min_e</string>
+    <string name="random_location_147_longitude">4_deg_29_min_e</string>
+    <string name="random_location_148_longitude">106_deg_41_min_w</string>
+    <string name="random_location_149_longitude">5_deg_07_min_e</string>
+    <string name="random_location_150_longitude">4_deg_19_min_e</string>
+    <string name="random_location_151_longitude">4_deg_29_min_e</string>
+    <string name="random_location_152_longitude">8_deg_28_min_w</string>
+    <string name="random_location_153_longitude">176_deg_39_min_w</string>
+    <string name="random_location_154_longitude">2_deg_14_min_w</string>
+    <string name="random_location_155_longitude">1_deg_15_min_w</string>
+    <string name="random_location_156_longitude">39_deg_13_min_e</string>
+    <string name="random_location_157_longitude">3_deg_57_min_w</string>
+    <string name="random_location_158_longitude">46_deg_01_min_e</string>
+    <string name="random_location_159_longitude">0_deg_08_min_w</string>
+    <string name="random_location_160_longitude">3_deg_11_min_w</string>
+    <string name="random_location_161_longitude">0_deg_00_min_e/w</string>
+    <string name="random_location_162_longitude">2_deg_35_min_w</string>
+    <string name="random_location_163_longitude">2_deg_22_min_w</string>
+    <string name="random_location_164_longitude">12_deg_23_min_e</string>
+    <string name="random_location_165_longitude">6_deg_47_min_e</string>
+    <string name="random_location_166_longitude">4_deg_24_min_e</string>
+    <string name="random_location_167_longitude">71_deg_26_min_e</string>
+    <string name="random_location_168_longitude">1_deg_30_min_e</string>
+    <string name="random_location_169_longitude">114_deg_04_min_w</string>
+    <string name="random_location_170_longitude">3_deg_44_min_e</string>
+    <string name="random_location_171_longitude">13_deg_44_min_e</string>
+    <string name="random_location_172_longitude">6_deg_58_min_e</string>
+    <string name="random_location_173_longitude">1_deg_24_min_w</string>
+    <string name="random_location_174_longitude">5_deg_41_min_e</string>
+    <string name="random_location_175_longitude">4_deg_21_min_e</string>
+    <string name="random_location_176_longitude">0_deg_09_min_w</string>
+    <string name="random_location_177_longitude">1_deg_05_min_w</string>
+    <string name="random_location_178_longitude">3_deg_32_min_w</string>
+    <string name="random_location_179_longitude">120_deg_20_min_w</string>
+    <string name="random_location_180_longitude">3_deg_03_min_e</string>
+    <string name="random_location_181_longitude">104_deg_36_min_w</string>
+    <string name="random_location_182_longitude">30_deg_31_min_e</string>
+    <string name="random_location_183_longitude">4_deg_09_min_w</string>
+    <string name="random_location_184_longitude">8_deg_41_min_e</string>
+    <string name="random_location_185_longitude">14_deg_25_min_e</string>
+    <string name="random_location_186_longitude">19_deg_56_min_e</string>
+    <string name="random_location_187_longitude">36_deg_14_min_e</string>
+    <string name="random_location_188_longitude">97_deg_08_min_w</string>
+    <string name="random_location_189_longitude">119_deg_30_min_w</string>
+    <string name="random_location_190_longitude">24_deg_01_min_e</string>
+    <string name="random_location_191_longitude">6_deg_07_min_e</string>
+    <string name="random_location_192_longitude">123_deg_06_min_w</string>
+    <string name="random_location_193_longitude">2_deg_21_min_e</string>
+    <string name="random_location_194_longitude">9_deg_11_min_e</string>
+    <string name="random_location_195_longitude">44_deg_31_min_e</string>
+    <string name="random_location_196_longitude">7_deg_45_min_e</string>
+    <string name="random_location_197_longitude">123_deg_22_min_w</string>
+    <string name="random_location_198_longitude">89_deg_15_min_w</string>
+    <string name="random_location_199_longitude">14_deg_17_min_e</string>
+    <string name="random_location_200_longitude">16_deg_22_min_e</string>
+    <string name="random_location_201_longitude">17_deg_07_min_e</string>
+    <string name="random_location_202_longitude">11_deg_34_min_e</string>
+    <string name="random_location_203_longitude">37_deg_48_min_e</string>
+    <string name="random_location_204_longitude">106_deg_55_min_e</string>
+    <string name="random_location_205_longitude">13_deg_02_min_e</string>
+    <string name="random_location_206_longitude">122_deg_20_min_w</string>
+    <string name="random_location_207_longitude">52_deg_42_min_w</string>
+    <string name="random_location_208_longitude">7_deg_36_min_e</string>
+    <string name="random_location_209_longitude">19_deg_03_min_e</string>
+    <string name="random_location_210_longitude">123_deg_27_min_e</string>
+    <string name="random_location_211_longitude">8_deg_33_min_e</string>
+    <string name="random_location_212_longitude">11_deg_23_min_e</string>
+    <string name="random_location_213_longitude">39_deg_42_min_e</string>
+    <string name="random_location_214_longitude">1_deg_33_min_w</string>
+    <string name="random_location_215_longitude">9_deg_31_min_e</string>
+    <string name="random_location_216_longitude">15_deg_26_min_e</string>
+    <string name="random_location_217_longitude">28_deg_55_min_e</string>
+    <string name="random_location_218_longitude">7_deg_27_min_e</string>
+    <string name="random_location_219_longitude">29_deg_38_min_e</string>
+    <string name="random_location_220_longitude">71_deg_13_min_w</string>
+    <string name="random_location_221_longitude">100_deg_47_min_w</string>
+    <string name="random_location_222_longitude">56_deg_11_min_w</string>
+    <string name="random_location_223_longitude">23_deg_35_min_e</string>
+    <string name="random_location_224_longitude">117_deg_01_min_w</string>
+    <string name="random_location_225_longitude">112_deg_02_min_w</string>
+    <string name="random_location_226_longitude">84_deg_21_min_w</string>
+    <string name="random_location_227_longitude">6_deg_38_min_e</string>
+    <string name="random_location_228_longitude">81_deg_01_min_w</string>
+    <string name="random_location_229_longitude">30_deg_44_min_e</string>
+    <string name="random_location_230_longitude">79_deg_27_min_w</string>
+    <string name="random_location_231_longitude">63_deg_09_min_w</string>
+    <string name="random_location_232_longitude">6_deg_09_min_e</string>
+    <string name="random_location_233_longitude">64_deg_46_min_w</string>
+    <string name="random_location_234_longitude">14_deg_31_min_e</string>
+    <string name="random_location_235_longitude">66_deg_40_min_w</string>
+    <string name="random_location_236_longitude">15_deg_59_min_e</string>
+    <string name="random_location_237_longitude">4_deg_51_min_e</string>
+    <string name="random_location_238_longitude">126_deg_38_min_e</string>
+    <string name="random_location_239_longitude">122_deg_41_min_w</string>
+    <string name="random_location_240_longitude">73_deg_34_min_w</string>
+    <string name="random_location_241_longitude">9_deg_11_min_e</string>
+    <string name="random_location_242_longitude">12_deg_20_min_e</string>
+    <string name="random_location_243_longitude">75_deg_41_min_w</string>
+    <string name="random_location_244_longitude">141_deg_40_min_e</string>
+    <string name="random_location_245_longitude">66_deg_05_min_w</string>
+    <string name="random_location_246_longitude">19_deg_51_min_e</string>
+    <string name="random_location_247_longitude">7_deg_42_min_e</string>
+    <string name="random_location_248_longitude">38_deg_58_min_e</string>
+    <string name="random_location_249_longitude">93_deg_16_min_w</string>
+    <string name="random_location_250_longitude">34_deg_06_min_e</string>
+    <string name="random_location_251_longitude">63_deg_12_min_w</string>
+    <string name="random_location_252_longitude">0_deg_35_min_w</string>
+    <string name="random_location_253_longitude">20_deg_28_min_e</string>
+    <string name="random_location_254_longitude">19_deg_42_min_e</string>
+    <string name="random_location_255_longitude">11_deg_21_min_e</string>
+    <string name="random_location_256_longitude">26_deg_06_min_e</string>
+    <string name="random_location_257_longitude">100_deg_20_min_w</string>
+    <string name="random_location_258_longitude">23_deg_49_min_e</string>
+    <string name="random_location_259_longitude">69_deg_47_min_w</string>
+    <string name="random_location_260_longitude">72_deg_34_min_w</string>
+    <string name="random_location_261_longitude">12_deg_27_min_e</string>
+    <string name="random_location_262_longitude">125_deg_12_min_e</string>
+    <string name="random_location_263_longitude">18_deg_21_min_e</string>
+    <string name="random_location_264_longitude">66_deg_07_min_w</string>
+    <string name="random_location_265_longitude">87_deg_36_min_e</string>
+    <string name="random_location_266_longitude">11_deg_15_min_e</string>
+    <string name="random_location_267_longitude">142_deg_22_min_e</string>
+    <string name="random_location_268_longitude">7_deg_25_min_e</string>
+    <string name="random_location_269_longitude">7_deg_16_min_e</string>
+    <string name="random_location_270_longitude">79_deg_24_min_w</string>
+    <string name="random_location_271_longitude">116_deg_12_min_w</string>
+    <string name="random_location_272_longitude">1_deg_27_min_e</string>
+    <string name="random_location_273_longitude">39_deg_43_min_e</string>
+    <string name="random_location_274_longitude">7_deg_01_min_e</string>
+    <string name="random_location_275_longitude">5_deg_42_min_w</string>
+    <string name="random_location_276_longitude">16_deg_26_min_e</string>
+    <string name="random_location_277_longitude">145_deg_35_min_e</string>
+    <string name="random_location_278_longitude">2_deg_00_min_w</string>
+    <string name="random_location_279_longitude">5_deg_22_min_e</string>
+    <string name="random_location_280_longitude">76_deg_54_min_e</string>
+    <string name="random_location_281_longitude">2_deg_55_min_w</string>
+    <string name="random_location_282_longitude">71_deg_32_min_w</string>
+    <string name="random_location_283_longitude">77_deg_37_min_w</string>
+    <string name="random_location_284_longitude">131_deg_54_min_e</string>
+    <string name="random_location_285_longitude">141_deg_21_min_e</string>
+    <string name="random_location_286_longitude">87_deg_57_min_w</string>
+    <string name="random_location_287_longitude">41_deg_01_min_e</string>
+    <string name="random_location_288_longitude">144_deg_23_min_e</string>
+    <string name="random_location_289_longitude">143_deg_12_min_e</string>
+    <string name="random_location_290_longitude">78_deg_51_min_w</string>
+    <string name="random_location_291_longitude">74_deg_37_min_e</string>
+    <string name="random_location_292_longitude">2_deg_41_min_w</string>
+    <string name="random_location_293_longitude">23_deg_20_min_e</string>
+    <string name="random_location_294_longitude">21_deg_10_min_e</string>
+    <string name="random_location_295_longitude">1_deg_30_min_e</string>
+    <string name="random_location_296_longitude">59_deg_36_min_e</string>
+    <string name="random_location_297_longitude">19_deg_16_min_e</string>
+    <string name="random_location_298_longitude">71_deg_04_min_w</string>
+    <string name="random_location_299_longitude">83_deg_03_min_w</string>
+    <string name="random_location_300_longitude">83_deg_00_min_w</string>
+    <string name="random_location_301_longitude">43_deg_58_min_e</string>
+    <string name="random_location_302_longitude">21_deg_26_min_e</string>
+    <string name="random_location_303_longitude">89_deg_58_min_w</string>
+    <string name="random_location_304_longitude">12_deg_30_min_e</string>
+    <string name="random_location_305_longitude">12_deg_27_min_e</string>
+    <string name="random_location_306_longitude">87_deg_38_min_w</string>
+    <string name="random_location_307_longitude">71_deg_25_min_w</string>
+    <string name="random_location_308_longitude">123_deg_25_min_e</string>
+    <string name="random_location_309_longitude">129_deg_47_min_e</string>
+    <string name="random_location_310_longitude">72_deg_40_min_w</string>
+    <string name="random_location_311_longitude">140_deg_44_min_e</string>
+    <string name="random_location_312_longitude">44_deg_47_min_e</string>
+    <string name="random_location_313_longitude">0_deg_53_min_w</string>
+    <string name="random_location_314_longitude">93_deg_37_min_w</string>
+    <string name="random_location_315_longitude">81_deg_40_min_w</string>
+    <string name="random_location_316_longitude">2_deg_11_min_e</string>
+    <string name="random_location_317_longitude">19_deg_49_min_e</string>
+    <string name="random_location_318_longitude">69_deg_13_min_e</string>
+    <string name="random_location_319_longitude">8_deg_37_min_w</string>
+    <string name="random_location_320_longitude">104_deg_48_min_w</string>
+    <string name="random_location_321_longitude">85_deg_08_min_w</string>
+    <string name="random_location_322_longitude">28_deg_57_min_e</string>
+    <string name="random_location_323_longitude">71_deg_40_min_e</string>
+    <string name="random_location_324_longitude">14_deg_16_min_e</string>
+    <string name="random_location_325_longitude">140_deg_45_min_e</string>
+    <string name="random_location_326_longitude">96_deg_41_min_w</string>
+    <string name="random_location_327_longitude">105_deg_01_min_w</string>
+    <string name="random_location_328_longitude">111_deg_53_min_w</string>
+    <string name="random_location_329_longitude">74_deg_04_min_w</string>
+    <string name="random_location_330_longitude">73_deg_56_min_w</string>
+    <string name="random_location_331_longitude">22_deg_54_min_e</string>
+    <string name="random_location_332_longitude">80_deg_00_min_w</string>
+    <string name="random_location_333_longitude">3_deg_41_min_w</string>
+    <string name="random_location_334_longitude">49_deg_53_min_e</string>
+    <string name="random_location_335_longitude">74_deg_46_min_w</string>
+    <string name="random_location_336_longitude">29_deg_03_min_e</string>
+    <string name="random_location_337_longitude">44_deg_31_min_e</string>
+    <string name="random_location_338_longitude">105_deg_17_min_w</string>
+    <string name="random_location_339_longitude">82_deg_59_min_w</string>
+    <string name="random_location_340_longitude">75_deg_10_min_w</string>
+    <string name="random_location_341_longitude">116_deg_24_min_e</string>
+    <string name="random_location_342_longitude">30_deg_31_min_e</string>
+    <string name="random_location_343_longitude">86_deg_09_min_w</string>
+    <string name="random_location_344_longitude">104_deg_59_min_w</string>
+    <string name="random_location_345_longitude">140_deg_07_min_e</string>
+    <string name="random_location_346_longitude">141_deg_09_min_e</string>
+    <string name="random_location_347_longitude">2_deg_39_min_e</string>
+    <string name="random_location_348_longitude">119_deg_49_min_w</string>
+    <string name="random_location_349_longitude">31_deg_14_min_w</string>
+    <string name="random_location_350_longitude">0_deg_23_min_w</string>
+    <string name="random_location_351_longitude">76_deg_37_min_w</string>
+    <string name="random_location_352_longitude">9_deg_03_min_e</string>
+    <string name="random_location_353_longitude">75_deg_32_min_w</string>
+    <string name="random_location_354_longitude">127_deg_27_min_e</string>
+    <string name="random_location_355_longitude">117_deg_11_min_e</string>
+    <string name="random_location_356_longitude">84_deg_31_min_w</string>
+    <string name="random_location_357_longitude">94_deg_35_min_w</string>
+    <string name="random_location_358_longitude">125_deg_44_min_e</string>
+    <string name="random_location_359_longitude">1_deg_26_min_e</string>
+    <string name="random_location_360_longitude">121_deg_38_min_e</string>
+    <string name="random_location_361_longitude">77_deg_02_min_w</string>
+    <string name="random_location_362_longitude">9_deg_08_min_w</string>
+    <string name="random_location_363_longitude">90_deg_12_min_w</string>
+    <string name="random_location_364_longitude">28_deg_43_min_w</string>
+    <string name="random_location_365_longitude">121_deg_28_min_w</string>
+    <string name="random_location_366_longitude">68_deg_47_min_e</string>
+    <string name="random_location_367_longitude">27_deg_13_min_w</string>
+    <string name="random_location_368_longitude">23_deg_36_min_e</string>
+    <string name="random_location_369_longitude">27_deg_09_min_e</string>
+    <string name="random_location_370_longitude">81_deg_38_min_w</string>
+    <string name="random_location_371_longitude">140_deg_52_min_e</string>
+    <string name="random_location_372_longitude">85_deg_46_min_w</string>
+    <string name="random_location_373_longitude">140_deg_20_min_e</string>
+    <string name="random_location_374_longitude">15_deg_33_min_e</string>
+    <string name="random_location_375_longitude">13_deg_22_min_e</string>
+    <string name="random_location_376_longitude">46_deg_18_min_e</string>
+    <string name="random_location_377_longitude">114_deg_30_min_e</string>
+    <string name="random_location_378_longitude">23_deg_43_min_e</string>
+    <string name="random_location_379_longitude">126_deg_33_min_e</string>
+    <string name="random_location_380_longitude">58_deg_22_min_e</string>
+    <string name="random_location_381_longitude">139_deg_02_min_e</string>
+    <string name="random_location_382_longitude">112_deg_34_min_e</string>
+    <string name="random_location_383_longitude">32_deg_29_min_e</string>
+    <string name="random_location_384_longitude">25_deg_45_min_w</string>
+    <string name="random_location_385_longitude">122_deg_25_min_w</string>
+    <string name="random_location_386_longitude">140_deg_28_min_e</string>
+    <string name="random_location_387_longitude">97_deg_20_min_w</string>
+    <string name="random_location_388_longitude">126_deg_59_min_e</string>
+    <string name="random_location_389_longitude">15_deg_05_min_e</string>
+    <string name="random_location_390_longitude">126_deg_38_min_e</string>
+    <string name="random_location_391_longitude">5_deg_59_min_w</string>
+    <string name="random_location_392_longitude">93_deg_17_min_w</string>
+    <string name="random_location_393_longitude">37_deg_23_min_e</string>
+    <string name="random_location_394_longitude">35_deg_19_min_e</string>
+    <string name="random_location_395_longitude">75_deg_59_min_w</string>
+    <string name="random_location_396_longitude">10_deg_11_min_e</string>
+    <string name="random_location_397_longitude">34_deg_38_min_e</string>
+    <string name="random_location_398_longitude">3_deg_13_min_e</string>
+    <string name="random_location_399_longitude">4_deg_25_min_w</string>
+    <string name="random_location_400_longitude">137_deg_13_min_e</string>
+    <string name="random_location_401_longitude">116_deg_59_min_e</string>
+    <string name="random_location_402_longitude">138_deg_11_min_e</string>
+    <string name="random_location_403_longitude">101_deg_46_min_e</string>
+    <string name="random_location_404_longitude">114_deg_29_min_e</string>
+    <string name="random_location_405_longitude">136_deg_39_min_e</string>
+    <string name="random_location_406_longitude">139_deg_53_min_e</string>
+    <string name="random_location_407_longitude">139_deg_04_min_e</string>
+    <string name="random_location_408_longitude">140_deg_28_min_e</string>
+    <string name="random_location_409_longitude">43_deg_08_min_e</string>
+    <string name="random_location_410_longitude">59_deg_36_min_e</string>
+    <string name="random_location_411_longitude">44_deg_01_min_e</string>
+    <string name="random_location_412_longitude">115_deg_08_min_w</string>
+    <string name="random_location_413_longitude">86_deg_47_min_w</string>
+    <string name="random_location_414_longitude">5_deg_21_min_w</string>
+    <string name="random_location_415_longitude">95_deg_56_min_w</string>
+    <string name="random_location_416_longitude">136_deg_13_min_e</string>
+    <string name="random_location_417_longitude">120_deg_23_min_e</string>
+    <string name="random_location_418_longitude">103_deg_48_min_e</string>
+    <string name="random_location_419_longitude">83_deg_57_min_w</string>
+    <string name="random_location_420_longitude">14_deg_31_min_e</string>
+    <string name="random_location_421_longitude">14_deg_28_min_e</string>
+    <string name="random_location_422_longitude">128_deg_36_min_e</string>
+    <string name="random_location_423_longitude">78_deg_39_min_w</string>
+    <string name="random_location_424_longitude">51_deg_25_min_e</string>
+    <string name="random_location_425_longitude">139_deg_42_min_e</string>
+    <string name="random_location_426_longitude">105_deg_58_min_w</string>
+    <string name="random_location_427_longitude">138_deg_34_min_e</string>
+    <string name="random_location_428_longitude">140_deg_06_min_e</string>
+    <string name="random_location_429_longitude">35_deg_47_min_e</string>
+    <string name="random_location_430_longitude">139_deg_42_min_e</string>
+    <string name="random_location_431_longitude">134_deg_14_min_e</string>
+    <string name="random_location_432_longitude">97_deg_32_min_w</string>
+    <string name="random_location_433_longitude">133_deg_03_min_e</string>
+    <string name="random_location_434_longitude">44_deg_19_min_e</string>
+    <string name="random_location_435_longitude">139_deg_38_min_e</string>
+    <string name="random_location_436_longitude">136_deg_46_min_e</string>
+    <string name="random_location_437_longitude">25_deg_08_min_e</string>
+    <string name="random_location_438_longitude">80_deg_51_min_w</string>
+    <string name="random_location_439_longitude">136_deg_54_min_e</string>
+    <string name="random_location_440_longitude">129_deg_05_min_e</string>
+    <string name="random_location_441_longitude">33_deg_22_min_e</string>
+    <string name="random_location_442_longitude">89_deg_58_min_w</string>
+    <string name="random_location_443_longitude">106_deg_37_min_w</string>
+    <string name="random_location_444_longitude">135_deg_51_min_e</string>
+    <string name="random_location_445_longitude">138_deg_23_min_e</string>
+    <string name="random_location_446_longitude">113_deg_39_min_e</string>
+    <string name="random_location_447_longitude">92_deg_20_min_w</string>
+    <string name="random_location_448_longitude">10_deg_46_min_e</string>
+    <string name="random_location_449_longitude">136_deg_30_min_e</string>
+    <string name="random_location_450_longitude">135_deg_30_min_e</string>
+    <string name="random_location_451_longitude">135_deg_12_min_e</string>
+    <string name="random_location_452_longitude">135_deg_48_min_e</string>
+    <string name="random_location_453_longitude">133_deg_55_min_e</string>
+    <string name="random_location_454_longitude">69_deg_10_min_e</string>
+    <string name="random_location_455_longitude">119_deg_43_min_w</string>
+    <string name="random_location_456_longitude">132_deg_27_min_e</string>
+    <string name="random_location_457_longitude">134_deg_03_min_e</string>
+    <string name="random_location_458_longitude">108_deg_54_min_e</string>
+    <string name="random_location_459_longitude">135_deg_10_min_e</string>
+    <string name="random_location_460_longitude">77_deg_55_min_w</string>
+    <string name="random_location_461_longitude">131_deg_28_min_e</string>
+    <string name="random_location_462_longitude">74_deg_47_min_e</string>
+    <string name="random_location_463_longitude">134_deg_33_min_e</string>
+    <string name="random_location_464_longitude">118_deg_15_min_w</string>
+    <string name="random_location_465_longitude">6_deg_50_min_w</string>
+    <string name="random_location_466_longitude">71_deg_35_min_e</string>
+    <string name="random_location_467_longitude">81_deg_03_min_w</string>
+    <string name="random_location_468_longitude">117_deg_24_min_w</string>
+    <string name="random_location_469_longitude">35_deg_31_min_e</string>
+    <string name="random_location_470_longitude">132_deg_46_min_e</string>
+    <string name="random_location_471_longitude">84_deg_23_min_w</string>
+    <string name="random_location_472_longitude">73_deg_04_min_e</string>
+    <string name="random_location_473_longitude">86_deg_49_min_w</string>
+    <string name="random_location_474_longitude">73_deg_02_min_e</string>
+    <string name="random_location_475_longitude">130_deg_24_min_e</string>
+    <string name="random_location_476_longitude">133_deg_32_min_e</string>
+    <string name="random_location_477_longitude">7_deg_35_min_w</string>
+    <string name="random_location_478_longitude">36_deg_18_min_e</string>
+    <string name="random_location_479_longitude">112_deg_04_min_w</string>
+    <string name="random_location_480_longitude">44_deg_26_min_e</string>
+    <string name="random_location_481_longitude">130_deg_18_min_e</string>
+    <string name="random_location_482_longitude">131_deg_36_min_e</string>
+    <string name="random_location_483_longitude">13_deg_11_min_e</string>
+    <string name="random_location_484_longitude">79_deg_56_min_w</string>
+    <string name="random_location_485_longitude">96_deg_48_min_w</string>
+    <string name="random_location_486_longitude">129_deg_52_min_e</string>
+    <string name="random_location_487_longitude">130_deg_44_min_e</string>
+    <string name="random_location_488_longitude">117_deg_10_min_w</string>
+    <string name="random_location_489_longitude">115_deg_28_min_w</string>
+    <string name="random_location_490_longitude">16_deg_55_min_w</string>
+    <string name="random_location_491_longitude">115_deg_33_min_w</string>
+    <string name="random_location_492_longitude">51_deg_39_min_e</string>
+    <string name="random_location_493_longitude">117_deg_02_min_w</string>
+    <string name="random_location_494_longitude">93_deg_42_min_w</string>
+    <string name="random_location_495_longitude">90_deg_11_min_w</string>
+    <string name="random_location_496_longitude">64_deg_47_min_w</string>
+    <string name="random_location_497_longitude">110_deg_56_min_w</string>
+    <string name="random_location_498_longitude">20_deg_04_min_e</string>
+    <string name="random_location_499_longitude">34_deg_47_min_e</string>
+    <string name="random_location_500_longitude">118_deg_46_min_e</string>
+    <string name="random_location_501_longitude">35_deg_56_min_e</string>
+    <string name="random_location_502_longitude">131_deg_25_min_e</string>
+    <string name="random_location_503_longitude">116_deg_36_min_w</string>
+    <string name="random_location_504_longitude">106_deg_25_min_w</string>
+    <string name="random_location_505_longitude">35_deg_13_min_e</string>
+    <string name="random_location_506_longitude">106_deg_29_min_w</string>
+    <string name="random_location_507_longitude">74_deg_52_min_e</string>
+    <string name="random_location_508_longitude">8_deg_01_min_w</string>
+    <string name="random_location_509_longitude">65_deg_43_min_e</string>
+    <string name="random_location_510_longitude">130_deg_33_min_e</string>
+    <string name="random_location_511_longitude">74_deg_21_min_e</string>
+    <string name="random_location_512_longitude">34_deg_27_min_e</string>
+    <string name="random_location_513_longitude">73_deg_05_min_e</string>
+    <string name="random_location_514_longitude">32_deg_17_min_e</string>
+    <string name="random_location_515_longitude">29_deg_55_min_e</string>
+    <string name="random_location_516_longitude">121_deg_30_min_e</string>
+    <string name="random_location_517_longitude">77_deg_10_min_e</string>
+    <string name="random_location_518_longitude">75_deg_51_min_e</string>
+    <string name="random_location_519_longitude">76_deg_47_min_e</string>
+    <string name="random_location_520_longitude">88_deg_03_min_w</string>
+    <string name="random_location_521_longitude">104_deg_04_min_e</string>
+    <string name="random_location_522_longitude">114_deg_17_min_e</string>
+    <string name="random_location_523_longitude">47_deg_49_min_e</string>
+    <string name="random_location_524_longitude">81_deg_40_min_w</string>
+    <string name="random_location_525_longitude">97_deg_45_min_w</string>
+    <string name="random_location_526_longitude">120_deg_10_min_e</string>
+    <string name="random_location_527_longitude">71_deg_28_min_e</string>
+    <string name="random_location_528_longitude">31_deg_14_min_e</string>
+    <string name="random_location_529_longitude">90_deg_03_min_w</string>
+    <string name="random_location_530_longitude">32_deg_33_min_e</string>
+    <string name="random_location_531_longitude">95_deg_23_min_w</string>
+    <string name="random_location_532_longitude">91_deg_06_min_e</string>
+    <string name="random_location_533_longitude">106_deg_34_min_e</string>
+    <string name="random_location_534_longitude">34_deg_57_min_e</string>
+    <string name="random_location_535_longitude">98_deg_30_min_w</string>
+    <string name="random_location_536_longitude">47_deg_59_min_e</string>
+    <string name="random_location_537_longitude">88_deg_53_min_e</string>
+    <string name="random_location_538_longitude">110_deg_57_min_w</string>
+    <string name="random_location_539_longitude">106_deg_05_min_w</string>
+    <string name="random_location_540_longitude">77_deg_13_min_e</string>
+    <string name="random_location_541_longitude">16_deg_15_min_w</string>
+    <string name="random_location_542_longitude">81_deg_18_min_w</string>
+    <string name="random_location_543_longitude">15_deg_25_min_w</string>
+    <string name="random_location_544_longitude">82_deg_28_min_w</string>
+    <string name="random_location_545_longitude">85_deg_20_min_e</string>
+    <string name="random_location_546_longitude">95_deg_00_min_e</string>
+    <string name="random_location_547_longitude">89_deg_39_min_e</string>
+    <string name="random_location_548_longitude">88_deg_37_min_e</string>
+    <string name="random_location_549_longitude">78_deg_01_min_e</string>
+    <string name="random_location_550_longitude">13_deg_12_min_w</string>
+    <string name="random_location_551_longitude">14_deg_26_min_e</string>
+    <string name="random_location_552_longitude">75_deg_49_min_e</string>
+    <string name="random_location_553_longitude">80_deg_57_min_e</string>
+    <string name="random_location_554_longitude">88_deg_26_min_e</string>
+    <string name="random_location_555_longitude">92_deg_48_min_e</string>
+    <string name="random_location_556_longitude">80_deg_20_min_e</string>
+    <string name="random_location_557_longitude">50_deg_12_min_e</string>
+    <string name="random_location_558_longitude">127_deg_41_min_e</string>
+    <string name="random_location_559_longitude">50_deg_35_min_e</string>
+    <string name="random_location_560_longitude">91_deg_44_min_e</string>
+    <string name="random_location_561_longitude">80_deg_13_min_w</string>
+    <string name="random_location_562_longitude">32_deg_39_min_e</string>
+    <string name="random_location_563_longitude">100_deg_18_min_w</string>
+    <string name="random_location_564_longitude">85_deg_09_min_e</string>
+    <string name="random_location_565_longitude">91_deg_53_min_e</string>
+    <string name="random_location_566_longitude">103_deg_27_min_w</string>
+    <string name="random_location_567_longitude">79_deg_38_min_e</string>
+    <string name="random_location_568_longitude">51_deg_32_min_e</string>
+    <string name="random_location_569_longitude">55_deg_18_min_e</string>
+    <string name="random_location_570_longitude">68_deg_22_min_e</string>
+    <string name="random_location_571_longitude">77_deg_20_min_w</string>
+    <string name="random_location_572_longitude">102_deg_41_min_e</string>
+    <string name="random_location_573_longitude">121_deg_38_min_e</string>
+    <string name="random_location_574_longitude">67_deg_01_min_e</string>
+    <string name="random_location_575_longitude">107_deg_23_min_w</string>
+    <string name="random_location_576_longitude">46_deg_43_min_e</string>
+    <string name="random_location_577_longitude">81_deg_47_min_w</string>
+    <string name="random_location_578_longitude">39_deg_36_min_e</string>
+    <string name="random_location_579_longitude">54_deg_22_min_e</string>
+    <string name="random_location_580_longitude">120_deg_40_min_e</string>
+    <string name="random_location_581_longitude">104_deg_40_min_w</string>
+    <string name="random_location_582_longitude">91_deg_16_min_e</string>
+    <string name="random_location_583_longitude">90_deg_23_min_e</string>
+    <string name="random_location_584_longitude">58_deg_36_min_e</string>
+    <string name="random_location_585_longitude">82_deg_23_min_w</string>
+    <string name="random_location_586_longitude">113_deg_16_min_e</string>
+    <string name="random_location_587_longitude">72_deg_35_min_e</string>
+    <string name="random_location_588_longitude">113_deg_43_min_e</string>
+    <string name="random_location_589_longitude">120_deg_11_min_e</string>
+    <string name="random_location_590_longitude">109_deg_55_min_w</string>
+    <string name="random_location_591_longitude">108_deg_19_min_e</string>
+    <string name="random_location_592_longitude">120_deg_16_min_e</string>
+    <string name="random_location_593_longitude">88_deg_22_min_e</string>
+    <string name="random_location_594_longitude">114_deg_06_min_e</string>
+    <string name="random_location_595_longitude">91_deg_48_min_e</string>
+    <string name="random_location_596_longitude">114_deg_10_min_e</string>
+    <string name="random_location_597_longitude">97_deg_52_min_w</string>
+    <string name="random_location_598_longitude">113_deg_33_min_e</string>
+    <string name="random_location_599_longitude">100_deg_51_min_w</string>
+    <string name="random_location_600_longitude">102_deg_18_min_w</string>
+    <string name="random_location_601_longitude">39_deg_10_min_e</string>
+    <string name="random_location_602_longitude">71_deg_08_min_w</string>
+    <string name="random_location_603_longitude">39_deg_49_min_e</string>
+    <string name="random_location_604_longitude">157_deg_50_min_w</string>
+    <string name="random_location_605_longitude">86_deg_51_min_w</string>
+    <string name="random_location_606_longitude">72_deg_50_min_e</string>
+    <string name="random_location_607_longitude">79_deg_05_min_e</string>
+    <string name="random_location_608_longitude">101_deg_41_min_w</string>
+    <string name="random_location_609_longitude">105_deg_51_min_e</string>
+    <string name="random_location_610_longitude">89_deg_37_min_w</string>
+    <string name="random_location_611_longitude">106_deg_41_min_e</string>
+    <string name="random_location_612_longitude">103_deg_24_min_w</string>
+    <string name="random_location_613_longitude">105_deg_16_min_w</string>
+    <string name="random_location_614_longitude">103_deg_21_min_w</string>
+    <string name="random_location_615_longitude">100_deg_24_min_w</string>
+    <string name="random_location_616_longitude">75_deg_49_min_w</string>
+    <string name="random_location_617_longitude">99_deg_50_min_e</string>
+    <string name="random_location_618_longitude">96_deg_06_min_e</string>
+    <string name="random_location_619_longitude">155_deg_05_min_w</string>
+    <string name="random_location_620_longitude">99_deg_08_min_w</string>
+    <string name="random_location_621_longitude">81_deg_23_min_w</string>
+    <string name="random_location_622_longitude">96_deg_09_min_w</string>
+    <string name="random_location_623_longitude">98_deg_13_min_w</string>
+    <string name="random_location_624_longitude">72_deg_50_min_e</string>
+    <string name="random_location_625_longitude">99_deg_00_min_e</string>
+    <string name="random_location_626_longitude">72_deg_20_min_w</string>
+    <string name="random_location_627_longitude">73_deg_51_min_e</string>
+    <string name="random_location_628_longitude">69_deg_57_min_w</string>
+    <string name="random_location_629_longitude">66_deg_04_min_w</string>
+    <string name="random_location_630_longitude">64_deg_37_min_w</string>
+    <string name="random_location_631_longitude">64_deg_57_min_w</string>
+    <string name="random_location_632_longitude">63_deg_03_min_w</string>
+    <string name="random_location_633_longitude">15_deg_57_min_w</string>
+    <string name="random_location_634_longitude">76_deg_48_min_w</string>
+    <string name="random_location_635_longitude">102_deg_36_min_e</string>
+    <string name="random_location_636_longitude">83_deg_13_min_e</string>
+    <string name="random_location_637_longitude">88_deg_11_min_w</string>
+    <string name="random_location_638_longitude">102_deg_45_min_e</string>
+    <string name="random_location_639_longitude">78_deg_29_min_e</string>
+    <string name="random_location_640_longitude">62_deg_44_min_w</string>
+    <string name="random_location_641_longitude">88_deg_46_min_w</string>
+    <string name="random_location_642_longitude">61_deg_51_min_w</string>
+    <string name="random_location_643_longitude">54_deg_05_min_e</string>
+    <string name="random_location_644_longitude">99_deg_53_min_w</string>
+    <string name="random_location_645_longitude">96_deg_09_min_e</string>
+    <string name="random_location_646_longitude">3_deg_01_min_w</string>
+    <string name="random_location_647_longitude">107_deg_35_min_e</string>
+    <string name="random_location_648_longitude">102_deg_50_min_e</string>
+    <string name="random_location_649_longitude">108_deg_14_min_e</string>
+    <string name="random_location_650_longitude">61_deg_44_min_w</string>
+    <string name="random_location_651_longitude">32_deg_29_min_e</string>
+    <string name="random_location_652_longitude">32_deg_32_min_e</string>
+    <string name="random_location_653_longitude">44_deg_12_min_e</string>
+    <string name="random_location_654_longitude">38_deg_56_min_e</string>
+    <string name="random_location_655_longitude">61_deg_23_min_w</string>
+    <string name="random_location_656_longitude">145_deg_45_min_e</string>
+    <string name="random_location_657_longitude">102_deg_06_min_e</string>
+    <string name="random_location_658_longitude">23_deg_31_min_w</string>
+    <string name="random_location_659_longitude">92_deg_16_min_w</string>
+    <string name="random_location_660_longitude">91_deg_31_min_w</string>
+    <string name="random_location_661_longitude">16_deg_55_min_w</string>
+    <string name="random_location_662_longitude">17_deg_27_min_w</string>
+    <string name="random_location_663_longitude">121_deg_02_min_e</string>
+    <string name="random_location_664_longitude">90_deg_32_min_w</string>
+    <string name="random_location_665_longitude">61_deg_05_min_w</string>
+    <string name="random_location_666_longitude">120_deg_58_min_e</string>
+    <string name="random_location_667_longitude">121_deg_02_min_e</string>
+    <string name="random_location_668_longitude">100_deg_34_min_e</string>
+    <string name="random_location_669_longitude">87_deg_13_min_w</string>
+    <string name="random_location_670_longitude">60_deg_59_min_w</string>
+    <string name="random_location_671_longitude">100_deg_28_min_e</string>
+    <string name="random_location_672_longitude">89_deg_11_min_w</string>
+    <string name="random_location_673_longitude">2_deg_06_min_e</string>
+    <string name="random_location_674_longitude">144_deg_50_min_e</string>
+    <string name="random_location_675_longitude">144_deg_45_min_e</string>
+    <string name="random_location_676_longitude">16_deg_35_min_w</string>
+    <string name="random_location_677_longitude">16_deg_40_min_w</string>
+    <string name="random_location_678_longitude">103_deg_52_min_e</string>
+    <string name="random_location_679_longitude">16_deg_39_min_w</string>
+    <string name="random_location_680_longitude">61_deg_14_min_w</string>
+    <string name="random_location_681_longitude">59_deg_37_min_w</string>
+    <string name="random_location_682_longitude">80_deg_16_min_e</string>
+    <string name="random_location_683_longitude">77_deg_34_min_e</string>
+    <string name="random_location_684_longitude">100_deg_53_min_e</string>
+    <string name="random_location_685_longitude">7_deg_34_min_w</string>
+    <string name="random_location_686_longitude">8_deg_00_min_w</string>
+    <string name="random_location_687_longitude">87_deg_09_min_w</string>
+    <string name="random_location_688_longitude">70_deg_02_min_w</string>
+    <string name="random_location_689_longitude">1_deg_32_min_w</string>
+    <string name="random_location_690_longitude">86_deg_15_min_w</string>
+    <string name="random_location_691_longitude">68_deg_56_min_w</string>
+    <string name="random_location_692_longitude">15_deg_03_min_e</string>
+    <string name="random_location_693_longitude">61_deg_45_min_w</string>
+    <string name="random_location_694_longitude">8_deg_31_min_e</string>
+    <string name="random_location_695_longitude">15_deg_34_min_w</string>
+    <string name="random_location_696_longitude">92_deg_46_min_e</string>
+    <string name="random_location_697_longitude">43_deg_09_min_e</string>
+    <string name="random_location_698_longitude">104_deg_55_min_e</string>
+    <string name="random_location_699_longitude">4_deg_17_min_w</string>
+    <string name="random_location_700_longitude">74_deg_48_min_w</string>
+    <string name="random_location_701_longitude">106_deg_41_min_e</string>
+    <string name="random_location_702_longitude">122_deg_34_min_e</string>
+    <string name="random_location_703_longitude">61_deg_31_min_w</string>
+    <string name="random_location_704_longitude">71_deg_38_min_w</string>
+    <string name="random_location_705_longitude">85_deg_26_min_w</string>
+    <string name="random_location_706_longitude">66_deg_55_min_w</string>
+    <string name="random_location_707_longitude">61_deg_23_min_w</string>
+    <string name="random_location_708_longitude">75_deg_30_min_w</string>
+    <string name="random_location_709_longitude">61_deg_28_min_w</string>
+    <string name="random_location_710_longitude">123_deg_54_min_e</string>
+    <string name="random_location_711_longitude">67_deg_36_min_w</string>
+    <string name="random_location_712_longitude">84_deg_13_min_w</string>
+    <string name="random_location_713_longitude">44_deg_4_min_e</string>
+    <string name="random_location_714_longitude">83_deg_02_min_w</string>
+    <string name="random_location_715_longitude">84_deg_50_min_w</string>
+    <string name="random_location_716_longitude">76_deg_17_min_e</string>
+    <string name="random_location_717_longitude">84_deg_05_min_w</string>
+    <string name="random_location_718_longitude">123_deg_51_min_e</string>
+    <string name="random_location_719_longitude">13_deg_43_min_w</string>
+    <string name="random_location_720_longitude">0_deg_51_min_w</string>
+    <string name="random_location_721_longitude">99_deg_20_min_e</string>
+    <string name="random_location_722_longitude">7_deg_29_min_e</string>
+    <string name="random_location_723_longitude">38_deg_44_min_e</string>
+    <string name="random_location_724_longitude">79_deg_31_min_w</string>
+    <string name="random_location_725_longitude">16_deg_05_min_e</string>
+    <string name="random_location_726_longitude">76_deg_57_min_e</string>
+    <string name="random_location_727_longitude">13_deg_14_min_w</string>
+    <string name="random_location_728_longitude">63_deg_33_min_w</string>
+    <string name="random_location_729_longitude">72_deg_30_min_w</string>
+    <string name="random_location_730_longitude">98_deg_24_min_e</string>
+    <string name="random_location_731_longitude">8_deg_49_min_w</string>
+    <string name="random_location_732_longitude">81_deg_42_min_e</string>
+    <string name="random_location_733_longitude">134_deg_36_min_e</string>
+    <string name="random_location_734_longitude">151_deg_51_min_e</string>
+    <string name="random_location_735_longitude">3_deg_55_min_e</string>
+    <string name="random_location_736_longitude">134_deg_29_min_e</string>
+    <string name="random_location_737_longitude">80_deg_38_min_e</string>
+    <string name="random_location_738_longitude">171_deg_16_min_e</string>
+    <string name="random_location_739_longitude">125_deg_36_min_e</string>
+    <string name="random_location_740_longitude">100_deg_28_min_e</string>
+    <string name="random_location_741_longitude">79_deg_51_min_e</string>
+    <string name="random_location_742_longitude">158_deg_10_min_e</string>
+    <string name="random_location_743_longitude">79_deg_53_min_e</string>
+    <string name="random_location_744_longitude">122_deg_04_min_e</string>
+    <string name="random_location_745_longitude">5_deg_17_min_w</string>
+    <string name="random_location_746_longitude">58_deg_10_min_w</string>
+    <string name="random_location_747_longitude">1_deg_37_min_w</string>
+    <string name="random_location_748_longitude">2_deg_36_min_e</string>
+    <string name="random_location_749_longitude">3_deg_24_min_e</string>
+    <string name="random_location_750_longitude">7_deg_31_min_e</string>
+    <string name="random_location_751_longitude">2_deg_26_min_e</string>
+    <string name="random_location_752_longitude">5_deg_36_min_e</string>
+    <string name="random_location_753_longitude">10_deg_48_min_w</string>
+    <string name="random_location_754_longitude">75_deg_35_min_w</string>
+    <string name="random_location_755_longitude">1_deg_13_min_e</string>
+    <string name="random_location_756_longitude">102_deg_15_min_e</string>
+    <string name="random_location_757_longitude">100_deg_22_min_e</string>
+    <string name="random_location_758_longitude">116_deg_06_min_e</string>
+    <string name="random_location_759_longitude">55_deg_10_min_w</string>
+    <string name="random_location_760_longitude">67_deg_38_min_w</string>
+    <string name="random_location_761_longitude">0_deg_12_min_w</string>
+    <string name="random_location_762_longitude">95_deg_19_min_e</string>
+    <string name="random_location_763_longitude">100_deg_19_min_e</string>
+    <string name="random_location_764_longitude">4_deg_02_min_w</string>
+    <string name="random_location_765_longitude">52_deg_20_min_w</string>
+    <string name="random_location_766_longitude">1_deg_46_min_w</string>
+    <string name="random_location_767_longitude">114_deg_57_min_e</string>
+    <string name="random_location_768_longitude">31_deg_36_min_e</string>
+    <string name="random_location_769_longitude">7_deg_00_min_e</string>
+    <string name="random_location_770_longitude">101_deg_04_min_e</string>
+    <string name="random_location_771_longitude">74_deg_05_min_w</string>
+    <string name="random_location_772_longitude">114_deg_00_min_e</string>
+    <string name="random_location_773_longitude">18_deg_35_min_e</string>
+    <string name="random_location_774_longitude">73_deg_31_min_e</string>
+    <string name="random_location_775_longitude">9_deg_42_min_e</string>
+    <string name="random_location_776_longitude">11_deg_31_min_e</string>
+    <string name="random_location_777_longitude">8_deg_47_min_e</string>
+    <string name="random_location_778_longitude">98_deg_40_min_e</string>
+    <string name="random_location_779_longitude">76_deg_31_min_w</string>
+    <string name="random_location_780_longitude">101_deg_42_min_e</string>
+    <string name="random_location_781_longitude">60_deg_40_min_w</string>
+    <string name="random_location_782_longitude">102_deg_15_min_e</string>
+    <string name="random_location_783_longitude">45_deg_21_min_e</string>
+    <string name="random_location_784_longitude">110_deg_21_min_e</string>
+    <string name="random_location_785_longitude">103_deg_44_min_e</string>
+    <string name="random_location_786_longitude">173_deg_00_min_e</string>
+    <string name="random_location_787_longitude">103_deg_50_min_e</string>
+    <string name="random_location_788_longitude">101_deg_27_min_e</string>
+    <string name="random_location_789_longitude">9_deg_27_min_e</string>
+    <string name="random_location_790_longitude">6_deg_41_min_e</string>
+    <string name="random_location_791_longitude">32_deg_35_min_e</string>
+    <string name="random_location_792_longitude">32_deg_28_min_e</string>
+    <string name="random_location_793_longitude">51_deg_04_min_w</string>
+    <string name="random_location_794_longitude">109_deg_20_min_e</string>
+    <string name="random_location_795_longitude">78_deg_35_min_w</string>
+    <string name="random_location_796_longitude">42_deg_33_min_e</string>
+    <string name="random_location_797_longitude">166_deg_55_min_e</string>
+    <string name="random_location_798_longitude">100_deg_21_min_e</string>
+    <string name="random_location_799_longitude">116_deg_50_min_e</string>
+    <string name="random_location_800_longitude">36_deg_49_min_e</string>
+    <string name="random_location_801_longitude">48_deg_30_min_w</string>
+    <string name="random_location_802_longitude">30_deg_04_min_e</string>
+    <string name="random_location_803_longitude">79_deg_53_min_w</string>
+    <string name="random_location_804_longitude">32_deg_54_min_e</string>
+    <string name="random_location_805_longitude">44_deg_18_min_w</string>
+    <string name="random_location_806_longitude">140_deg_43_min_e</string>
+    <string name="random_location_807_longitude">104_deg_45_min_e</string>
+    <string name="random_location_808_longitude">60_deg_01_min_w</string>
+    <string name="random_location_809_longitude">29_deg_22_min_e</string>
+    <string name="random_location_810_longitude">40_deg_14_min_w</string>
+    <string name="random_location_811_longitude">128_deg_10_min_e</string>
+    <string name="random_location_812_longitude">38_deg_33_min_w</string>
+    <string name="random_location_813_longitude">73_deg_15_min_w</string>
+    <string name="random_location_814_longitude">32_deg_25_min_w</string>
+    <string name="random_location_815_longitude">39_deg_40_min_e</string>
+    <string name="random_location_816_longitude">15_deg_18_min_e</string>
+    <string name="random_location_817_longitude">15_deg_19_min_e</string>
+    <string name="random_location_818_longitude">55_deg_27_min_e</string>
+    <string name="random_location_819_longitude">42_deg_48_min_w</string>
+    <string name="random_location_820_longitude">119_deg_25_min_e</string>
+    <string name="random_location_821_longitude">47_deg_29_min_w</string>
+    <string name="random_location_822_longitude">35_deg_12_min_w</string>
+    <string name="random_location_823_longitude">39_deg_12_min_e</string>
+    <string name="random_location_824_longitude">35_deg_45_min_e</string>
+    <string name="random_location_825_longitude">106_deg_48_min_e</string>
+    <string name="random_location_826_longitude">106_deg_48_min_e</string>
+    <string name="random_location_827_longitude">39_deg_17_min_e</string>
+    <string name="random_location_828_longitude">107_deg_37_min_e</string>
+    <string name="random_location_829_longitude">110_deg_25_min_e</string>
+    <string name="random_location_830_longitude">34_deg_50_min_w</string>
+    <string name="random_location_831_longitude">39_deg_20_min_w</string>
+    <string name="random_location_832_longitude">35_deg_53_min_w</string>
+    <string name="random_location_833_longitude">112_deg_45_min_e</string>
+    <string name="random_location_834_longitude">110_deg_22_min_e</string>
+    <string name="random_location_835_longitude">112_deg_37_min_e</string>
+    <string name="random_location_836_longitude">34_deg_54_min_w</string>
+    <string name="random_location_837_longitude">79_deg_02_min_w</string>
+    <string name="random_location_838_longitude">35_deg_59_min_w</string>
+    <string name="random_location_839_longitude">179_deg_13_min_e</string>
+    <string name="random_location_840_longitude">125_deg_35_min_e</string>
+    <string name="random_location_841_longitude">115_deg_13_min_e</string>
+    <string name="random_location_842_longitude">63_deg_54_min_w</string>
+    <string name="random_location_843_longitude">13_deg_14_min_e</string>
+    <string name="random_location_844_longitude">36_deg_30_min_w</string>
+    <string name="random_location_845_longitude">179_deg_51_min_e</string>
+    <string name="random_location_846_longitude">40_deg_30_min_w</string>
+    <string name="random_location_847_longitude">159_deg_49_min_e</string>
+    <string name="random_location_848_longitude">147_deg_13_min_e</string>
+    <string name="random_location_849_longitude">35_deg_44_min_w</string>
+    <string name="random_location_850_longitude">67_deg_49_min_w</string>
+    <string name="random_location_851_longitude">48_deg_20_min_w</string>
+    <string name="random_location_852_longitude">37_deg_03_min_w</string>
+    <string name="random_location_853_longitude">27_deg_28_min_e</string>
+    <string name="random_location_854_longitude">43_deg_12_min_e</string>
+    <string name="random_location_855_longitude">55_deg_30_min_w</string>
+    <string name="random_location_856_longitude">77_deg_02_min_w</string>
+    <string name="random_location_857_longitude">130_deg_50_min_e</string>
+    <string name="random_location_858_longitude">15_deg_44_min_e</string>
+    <string name="random_location_859_longitude">45_deg_14_min_e</string>
+    <string name="random_location_860_longitude">28_deg_38_min_e</string>
+    <string name="random_location_861_longitude">38_deg_29_min_w</string>
+    <string name="random_location_862_longitude">74_deg_13_min_w</string>
+    <string name="random_location_863_longitude">176_deg_11_min_w</string>
+    <string name="random_location_864_longitude">71_deg_58_min_w</string>
+    <string name="random_location_865_longitude">171_deg_45_min_w</string>
+    <string name="random_location_866_longitude">33_deg_47_min_e</string>
+    <string name="random_location_867_longitude">170_deg_42_min_w</string>
+    <string name="random_location_868_longitude">39_deg_03_min_w</string>
+    <string name="random_location_869_longitude">28_deg_17_min_e</string>
+    <string name="random_location_870_longitude">56_deg_06_min_w</string>
+    <string name="random_location_871_longitude">35_deg_00_min_e</string>
+    <string name="random_location_872_longitude">47_deg_52_min_w</string>
+    <string name="random_location_873_longitude">5_deg_43_min_w</string>
+    <string name="random_location_874_longitude">71_deg_32_min_w</string>
+    <string name="random_location_875_longitude">179_deg_22_min_e</string>
+    <string name="random_location_876_longitude">180_deg_00_min_w</string>
+    <string name="random_location_877_longitude">68_deg_09_min_w</string>
+    <string name="random_location_878_longitude">49_deg_15_min_w</string>
+    <string name="random_location_879_longitude">145_deg_47_min_e</string>
+    <string name="random_location_880_longitude">149_deg_34_min_w</string>
+    <string name="random_location_881_longitude">168_deg_18_min_e</string>
+    <string name="random_location_882_longitude">63_deg_10_min_w</string>
+    <string name="random_location_883_longitude">25_deg_52_min_e</string>
+    <string name="random_location_884_longitude">31_deg_02_min_e</string>
+    <string name="random_location_885_longitude">178_deg_27_min_e</string>
+    <string name="random_location_886_longitude">70_deg_20_min_w</string>
+    <string name="random_location_887_longitude">41_deg_56_min_w</string>
+    <string name="random_location_888_longitude">48_deg_17_min_w</string>
+    <string name="random_location_889_longitude">47_deg_31_min_e</string>
+    <string name="random_location_890_longitude">65_deg_15_min_w</string>
+    <string name="random_location_891_longitude">169_deg_55_min_w</string>
+    <string name="random_location_892_longitude">146_deg_49_min_e</string>
+    <string name="random_location_893_longitude">43_deg_56_min_w</string>
+    <string name="random_location_894_longitude">57_deg_30_min_e</string>
+    <string name="random_location_895_longitude">28_deg_35_min_e</string>
+    <string name="random_location_896_longitude">70_deg_09_min_w</string>
+    <string name="random_location_897_longitude">118_deg_36_min_e</string>
+    <string name="random_location_898_longitude">40_deg_20_min_w</string>
+    <string name="random_location_899_longitude">54_deg_37_min_w</string>
+    <string name="random_location_900_longitude">49_deg_23_min_w</string>
+    <string name="random_location_901_longitude">55_deg_27_min_e</string>
+    <string name="random_location_902_longitude">175_deg_12_min_w</string>
+    <string name="random_location_903_longitude">27_deg_31_min_e</string>
+    <string name="random_location_904_longitude">47_deg_48_min_w</string>
+    <string name="random_location_905_longitude">159_deg_46_min_w</string>
+    <string name="random_location_906_longitude">43_deg_21_min_w</string>
+    <string name="random_location_907_longitude">46_deg_34_min_w</string>
+    <string name="random_location_908_longitude">48_deg_11_min_w</string>
+    <string name="random_location_909_longitude">166_deg_27_min_e</string>
+    <string name="random_location_910_longitude">49_deg_04_min_w</string>
+    <string name="random_location_911_longitude">68_deg_56_min_w</string>
+    <string name="random_location_912_longitude">17_deg_05_min_e</string>
+    <string name="random_location_913_longitude">50_deg_25_min_w</string>
+    <string name="random_location_914_longitude">47_deg_03_min_w</string>
+    <string name="random_location_915_longitude">43_deg_12_min_w</string>
+    <string name="random_location_916_longitude">150_deg_31_min_e</string>
+    <string name="random_location_917_longitude">45_deg_53_min_w</string>
+    <string name="random_location_918_longitude">46_deg_38_min_w</string>
+    <string name="random_location_919_longitude">70_deg_24_min_w</string>
+    <string name="random_location_920_longitude">29_deg_27_min_e</string>
+    <string name="random_location_921_longitude">25_deg_55_min_e</string>
+    <string name="random_location_922_longitude">65_deg_25_min_w</string>
+    <string name="random_location_923_longitude">130_deg_06_min_w</string>
+    <string name="random_location_924_longitude">57_deg_38_min_w</string>
+    <string name="random_location_925_longitude">49_deg_15_min_w</string>
+    <string name="random_location_926_longitude">30_deg_59_min_e</string>
+    <string name="random_location_927_longitude">54_deg_37_min_w</string>
+    <string name="random_location_928_longitude">28_deg_11_min_e</string>
+    <string name="random_location_929_longitude">25_deg_38_min_e</string>
+    <string name="random_location_930_longitude">32_deg_35_min_e</string>
+    <string name="random_location_931_longitude">28_deg_03_min_e</string>
+    <string name="random_location_932_longitude">31_deg_08_min_e</string>
+    <string name="random_location_933_longitude">31_deg_10_min_e</string>
+    <string name="random_location_934_longitude">31_deg_22_min_e</string>
+    <string name="random_location_935_longitude">65_deg_13_min_w</string>
+    <string name="random_location_936_longitude">109_deg_26_min_w</string>
+    <string name="random_location_937_longitude">70_deg_20_min_w</string>
+    <string name="random_location_938_longitude">153_deg_02_min_e</string>
+    <string name="random_location_939_longitude">58_deg_49_min_w</string>
+    <string name="random_location_940_longitude">48_deg_25_min_w</string>
+    <string name="random_location_941_longitude">153_deg_24_min_e</string>
+    <string name="random_location_942_longitude">24_deg_46_min_e</string>
+    <string name="random_location_943_longitude">167_deg_58_min_e</string>
+    <string name="random_location_944_longitude">26_deg_13_min_e</string>
+    <string name="random_location_945_longitude">27_deg_29_min_e</string>
+    <string name="random_location_946_longitude">30_deg_23_min_e</string>
+    <string name="random_location_947_longitude">31_deg_03_min_e</string>
+    <string name="random_location_948_longitude">71_deg_15_min_w</string>
+    <string name="random_location_949_longitude">51_deg_14_min_w</string>
+    <string name="random_location_950_longitude">64_deg_11_min_w</string>
+    <string name="random_location_951_longitude">60_deg_42_min_w</string>
+    <string name="random_location_952_longitude">52_deg_21_min_w</string>
+    <string name="random_location_953_longitude">115_deg_52_min_e</string>
+    <string name="random_location_954_longitude">115_deg_43_min_e</string>
+    <string name="random_location_955_longitude">27_deg_26_min_e</string>
+    <string name="random_location_956_longitude">68_deg_49_min_w</string>
+    <string name="random_location_957_longitude">151_deg_45_min_e</string>
+    <string name="random_location_958_longitude">60_deg_40_min_w</string>
+    <string name="random_location_959_longitude">71_deg_37_min_w</string>
+    <string name="random_location_960_longitude">70_deg_40_min_w</string>
+    <string name="random_location_961_longitude">53_deg_27_min_w</string>
+    <string name="random_location_962_longitude">151_deg_13_min_e</string>
+    <string name="random_location_963_longitude">18_deg_25_min_e</string>
+    <string name="random_location_964_longitude">25_deg_36_min_e</string>
+    <string name="random_location_965_longitude">150_deg_53_min_e</string>
+    <string name="random_location_966_longitude">58_deg_23_min_w</string>
+    <string name="random_location_967_longitude">56_deg_11_min_w</string>
+    <string name="random_location_968_longitude">138_deg_36_min_e</string>
+    <string name="random_location_969_longitude">149_deg_07_min_e</string>
+    <string name="random_location_970_longitude">73_deg_03_min_w</string>
+    <string name="random_location_971_longitude">174_deg_44_min_e</string>
+    <string name="random_location_972_longitude">175_deg_17_min_e</string>
+    <string name="random_location_973_longitude">144_deg_58_min_e</string>
+    <string name="random_location_974_longitude">144_deg_21_min_e</string>
+    <string name="random_location_975_longitude">62_deg_16_min_w</string>
+    <string name="random_location_976_longitude">72_deg_40_min_w</string>
+    <string name="random_location_977_longitude">176_deg_50_min_e</string>
+    <string name="random_location_978_longitude">73_deg_15_min_w</string>
+    <string name="random_location_979_longitude">71_deg_18_min_w</string>
+    <string name="random_location_980_longitude">173_deg_17_min_e</string>
+    <string name="random_location_981_longitude">174_deg_47_min_e</string>
+    <string name="random_location_982_longitude">72_deg_56_min_w</string>
+    <string name="random_location_983_longitude">147_deg_20_min_e</string>
+    <string name="random_location_984_longitude">65_deg_18_min_w</string>
+    <string name="random_location_985_longitude">172_deg_37_min_e</string>
+    <string name="random_location_986_longitude">72_deg_41_min_w</string>
+    <string name="random_location_987_longitude">72_deg_04_min_w</string>
+    <string name="random_location_988_longitude">67_deg_29_min_w</string>
+    <string name="random_location_989_longitude">170_deg_30_min_e</string>
+    <string name="random_location_990_longitude">168_deg_21_min_e</string>
+    <string name="random_location_991_longitude">69_deg_13_min_w</string>
+    <string name="random_location_992_longitude">57_deg_52_min_w</string>
+    <string name="random_location_993_longitude">70_deg_56_min_w</string>
+    <string name="random_location_994_longitude">36_deg_30_min_w</string>
+    <string name="random_location_995_longitude">68_deg_18_min_w</string>
+    <string name="random_location_996_longitude">67_deg_37_min_w</string>
+    <string name="random_location_997_longitude">67_deg_05_min_w</string>
+    <string name="random_location_998_longitude">56_deg_59_min_w</string>
+    <string name="random_location_999_longitude">68_deg_08_min_w</string>
+    <string name="random_location_1000_longitude">123_deg_20_min_w</string>
+    <string name="random_location_1001_longitude">166_deg_40_min_w</string>
+    <string name="random_location_1002_longitude">0_deg_00_min_e</string>
 </resources>

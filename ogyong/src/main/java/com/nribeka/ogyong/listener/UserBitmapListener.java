@@ -4,6 +4,6 @@ import android.graphics.Bitmap;
 
 /**
  */
-public interface BitmapDownloadListener {
+public interface UserBitmapListener {
     void onBitmapDownloaded(Bitmap bitmap);
 }

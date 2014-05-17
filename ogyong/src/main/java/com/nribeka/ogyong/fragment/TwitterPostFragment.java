@@ -23,19 +23,19 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.R;
-import com.nribeka.ogyong.listener.AccessTokenDownloadListener;
-import com.nribeka.ogyong.listener.BitmapDownloadListener;
-import com.nribeka.ogyong.listener.OnLocationTrackingListener;
-import com.nribeka.ogyong.listener.RequestTokenDownloadListener;
-import com.nribeka.ogyong.listener.UserDownloadListener;
+import com.nribeka.ogyong.listener.AccessTokenListener;
+import com.nribeka.ogyong.listener.LocationSelectionListener;
+import com.nribeka.ogyong.listener.RequestTokenListener;
+import com.nribeka.ogyong.listener.UserBitmapListener;
+import com.nribeka.ogyong.listener.UserDetailListener;
 import com.nribeka.ogyong.service.StatusUpdaterService;
 import com.nribeka.ogyong.task.DownloadAccessTokenTask;
 import com.nribeka.ogyong.task.DownloadBitmapTask;
 import com.nribeka.ogyong.task.DownloadRequestTokenTask;
 import com.nribeka.ogyong.task.DownloadUserTask;
-import com.nribeka.ogyong.utils.AppConstants;
-import com.nribeka.ogyong.utils.AppUtils;
+import com.nribeka.ogyong.utils.OgyongUtils;
 
 import twitter4j.User;
 import twitter4j.auth.AccessToken;
@@ -43,9 +43,7 @@ import twitter4j.auth.RequestToken;
 
 /**
  */
-public class TwitterPostFragment extends Fragment implements View.OnClickListener,
-        RequestTokenDownloadListener, AccessTokenDownloadListener,
-        BitmapDownloadListener, UserDownloadListener {
+public class TwitterPostFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = TwitterPostFragment.class.getSimpleName();
 
@@ -55,29 +53,22 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     private String fragmentName;
     private String fragmentDescription;
 
-    private EditText twitterStatusEditText;
-    private TextView twitterNameTextView;
-    private TextView twitterHandleTextView;
-
+    private MenuItem postMenuItem;
+    private EditText statusEditText;
+    private TextView longTextWarningTextView;
+    private TextView nameTextView;
+    private TextView handleTextView;
     private TextView placeTextView;
     private TextView latLongTextView;
-    private TextView longTextWarningTextView;
-
-    private ImageButton twitterLoginButton;
-    private ImageButton twitterLogoutButton;
-
-    private CheckBox twitterIncludeLocationCb;
-    private CheckBox twitterRandomizeLocationCb;
-
-    private MenuItem postMenuItem;
-
-    private Bitmap twitterProfileBitmap;
-    private ImageView twitterProfilePicture;
-
+    private CheckBox includeLocationCb;
+    private CheckBox randomizeLocationCb;
+    private ImageButton loginButton;
+    private ImageButton logoutButton;
+    private Bitmap profileBitmap;
+    private ImageView profilePicture;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
-
-    private OnLocationTrackingListener onLocationTrackingListener;
+    private LocationSelectionListener locationSelectionListener;
 
     public TwitterPostFragment() {
         // Required empty public constructor
@@ -111,56 +102,27 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         editor = preferences.edit();
 
-        twitterIncludeLocationCb = (CheckBox) view.findViewById(R.id.twitter_include_location_cb);
-        twitterIncludeLocationCb.setOnClickListener(this);
-        twitterRandomizeLocationCb = (CheckBox) view.findViewById(R.id.twitter_randomize_location_cb);
-        twitterRandomizeLocationCb.setOnClickListener(this);
+        includeLocationCb = (CheckBox) view.findViewById(R.id.twitter_include_location_cb);
+        includeLocationCb.setOnClickListener(this);
+        randomizeLocationCb = (CheckBox) view.findViewById(R.id.twitter_randomize_location_cb);
+        randomizeLocationCb.setOnClickListener(this);
 
         placeTextView = (TextView) view.findViewById(R.id.twitter_place_text_view);
         latLongTextView = (TextView) view.findViewById(R.id.twitter_lat_long_text_view);
         longTextWarningTextView = (TextView) view.findViewById(R.id.long_text_warning_text_view);
 
-        twitterNameTextView = (TextView) view.findViewById(R.id.twitter_name_text_view);
-        twitterHandleTextView = (TextView) view.findViewById(R.id.twitter_handle_text_view);
-        twitterProfilePicture = (ImageView) view.findViewById(R.id.twitter_profile_picture);
-        twitterStatusEditText = (EditText) view.findViewById(R.id.twitter_status_edit_text);
-        twitterStatusEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (postMenuItem != null) {
-                    if (hasFocus) {
-                        postMenuItem.setVisible(true);
-                    } else {
-                        postMenuItem.setVisible(false);
-                    }
-                }
-            }
-        });
-        twitterStatusEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+        nameTextView = (TextView) view.findViewById(R.id.twitter_name_text_view);
+        handleTextView = (TextView) view.findViewById(R.id.twitter_handle_text_view);
+        profilePicture = (ImageView) view.findViewById(R.id.twitter_profile_picture);
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (longTextWarningTextView != null) {
-                    if (start + count > 140) {
-                        longTextWarningTextView.setVisibility(View.VISIBLE);
-                    } else {
-                        longTextWarningTextView.setVisibility(View.GONE);
-                    }
-                }
-            }
+        statusEditText = (EditText) view.findViewById(R.id.twitter_status_edit_text);
+        statusEditText.setOnFocusChangeListener(new StatusFocusListener());
+        statusEditText.addTextChangedListener(new TwitterTextWatcher());
 
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
-        twitterLoginButton = (ImageButton) view.findViewById(R.id.twitter_login_button);
-        twitterLoginButton.setOnClickListener(this);
-        twitterLogoutButton = (ImageButton) view.findViewById(R.id.twitter_logout_button);
-        twitterLogoutButton.setOnClickListener(this);
+        loginButton = (ImageButton) view.findViewById(R.id.twitter_login_button);
+        loginButton.setOnClickListener(this);
+        logoutButton = (ImageButton) view.findViewById(R.id.twitter_logout_button);
+        logoutButton.setOnClickListener(this);
 
         setHasOptionsMenu(true);
         return view;
@@ -170,7 +132,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            onLocationTrackingListener = (OnLocationTrackingListener) activity;
+            locationSelectionListener = (LocationSelectionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnHeadlineSelectedListener");
@@ -179,9 +141,11 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private void useBlankBitmap() {
         int blankImageResource = R.drawable.blank_profile_picture;
-        twitterProfileBitmap = BitmapFactory.decodeResource(getResources(), blankImageResource);
-        twitterProfilePicture.setImageBitmap(twitterProfileBitmap);
+        profileBitmap = BitmapFactory.decodeResource(getResources(), blankImageResource);
+        profilePicture.setImageBitmap(profileBitmap);
     }
+
+    ;
 
     @Override
     public void onResume() {
@@ -218,12 +182,14 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
      * Function to login twitter attached through the layout xml file
      */
     private void signOutFromTwitter() {
-        editor.remove(AppConstants.SP_TWITTER_OAUTH_VERIFIER);
-        editor.remove(AppConstants.SP_TWITTER_REQUEST_TOKEN);
-        editor.remove(AppConstants.SP_TWITTER_REQUEST_TOKEN_SECRET);
-        editor.remove(AppConstants.SP_TWITTER_ACCESS_TOKEN);
-        editor.remove(AppConstants.SP_TWITTER_ACCESS_TOKEN_SECRET);
-        editor.remove(AppConstants.SP_TWITTER_LOGGED_IN);
+        editor.remove(Constants.TWITTER_OAUTH_VERIFIER);
+        editor.remove(Constants.TWITTER_REQUEST_TOKEN);
+        editor.remove(Constants.TWITTER_REQUEST_TOKEN_SECRET);
+        editor.remove(Constants.TWITTER_ACCESS_TOKEN);
+        editor.remove(Constants.TWITTER_ACCESS_TOKEN_SECRET);
+        editor.remove(Constants.TWITTER_LOGGED_IN);
+        editor.remove(Constants.TWITTER_INCLUDE_LOCATION);
+        editor.remove(Constants.TWITTER_RANDOMIZE_LOCATION);
         editor.commit();
 
         useBlankBitmap();
@@ -232,7 +198,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private void signInToTwitter() {
         DownloadRequestTokenTask downloadRequestTokenTask = new DownloadRequestTokenTask();
-        downloadRequestTokenTask.setRequestTokenDownloadListener(this);
+        downloadRequestTokenTask.setRequestTokenDownloadListener(new TwitterRequestTokenListener());
         downloadRequestTokenTask.execute();
     }
 
@@ -254,37 +220,47 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private void updateInterface() {
         int visible = isOathAuthenticated() ? View.VISIBLE : View.GONE;
-        twitterIncludeLocationCb.setVisibility(visible);
-        twitterRandomizeLocationCb.setVisibility(visible);
-        twitterLogoutButton.setVisibility(visible);
-        twitterNameTextView.setVisibility(visible);
-        twitterHandleTextView.setVisibility(visible);
-        twitterStatusEditText.setVisibility(visible);
+        includeLocationCb.setVisibility(visible);
+        randomizeLocationCb.setVisibility(visible);
+        logoutButton.setVisibility(visible);
+        nameTextView.setVisibility(visible);
+        handleTextView.setVisibility(visible);
+        statusEditText.setVisibility(visible);
 
         int invisible = isOathAuthenticated() ? View.GONE : View.VISIBLE;
-        twitterLoginButton.setVisibility(invisible);
+        loginButton.setVisibility(invisible);
 
+        boolean includeLocation = preferences.getBoolean(Constants.TWITTER_INCLUDE_LOCATION, false);
+        boolean randomizeLocation = preferences.getBoolean(Constants.TWITTER_RANDOMIZE_LOCATION, false);
         if (visible == View.VISIBLE) {
-            twitterIncludeLocationCb.setChecked(preferences.getBoolean(AppConstants.SP_TWITTER_INCLUDE_LOCATION, false));
-            twitterRandomizeLocationCb.setChecked(preferences.getBoolean(AppConstants.SP_TWITTER_RANDOMIZE_LOCATION, false));
-            twitterNameTextView.setText(preferences.getString(AppConstants.SP_TWITTER_NAME, AppConstants.EMPTY_STRING));
-            twitterHandleTextView.setText("@" + preferences.getString(AppConstants.SP_TWITTER_SCREEN_NAME, AppConstants.EMPTY_STRING));
-            twitterStatusEditText.setText(AppUtils.generateStatus(getActivity()));
+            includeLocationCb.setChecked(includeLocation);
+            randomizeLocationCb.setChecked(randomizeLocation);
+            if (includeLocation && randomizeLocation) {
+                randomizeLocationCb.setEnabled(true);
+            }
+
+            String name = preferences.getString(Constants.TWITTER_NAME, Constants.EMPTY_STRING);
+            String handle = "@" + preferences.getString(Constants.TWITTER_SCREEN_NAME, Constants.EMPTY_STRING);
+            nameTextView.setText(name);
+            handleTextView.setText(handle);
+            statusEditText.setText(OgyongUtils.generateStatus(getActivity()));
         }
 
-        boolean includeLocation = preferences.getBoolean(AppConstants.SP_TWITTER_INCLUDE_LOCATION, false);
         int locationVisible = (isOathAuthenticated() && includeLocation) ? View.VISIBLE : View.GONE;
         placeTextView.setVisibility(locationVisible);
         latLongTextView.setVisibility(locationVisible);
+        if (locationVisible == View.VISIBLE) {
+
+        }
     }
 
     private boolean isOathAuthenticated() {
-        return preferences.getBoolean(AppConstants.SP_TWITTER_LOGGED_IN, false);
+        return preferences.getBoolean(Constants.TWITTER_LOGGED_IN, false);
     }
 
     private boolean isOauthVerified() {
-        String oauthVerifier = preferences.getString(AppConstants.SP_TWITTER_OAUTH_VERIFIER, AppConstants.EMPTY_STRING);
-        return !AppConstants.EMPTY_STRING.equals(oauthVerifier);
+        String oauthVerifier = preferences.getString(Constants.TWITTER_OAUTH_VERIFIER, Constants.EMPTY_STRING);
+        return !Constants.EMPTY_STRING.equals(oauthVerifier);
     }
 
     /**
@@ -295,21 +271,11 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.twitter_include_location_cb: {
-                boolean checked = ((CheckBox) view).isChecked();
-                onLocationTrackingListener.onLocationTrackingEnabled(view);
-                editor.putBoolean(AppConstants.SP_TWITTER_INCLUDE_LOCATION, checked);
-                editor.commit();
-
-                int visibility = checked ? View.VISIBLE : View.GONE;
-                placeTextView.setVisibility(visibility);
-                latLongTextView.setVisibility(visibility);
+                onIncludeLocationChecked(view);
                 break;
             }
             case R.id.twitter_randomize_location_cb: {
-                boolean checked = ((CheckBox) view).isChecked();
-                onLocationTrackingListener.onLocationTrackingEnabled(view);
-                editor.putBoolean(AppConstants.SP_TWITTER_RANDOMIZE_LOCATION, checked);
-                editor.commit();
+                onRandomizeLocationChecked(view);
                 break;
             }
             case R.id.twitter_login_button: {
@@ -323,76 +289,59 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
         }
     }
 
-    public void onRequestTokenDownloaded(RequestToken requestToken) {
-        // start the activity to auth with twitter
-        if (requestToken != null) {
-            editor.putString(AppConstants.SP_TWITTER_REQUEST_TOKEN, requestToken.getToken());
-            editor.putString(AppConstants.SP_TWITTER_REQUEST_TOKEN_SECRET, requestToken.getTokenSecret());
-            editor.commit();
+    private void onRandomizeLocationChecked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        locationSelectionListener.onRandomLocationSelected(checked);
+
+        editor.putBoolean(Constants.TWITTER_RANDOMIZE_LOCATION, checked);
+        editor.commit();
+    }
+
+    private void onIncludeLocationChecked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        randomizeLocationCb.setEnabled(checked);
+        locationSelectionListener.onIncludeLocationSelected();
+
+        if (!checked) {
+            editor.remove(Constants.TWITTER_RANDOMIZE_LOCATION);
+            randomizeLocationCb.setChecked(false);
         }
-        getActivity().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(requestToken.getAuthenticationURL())));
+
+        int visibility = checked ? View.VISIBLE : View.GONE;
+        placeTextView.setVisibility(visibility);
+        latLongTextView.setVisibility(visibility);
+
+        editor.putBoolean(Constants.TWITTER_INCLUDE_LOCATION, checked);
+        editor.commit();
     }
 
     private void startDownloadingAccessToken() {
-        String token = preferences.getString(AppConstants.SP_TWITTER_REQUEST_TOKEN, AppConstants.EMPTY_STRING);
-        String tokenSecret = preferences.getString(AppConstants.SP_TWITTER_REQUEST_TOKEN_SECRET, AppConstants.EMPTY_STRING);
+        String token = preferences.getString(Constants.TWITTER_REQUEST_TOKEN, Constants.EMPTY_STRING);
+        String tokenSecret = preferences.getString(Constants.TWITTER_REQUEST_TOKEN_SECRET, Constants.EMPTY_STRING);
         RequestToken requestToken = new RequestToken(token, tokenSecret);
 
-        String oauthVerifier = preferences.getString(AppConstants.SP_TWITTER_OAUTH_VERIFIER, AppConstants.EMPTY_STRING);
+        String oauthVerifier = preferences.getString(Constants.TWITTER_OAUTH_VERIFIER, Constants.EMPTY_STRING);
         DownloadAccessTokenTask downloadAccessTokenTask = new DownloadAccessTokenTask(requestToken, oauthVerifier);
-        downloadAccessTokenTask.setDownloadAccessTokenListener(this);
+        downloadAccessTokenTask.setDownloadAccessTokenListener(new TwitterAccessTokenListener());
         downloadAccessTokenTask.execute();
-    }
-
-    @Override
-    public void onAccessTokenDownloaded(AccessToken accessToken) {
-        // save the access token for future use
-        if (accessToken != null) {
-            editor.putString(AppConstants.SP_TWITTER_ACCESS_TOKEN, accessToken.getToken());
-            editor.putString(AppConstants.SP_TWITTER_ACCESS_TOKEN_SECRET, accessToken.getTokenSecret());
-            editor.commit();
-        }
-        startDownloadingUser();
     }
 
     private void startDownloadingUser() {
         // start downloading user information
-        String token = preferences.getString(AppConstants.SP_TWITTER_ACCESS_TOKEN, AppConstants.EMPTY_STRING);
-        String tokenSecret = preferences.getString(AppConstants.SP_TWITTER_ACCESS_TOKEN_SECRET, AppConstants.EMPTY_STRING);
+        String token = preferences.getString(Constants.TWITTER_ACCESS_TOKEN, Constants.EMPTY_STRING);
+        String tokenSecret = preferences.getString(Constants.TWITTER_ACCESS_TOKEN_SECRET, Constants.EMPTY_STRING);
 
         AccessToken accessToken = new AccessToken(token, tokenSecret);
         DownloadUserTask downloadUserTask = new DownloadUserTask(accessToken);
-        downloadUserTask.setUserDownloadListener(this);
+        downloadUserTask.setUserDownloadListener(new TwitterUserDetailListener());
         downloadUserTask.execute();
     }
 
-    @Override
-    public void onUserDownloaded(User user) {
-        // save the user information for future use
-        if (user != null) {
-            editor.putString(AppConstants.SP_TWITTER_NAME, user.getName());
-            editor.putString(AppConstants.SP_TWITTER_SCREEN_NAME, user.getScreenName());
-            editor.putString(AppConstants.SP_TWITTER_PROFILE_PICTURE, user.getOriginalProfileImageURL());
-            editor.putBoolean(AppConstants.SP_TWITTER_LOGGED_IN, true);
-            editor.commit();
-        }
-        startDownloadingBitmap();
-        updateInterface();
-    }
-
     private void startDownloadingBitmap() {
-        String profileImageUrl = preferences.getString(AppConstants.SP_TWITTER_PROFILE_PICTURE, AppConstants.EMPTY_STRING);
+        String profileImageUrl = preferences.getString(Constants.TWITTER_PROFILE_PICTURE, Constants.EMPTY_STRING);
         DownloadBitmapTask downloadBitmapTask = new DownloadBitmapTask(profileImageUrl);
-        downloadBitmapTask.setBitmapDownloadListener(this);
+        downloadBitmapTask.setBitmapDownloadListener(new TwitterBitmapListener());
         downloadBitmapTask.execute();
-    }
-
-    @Override
-    public void onBitmapDownloaded(Bitmap bitmap) {
-        if (bitmap != null) {
-            twitterProfileBitmap = bitmap;
-            twitterProfilePicture.setImageBitmap(twitterProfileBitmap);
-        }
     }
 
     public void setPlaceTextView(String place) {
@@ -404,6 +353,95 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     }
 
     public void setStatusMessage(String statusMessage) {
-        twitterStatusEditText.setText(statusMessage);
+        statusEditText.setText(statusMessage);
+    }
+
+    private class TwitterTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (longTextWarningTextView != null) {
+                if (start + count > 140) {
+                    longTextWarningTextView.setVisibility(View.VISIBLE);
+                } else {
+                    longTextWarningTextView.setVisibility(View.GONE);
+                }
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+    }
+
+    private class StatusFocusListener implements View.OnFocusChangeListener {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if (postMenuItem != null) {
+                if (hasFocus) {
+                    postMenuItem.setVisible(true);
+                } else {
+                    postMenuItem.setVisible(false);
+                }
+            }
+        }
+    }
+
+    private class TwitterBitmapListener implements UserBitmapListener {
+
+        @Override
+        public void onBitmapDownloaded(Bitmap bitmap) {
+            if (bitmap != null) {
+                profileBitmap = bitmap;
+                profilePicture.setImageBitmap(profileBitmap);
+            }
+        }
+    }
+
+    private class TwitterRequestTokenListener implements RequestTokenListener {
+        @Override
+        public void onRequestTokenDownloaded(RequestToken requestToken) {
+            // start the activity to auth with twitter
+            if (requestToken != null) {
+                editor.putString(Constants.TWITTER_REQUEST_TOKEN, requestToken.getToken());
+                editor.putString(Constants.TWITTER_REQUEST_TOKEN_SECRET, requestToken.getTokenSecret());
+                editor.commit();
+            }
+            getActivity().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(requestToken.getAuthenticationURL())));
+        }
+    }
+
+    private class TwitterAccessTokenListener implements AccessTokenListener {
+
+        @Override
+        public void onAccessTokenDownloaded(AccessToken accessToken) {
+            // save the access token for future use
+            if (accessToken != null) {
+                editor.putString(Constants.TWITTER_ACCESS_TOKEN, accessToken.getToken());
+                editor.putString(Constants.TWITTER_ACCESS_TOKEN_SECRET, accessToken.getTokenSecret());
+                editor.commit();
+            }
+            startDownloadingUser();
+        }
+    }
+
+    private class TwitterUserDetailListener implements UserDetailListener {
+
+        @Override
+        public void onUserDownloaded(User user) {
+            // save the user information for future use
+            if (user != null) {
+                editor.putString(Constants.TWITTER_NAME, user.getName());
+                editor.putString(Constants.TWITTER_SCREEN_NAME, user.getScreenName());
+                editor.putString(Constants.TWITTER_PROFILE_PICTURE, user.getOriginalProfileImageURL());
+                editor.putBoolean(Constants.TWITTER_LOGGED_IN, true);
+                editor.commit();
+            }
+            startDownloadingBitmap();
+            updateInterface();
+        }
     }
 }

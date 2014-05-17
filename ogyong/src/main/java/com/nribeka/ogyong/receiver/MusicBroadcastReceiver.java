@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.service.StatusUpdaterService;
-import com.nribeka.ogyong.utils.AppConstants;
-import com.nribeka.ogyong.utils.AppUtils;
+import com.nribeka.ogyong.utils.OgyongUtils;
 
 /**
  */
@@ -25,18 +25,18 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
             String artist = intent.getStringExtra("artist");
             String album = intent.getStringExtra("album");
             String track = intent.getStringExtra("track");
-            String generatedHash = AppUtils.generateHash(artist, album, track);
+            String generatedHash = OgyongUtils.generateHash(artist, album, track);
 
-            String savedHash = preferences.getString(AppConstants.SP_MEDIA_SIGNATURE, AppConstants.EMPTY_STRING);
+            String savedHash = preferences.getString(Constants.MEDIA_SIGNATURE, Constants.EMPTY_STRING);
             if (!generatedHash.equals(savedHash)) {
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString(AppConstants.SP_MEDIA_TRACK, track);
-                editor.putString(AppConstants.SP_MEDIA_ALBUM, album);
-                editor.putString(AppConstants.SP_MEDIA_ARTIST, artist);
-                editor.putString(AppConstants.SP_MEDIA_SIGNATURE, generatedHash);
+                editor.putString(Constants.MEDIA_TRACK, track);
+                editor.putString(Constants.MEDIA_ALBUM, album);
+                editor.putString(Constants.MEDIA_ARTIST, artist);
+                editor.putString(Constants.MEDIA_SIGNATURE, generatedHash);
                 editor.commit();
 
-                Intent updateStatusIntent = new Intent(AppConstants.INTENT_MUSIC_UPDATED);
+                Intent updateStatusIntent = new Intent(Constants.INTENT_MUSIC_UPDATED);
                 context.sendBroadcast(updateStatusIntent);
 
                 if (automatePosting) {

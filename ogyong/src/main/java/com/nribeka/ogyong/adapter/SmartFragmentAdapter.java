@@ -11,11 +11,11 @@ Extension of FragmentStatePagerAdapter which intelligently caches
 all active fragments and manages the fragment life cycles.
 Usage involves extending from SmartFragmentStatePagerAdapter as you would any other PagerAdapter.
 */
-public abstract class SmartFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
+public abstract class SmartFragmentAdapter extends FragmentStatePagerAdapter {
     // Sparse array to keep track of registered fragments in memory
     private SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
 
-    public SmartFragmentStatePagerAdapter(FragmentManager fragmentManager) {
+    public SmartFragmentAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 

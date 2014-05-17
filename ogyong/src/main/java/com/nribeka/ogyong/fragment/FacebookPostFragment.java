@@ -23,11 +23,11 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 import com.facebook.widget.ProfilePictureView;
+import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.R;
-import com.nribeka.ogyong.listener.OnLocationTrackingListener;
+import com.nribeka.ogyong.listener.LocationSelectionListener;
 import com.nribeka.ogyong.service.StatusUpdaterService;
-import com.nribeka.ogyong.utils.AppConstants;
-import com.nribeka.ogyong.utils.AppUtils;
+import com.nribeka.ogyong.utils.OgyongUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,8 +51,8 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
 
     private MenuItem postMenuItem;
 
-    private CheckBox facebookIncludeLocationCb;
-    private CheckBox facebookRandomizeLocationCb;
+    private CheckBox includeLocationCb;
+    private CheckBox randomizeLocationCb;
 
     private UiLifecycleHelper uiHelper;
     private ProfilePictureView profilePictureView;
@@ -65,7 +65,7 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
 
-    private OnLocationTrackingListener onLocationTrackingListener;
+    private LocationSelectionListener locationSelectionListener;
 
     public FacebookPostFragment() {
         // empty constructor
@@ -88,36 +88,20 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         editor = preferences.edit();
 
         facebookStatusEditText = (EditText) view.findViewById(R.id.facebook_status_edit_text);
-        facebookStatusEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (postMenuItem != null) {
-                    if (hasFocus) {
-                        postMenuItem.setVisible(true);
-                    } else {
-                        postMenuItem.setVisible(false);
-                    }
-                }
-            }
-        });
+        facebookStatusEditText.setOnFocusChangeListener(new StatusFocusListener());
         profilePictureView = (ProfilePictureView) view.findViewById(R.id.facebook_profile_picture);
 
-        facebookIncludeLocationCb = (CheckBox) view.findViewById(R.id.facebook_include_location_cb);
-        facebookIncludeLocationCb.setOnClickListener(this);
-        facebookRandomizeLocationCb = (CheckBox) view.findViewById(R.id.facebook_randomize_location_cb);
-        facebookRandomizeLocationCb.setOnClickListener(this);
+        includeLocationCb = (CheckBox) view.findViewById(R.id.facebook_include_location_cb);
+        includeLocationCb.setOnClickListener(this);
+        randomizeLocationCb = (CheckBox) view.findViewById(R.id.facebook_randomize_location_cb);
+        randomizeLocationCb.setOnClickListener(this);
 
         placeTextView = (TextView) view.findViewById(R.id.facebook_place_text_view);
         latLongTextView = (TextView) view.findViewById(R.id.facebook_lat_long_text_view);
 
         LoginButton loginButton = (LoginButton) view.findViewById(R.id.facebook_login_button);
+        loginButton.setUserInfoChangedCallback(new UserInfoChangedCallback());
         loginButton.setPublishPermissions(PERMISSIONS);
-        loginButton.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
-            @Override
-            public void onUserInfoFetched(GraphUser user) {
-                profilePictureView.setProfileId(user == null ? null : user.getId());
-            }
-        });
         loginButton.setFragment(this);
         setHasOptionsMenu(true);
 
@@ -128,7 +112,7 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            onLocationTrackingListener = (OnLocationTrackingListener) activity;
+            locationSelectionListener = (LocationSelectionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnHeadlineSelectedListener");
@@ -203,7 +187,11 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
 
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (state != null) {
-            Log.i(TAG, "Facebook state isOpened: " + state.isOpened() + ", isClosed: " + state.isClosed());
+            if (state.isClosed()) {
+                editor.remove(Constants.FACEBOOK_INCLUDE_LOCATION);
+                editor.remove(Constants.FACEBOOK_RANDOMIZE_LOCATION);
+                editor.commit();
+            }
         }
 
         if (exception != null) {
@@ -227,37 +215,66 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         Session session = Session.getActiveSession();
         boolean isOpened = session != null && session.isOpened();
         int visible = isOpened ? View.VISIBLE : View.GONE;
-        facebookIncludeLocationCb.setVisibility(visible);
-        facebookRandomizeLocationCb.setVisibility(visible);
+        includeLocationCb.setVisibility(visible);
+        randomizeLocationCb.setVisibility(visible);
         facebookStatusEditText.setVisibility(visible);
+
+        boolean includeLocation = preferences.getBoolean(Constants.FACEBOOK_INCLUDE_LOCATION, false);
+        boolean randomizeLocation = preferences.getBoolean(Constants.FACEBOOK_RANDOMIZE_LOCATION, false);
         if (visible == View.VISIBLE) {
-            facebookStatusEditText.setText(AppUtils.generateStatus(getActivity()));
-            facebookIncludeLocationCb.setChecked(preferences.getBoolean(AppConstants.SP_FACEBOOK_INCLUDE_LOCATION, false));
-            facebookRandomizeLocationCb.setChecked(preferences.getBoolean(AppConstants.SP_FACEBOOK_RANDOMIZE_LOCATION, false));
+            facebookStatusEditText.setText(OgyongUtils.generateStatus(getActivity()));
+            includeLocationCb.setChecked(includeLocation);
+            randomizeLocationCb.setChecked(randomizeLocation);
+            if (includeLocation && randomizeLocation) {
+                randomizeLocationCb.setEnabled(true);
+            }
         }
-        boolean includeLocation = preferences.getBoolean(AppConstants.SP_FACEBOOK_INCLUDE_LOCATION, false);
+
         int locationVisible = (isOpened && includeLocation) ? View.VISIBLE : View.GONE;
         placeTextView.setVisibility(locationVisible);
         latLongTextView.setVisibility(locationVisible);
+        if (locationVisible == View.VISIBLE) {
+            // update the lat long and place here
+        }
     }
 
     @Override
     public void onClick(View view) {
-        boolean checked = ((CheckBox) view).isChecked();
         switch (view.getId()) {
             case R.id.facebook_include_location_cb:
-                editor.putBoolean(AppConstants.SP_FACEBOOK_INCLUDE_LOCATION, checked);
-                facebookRandomizeLocationCb.setEnabled(checked);
-                int visibility = checked ? View.VISIBLE : View.GONE;
-                placeTextView.setVisibility(visibility);
-                latLongTextView.setVisibility(visibility);
+                onIncludeLocationChecked(view);
                 break;
             case R.id.facebook_randomize_location_cb:
-                editor.putBoolean(AppConstants.SP_FACEBOOK_RANDOMIZE_LOCATION, checked);
+                onRandomizeLocationChecked(view);
                 break;
         }
+    }
+
+    private void onRandomizeLocationChecked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        locationSelectionListener.onRandomLocationSelected(checked);
+
+        editor.putBoolean(Constants.FACEBOOK_RANDOMIZE_LOCATION, checked);
         editor.commit();
-        onLocationTrackingListener.onLocationTrackingEnabled(view);
+    }
+
+    private void onIncludeLocationChecked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        randomizeLocationCb.setEnabled(checked);
+
+        if (!checked) {
+            editor.remove(Constants.FACEBOOK_RANDOMIZE_LOCATION);
+            randomizeLocationCb.setChecked(false);
+        }
+
+        locationSelectionListener.onIncludeLocationSelected();
+
+        int visibility = checked ? View.VISIBLE : View.GONE;
+        placeTextView.setVisibility(visibility);
+        latLongTextView.setVisibility(visibility);
+
+        editor.putBoolean(Constants.FACEBOOK_INCLUDE_LOCATION, checked);
+        editor.commit();
     }
 
     public void setPlaceTextView(String place) {
@@ -270,5 +287,25 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
 
     public void setStatusMessage(String statusMessage) {
         facebookStatusEditText.setText(statusMessage);
+    }
+
+    private class StatusFocusListener implements View.OnFocusChangeListener {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if (postMenuItem != null) {
+                if (hasFocus) {
+                    postMenuItem.setVisible(true);
+                } else {
+                    postMenuItem.setVisible(false);
+                }
+            }
+        }
+    }
+
+    private class UserInfoChangedCallback implements LoginButton.UserInfoChangedCallback {
+        @Override
+        public void onUserInfoFetched(GraphUser user) {
+            profilePictureView.setProfileId(user == null ? null : user.getId());
+        }
     }
 }

@@ -4,6 +4,6 @@ import twitter4j.auth.RequestToken;
 
 /**
  */
-public interface RequestTokenDownloadListener {
+public interface RequestTokenListener {
     void onRequestTokenDownloaded(RequestToken requestToken);
 }

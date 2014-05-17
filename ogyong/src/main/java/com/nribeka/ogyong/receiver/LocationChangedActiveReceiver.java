@@ -7,8 +7,8 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
 
+import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.service.PlaceUpdaterService;
-import com.nribeka.ogyong.utils.AppConstants;
 
 /**
  * This Receiver class is used to listen for Broadcast Intents that announce
@@ -32,7 +32,7 @@ public class LocationChangedActiveReceiver extends BroadcastReceiver {
         String providerEnabledKey = LocationManager.KEY_PROVIDER_ENABLED;
         if (intent.hasExtra(providerEnabledKey)) {
             if (!intent.getBooleanExtra(providerEnabledKey, true)) {
-                Intent providerDisabledIntent = new Intent(AppConstants.INTENT_LOCATION_PROVIDER_DISABLED);
+                Intent providerDisabledIntent = new Intent(Constants.INTENT_LOCATION_PROVIDER_DISABLED);
                 context.sendBroadcast(providerDisabledIntent);
             }
         }
@@ -40,9 +40,9 @@ public class LocationChangedActiveReceiver extends BroadcastReceiver {
             Location location = (Location) intent.getExtras().get(locationKey);
             Log.d(TAG, "Actively updating place list");
             Intent updateServiceIntent = new Intent(context, PlaceUpdaterService.class);
-            updateServiceIntent.putExtra(AppConstants.INTENT_EXTRA_LOCATION, location);
-            updateServiceIntent.putExtra(AppConstants.INTENT_EXTRA_RADIUS, AppConstants.LOCATION_DEFAULT_RADIUS);
-            updateServiceIntent.putExtra(AppConstants.INTENT_EXTRA_FORCE_REFRESH, true);
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_LOCATION, location);
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_RADIUS, Constants.LOCATION_DEFAULT_RADIUS);
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_FORCE_REFRESH, true);
             context.startService(updateServiceIntent);
         }
     }

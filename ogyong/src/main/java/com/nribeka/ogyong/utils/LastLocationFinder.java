@@ -26,6 +26,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 
+import com.nribeka.ogyong.Constants;
+
 import java.util.List;
 
 /**
@@ -65,14 +67,16 @@ public class LastLocationFinder {
 
         // Construct the Pending Intent that will be broadcast by the oneshot
         // location update.
-        Intent updateIntent = new Intent(AppConstants.SINGLE_LOCATION_UPDATE_ACTION);
-        singleUpatePI = PendingIntent.getBroadcast(context, 0, updateIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent updateIntent = new Intent(Constants.SINGLE_LOCATION_UPDATE_ACTION);
+        singleUpatePI = PendingIntent.getBroadcast(context, 0, updateIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     /**
      * Returns the most accurate and timely previously detected location.
      * Where the last result is beyond the specified maximum distance or
-     * latency a one-off location update is returned via the {@link android.location.LocationListener}
+     * latency a one-off location update is returned via the {@link android.location
+     * .LocationListener}
      * specified in {@link #setChangedLocationListener}.
      *
      * @param minDistance Minimum distance before we require a location update.
@@ -110,7 +114,8 @@ public class LastLocationFinder {
         // This check simply implements the same conditions we set when requesting regular
         // location updates every [minTime] and [minDistance].
         if (locationListener != null && (bestTime < minTime || bestAccuracy > minDistance)) {
-            IntentFilter locIntentFilter = new IntentFilter(AppConstants.SINGLE_LOCATION_UPDATE_ACTION);
+            IntentFilter locIntentFilter = new IntentFilter(Constants
+                    .SINGLE_LOCATION_UPDATE_ACTION);
             context.registerReceiver(singleUpdateReceiver, locIntentFilter);
             locationManager.requestSingleUpdate(criteria, singleUpatePI);
         }
@@ -134,7 +139,7 @@ public class LastLocationFinder {
 
     /**
      * This {@link android.content.BroadcastReceiver} listens for a single location
-     * update before unregistering itself. The oneshot location update is returned via the
+     * update before un-registering itself. The oneshot location update is returned via the
      * {@link android.location.LocationListener} specified in {@link #setChangedLocationListener}.
      */
     protected BroadcastReceiver singleUpdateReceiver = new BroadcastReceiver() {

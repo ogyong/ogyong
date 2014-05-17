@@ -9,8 +9,8 @@ import android.location.LocationManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.service.PlaceUpdaterService;
-import com.nribeka.ogyong.utils.AppConstants;
 import com.nribeka.ogyong.utils.LastLocationFinder;
 
 /**
@@ -43,21 +43,21 @@ public class LocationChangedPassiveReceiver extends BroadcastReceiver {
             // has been a more recent Location received than the last location we used.
             // Get the best last location detected from the providers.
             LastLocationFinder lastLocationFinder = new LastLocationFinder(context);
-            location = lastLocationFinder.getLastBestLocation(AppConstants.LOCATION_MAX_DISTANCE,
-                    System.currentTimeMillis() - AppConstants.LOCATION_MAX_TIME);
+            location = lastLocationFinder.getLastBestLocation(Constants.LOCATION_MAX_DISTANCE,
+                    System.currentTimeMillis() - Constants.LOCATION_MAX_TIME);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             // Get the last location we used to get a listing.
-            long lastTime = prefs.getLong(AppConstants.SP_LAST_UPDATED_TIME, Long.MIN_VALUE);
-            long lastLatitude = prefs.getLong(AppConstants.SP_LAST_UPDATED_LATITUDE, Long.MIN_VALUE);
-            long lastLongitude = prefs.getLong(AppConstants.SP_LAST_UPDATED_LONGITUDE, Long.MIN_VALUE);
-            Location lastLocation = new Location(AppConstants.LOCATION_PROVIDER_DUMMY);
+            long lastTime = prefs.getLong(Constants.LAST_UPDATED_TIME, Long.MIN_VALUE);
+            long lastLatitude = prefs.getLong(Constants.LAST_UPDATED_LATITUDE, Long.MIN_VALUE);
+            long lastLongitude = prefs.getLong(Constants.LAST_UPDATED_LONGITUDE, Long.MIN_VALUE);
+            Location lastLocation = new Location(Constants.CONSTRUCTED_LOCATION_PROVIDER);
             lastLocation.setLatitude(lastLatitude);
             lastLocation.setLongitude(lastLongitude);
             // Check if the last location detected from the providers is either too soon, or too close to the last
             // value we used. If it is within those thresholds we set the location to null to prevent the update
             // Service being run unnecessarily (and spending battery on data transfers).
-            if ((lastTime > System.currentTimeMillis() - AppConstants.LOCATION_MAX_TIME) ||
-                    (lastLocation.distanceTo(location) < AppConstants.LOCATION_MAX_DISTANCE))
+            if ((lastTime > System.currentTimeMillis() - Constants.LOCATION_MAX_TIME) ||
+                    (lastLocation.distanceTo(location) < Constants.LOCATION_MAX_DISTANCE))
                 location = null;
         }
 
@@ -65,9 +65,9 @@ public class LocationChangedPassiveReceiver extends BroadcastReceiver {
         if (location != null) {
             Log.d(TAG, "Passively updating place list.");
             Intent updateServiceIntent = new Intent(context, PlaceUpdaterService.class);
-            updateServiceIntent.putExtra(AppConstants.INTENT_EXTRA_LOCATION, location);
-            updateServiceIntent.putExtra(AppConstants.INTENT_EXTRA_RADIUS, AppConstants.LOCATION_DEFAULT_RADIUS);
-            updateServiceIntent.putExtra(AppConstants.INTENT_EXTRA_FORCE_REFRESH, false);
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_LOCATION, location);
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_RADIUS, Constants.LOCATION_DEFAULT_RADIUS);
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_FORCE_REFRESH, false);
             context.startService(updateServiceIntent);
         }
     }

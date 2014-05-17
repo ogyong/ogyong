@@ -1,4 +1,4 @@
-package com.nribeka.ogyong.utils;
+package com.nribeka.ogyong.model;
 
 import com.facebook.model.GraphLocation;
 import com.facebook.model.GraphObject;

@@ -14,15 +14,18 @@ public class LocationUpdateRequester {
 
     protected LocationManager locationManager;
 
-    public LocationUpdateRequester(LocationManager locationManager) {
+    public LocationUpdateRequester(final LocationManager locationManager) {
         this.locationManager = locationManager;
     }
 
-    public void requestLocationUpdates(long minTime, long minDistance, Criteria criteria, PendingIntent pendingIntent) {
+    public void requestLocationUpdates(final long minTime, final long minDistance,
+                                       final Criteria criteria, final PendingIntent pendingIntent) {
         locationManager.requestLocationUpdates(minTime, minDistance, criteria, pendingIntent);
     }
 
-    public void requestPassiveLocationUpdates(long minimumTime, long minimumDistance, PendingIntent pendingIntent) {
-        locationManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER, minimumTime, minimumDistance, pendingIntent);
+    public void requestPassiveLocationUpdates(final long minimumTime, final long minimumDistance,
+                                              final PendingIntent pendingIntent) {
+        locationManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER, minimumTime,
+                minimumDistance, pendingIntent);
     }
 }

@@ -3,8 +3,8 @@ package com.nribeka.ogyong.task;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.nribeka.ogyong.listener.AccessTokenDownloadListener;
-import com.nribeka.ogyong.utils.AppUtils;
+import com.nribeka.ogyong.listener.AccessTokenListener;
+import com.nribeka.ogyong.utils.OgyongUtils;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -19,21 +19,21 @@ public class DownloadAccessTokenTask extends AsyncTask<Void, Void, AccessToken> 
 
     private String oauthVerifier;
     private RequestToken requestToken;
-    private AccessTokenDownloadListener listener;
+    private AccessTokenListener listener;
 
     public DownloadAccessTokenTask(RequestToken requestToken, String oauthVerifier) {
         this.requestToken = requestToken;
         this.oauthVerifier = oauthVerifier;
     }
 
-    public void setDownloadAccessTokenListener(AccessTokenDownloadListener listener) {
+    public void setDownloadAccessTokenListener(AccessTokenListener listener) {
         this.listener = listener;
     }
 
     @Override
     protected AccessToken doInBackground(Void... params) {
         AccessToken accessToken = null;
-        Twitter twitter = AppUtils.getTwitterInstance();
+        Twitter twitter = OgyongUtils.getTwitterInstance();
         try {
             accessToken = twitter.getOAuthAccessToken(requestToken, oauthVerifier);
         } catch (TwitterException e) {

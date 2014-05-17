@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.nribeka.ogyong.listener.BitmapDownloadListener;
+import com.nribeka.ogyong.listener.UserBitmapListener;
 
 import java.net.URL;
 
@@ -15,13 +15,13 @@ public class DownloadBitmapTask extends AsyncTask<Void, Void, Bitmap> {
 
     private static final String TAG = DownloadBitmapTask.class.getSimpleName();
     private String bitmapUrl;
-    private BitmapDownloadListener listener;
+    private UserBitmapListener listener;
 
     public DownloadBitmapTask(String bitmapUrl) {
         this.bitmapUrl = bitmapUrl;
     }
 
-    public void setBitmapDownloadListener(BitmapDownloadListener listener) {
+    public void setBitmapDownloadListener(UserBitmapListener listener) {
         this.listener = listener;
     }
 

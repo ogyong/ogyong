@@ -4,6 +4,6 @@ import twitter4j.User;
 
 /**
  */
-public interface UserDownloadListener {
+public interface UserDetailListener {
     void onUserDownloaded(User user);
 }

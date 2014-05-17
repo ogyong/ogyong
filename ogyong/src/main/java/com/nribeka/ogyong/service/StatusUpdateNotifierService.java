@@ -8,9 +8,9 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
+import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.R;
 import com.nribeka.ogyong.activity.PostActivity;
-import com.nribeka.ogyong.utils.AppConstants;
 
 /**
  * Service that handles background notifications.
@@ -41,7 +41,7 @@ public class StatusUpdateNotifierService extends IntentService {
      */
     @Override
     protected void onHandleIntent(Intent intent) {
-        String destination = intent.getStringExtra(AppConstants.INTENT_EXTRA_MESSAGE_DESTINATION);
+        String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
 
         Intent resultIntent = new Intent(this, PostActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
@@ -55,7 +55,7 @@ public class StatusUpdateNotifierService extends IntentService {
         builder.setContentText("Music player information posted to " + destination + "!");
         builder.setContentIntent(resultPendingIntent);
 
-        int notifyId = AppConstants.STATUS_NOTIFICATION;
+        int notifyId = Constants.STATUS_NOTIFICATION;
         notificationManager.notify(notifyId, builder.build());
     }
 }

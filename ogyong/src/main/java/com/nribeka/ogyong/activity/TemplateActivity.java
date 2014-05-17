@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.R;
-import com.nribeka.ogyong.utils.AppConstants;
 
 public class TemplateActivity extends ActionBarActivity {
 
@@ -78,7 +78,7 @@ public class TemplateActivity extends ActionBarActivity {
         public void onResume() {
             super.onResume();
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            String currentTemplate = sharedPreferences.getString("status_template", AppConstants.EMPTY_STRING);
+            String currentTemplate = sharedPreferences.getString("status_template", Constants.EMPTY_STRING);
             templateEditText.setText(currentTemplate);
             templateEditText.selectAll();
         }

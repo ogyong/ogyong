@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.service.StatusUpdateNotifierService;
-import com.nribeka.ogyong.utils.AppConstants;
 
 /**
  * Manifest Receiver that listens for broadcasts announcing a successful status posting.
@@ -25,10 +25,10 @@ public class StatusUpdatedReceiver extends BroadcastReceiver {
      */
     @Override
     public void onReceive(Context context, Intent intent) {
-        String destination = intent.getStringExtra(AppConstants.INTENT_EXTRA_MESSAGE_DESTINATION);
+        String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
         if (destination != null) {
             Intent serviceIntent = new Intent(context, StatusUpdateNotifierService.class);
-            serviceIntent.putExtra(AppConstants.INTENT_EXTRA_MESSAGE_DESTINATION, destination);
+            serviceIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, destination);
             context.startService(serviceIntent);
         }
     }
