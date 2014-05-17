@@ -42,6 +42,8 @@ public class FacebookStatusUpdaterService extends IntentService {
 
     @Override
     protected void onHandleIntent(final Intent intent) {
+        Log.i(TAG, "Executing service ...");
+
         double latitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LATITUDE, Long.MIN_VALUE));
         double longitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LONGITUDE, Long.MIN_VALUE));
         String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);

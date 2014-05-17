@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 /**
  * This Receiver class is designed to listen for changes in connectivity.
@@ -18,8 +19,13 @@ import android.net.NetworkInfo;
  * and re-enables passive location updates.
  */
 public class ConnectivityChangedReceiver extends BroadcastReceiver {
+
+    private static final String TAG = ConnectivityChangedReceiver.class.getSimpleName();
+
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "Executing receiver ...");
+
         ConnectivityManager connectivityManager =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 

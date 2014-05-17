@@ -49,6 +49,8 @@ public class FacebookPlaceUpdaterService extends IntentService {
 
     @Override
     protected void onHandleIntent(final Intent intent) {
+        Log.i(TAG, "Executing service ...");
+
         Session session = Session.getActiveSession();
         boolean inFacebook = (session != null && session.isOpened());
         boolean includeLocation = preferences.getBoolean(Constants.FACEBOOK_INCLUDE_LOCATION, false);
@@ -68,6 +70,8 @@ public class FacebookPlaceUpdaterService extends IntentService {
             // name:hash(location) --> place name
             String latLong = String.valueOf(location.getLatitude()) + ", " + String.valueOf(location.getLongitude());
             String hashValue = OgyongUtils.generateHash(latLong);
+
+            Log.i(TAG, "Location received: " + location.getProvider() + " -> " + latLong);
 
             if (inFacebook && includeLocation) {
                 String facebookPlace = preferences.getString("facebook:name:" + hashValue, Constants.EMPTY_STRING);

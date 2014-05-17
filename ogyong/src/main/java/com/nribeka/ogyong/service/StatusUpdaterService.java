@@ -2,6 +2,7 @@ package com.nribeka.ogyong.service;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
 
@@ -17,9 +18,11 @@ public class StatusUpdaterService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        int updateDestination = -1;
+        Log.i(TAG, "Executing service ...");
+
+        int updateDestination = 0;
         if (intent.hasExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION)) {
-            updateDestination = intent.getIntExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, -1);
+            updateDestination = intent.getIntExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, 0);
         }
 
         switch (updateDestination) {
@@ -30,6 +33,8 @@ public class StatusUpdaterService extends IntentService {
                 sendFacebookUpdate();
                 break;
             default:
+                sendTwitterUpdate();
+                sendFacebookUpdate();
                 break;
         }
     }

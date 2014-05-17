@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.util.Log;
 
 /**
  * The manifest Receiver is used to detect changes in battery state.
@@ -17,8 +18,13 @@ import android.content.pm.PackageManager;
  * resumed.
  */
 public class PowerStateChangedReceiver extends BroadcastReceiver {
+
+    private static final String TAG = PowerStateChangedReceiver.class.getSimpleName();
+
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "Executing receiver ...");
+
         boolean batteryLow = intent.getAction().equals(Intent.ACTION_BATTERY_LOW);
 
         PackageManager pm = context.getPackageManager();

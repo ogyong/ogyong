@@ -3,6 +3,7 @@ package com.nribeka.ogyong.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.service.StatusUpdateNotifierService;
@@ -25,6 +26,8 @@ public class StatusUpdatedReceiver extends BroadcastReceiver {
      */
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "Executing receiver ...");
+
         String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
         if (destination != null) {
             Intent serviceIntent = new Intent(context, StatusUpdateNotifierService.class);

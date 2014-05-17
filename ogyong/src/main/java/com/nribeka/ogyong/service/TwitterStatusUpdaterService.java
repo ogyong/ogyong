@@ -10,7 +10,6 @@ import android.util.Log;
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.utils.OgyongUtils;
 
-import twitter4j.GeoLocation;
 import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -20,8 +19,9 @@ import twitter4j.auth.AccessToken;
  */
 public class TwitterStatusUpdaterService extends IntentService {
 
-    public static final int TWITTER_MAX_LENGTH = 140;
     private static final String TAG = TwitterStatusUpdaterService.class.getSimpleName();
+
+    private static final int TWITTER_MAX_LENGTH = 140;
     private static final int SUBSTRING_LENGTH = 130;
     protected Context context;
     protected SharedPreferences preferences;
@@ -41,6 +41,7 @@ public class TwitterStatusUpdaterService extends IntentService {
 
     @Override
     protected void onHandleIntent(final Intent intent) {
+        Log.i(TAG, "Executing service ...");
 
         double latitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LATITUDE, Long.MIN_VALUE));
         double longitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LONGITUDE, Long.MIN_VALUE));
@@ -70,9 +71,9 @@ public class TwitterStatusUpdaterService extends IntentService {
                     hasMessage = statusMessage.length() > TWITTER_MAX_LENGTH || statusMessage.length() > end;
                     String message = hasMessage ? statusMessage.substring(start, end) + "... (cont)" : statusMessage;
                     StatusUpdate statusUpdate = new StatusUpdate(message);
+                    Log.i(TAG, "Location info: " + place + "-> " + latitude + ", " + longitude);
                     if (includeLocation && !Constants.EMPTY_STRING.equals(place)) {
                         statusUpdate.setPlaceId(place);
-                        statusUpdate.setLocation(new GeoLocation(latitude, longitude));
                     }
                     twitter.updateStatus(statusUpdate);
                 }

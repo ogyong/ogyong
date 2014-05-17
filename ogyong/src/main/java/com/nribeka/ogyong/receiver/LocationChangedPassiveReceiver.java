@@ -32,6 +32,8 @@ public class LocationChangedPassiveReceiver extends BroadcastReceiver {
      */
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "Executing receiver ...");
+
         String key = LocationManager.KEY_LOCATION_CHANGED;
         Location location = null;
 

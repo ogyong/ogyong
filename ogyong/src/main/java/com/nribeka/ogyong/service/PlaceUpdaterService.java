@@ -13,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.BatteryManager;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.receiver.ConnectivityChangedReceiver;
@@ -75,6 +76,7 @@ public class PlaceUpdaterService extends IntentService {
      */
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.i(TAG, "Executing service ...");
         // Check if we're running in the foreground, if not, check if we have permission to do background updates.
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         boolean backgroundAllowed = connectivityManager.getBackgroundDataSetting();
@@ -89,7 +91,7 @@ public class PlaceUpdaterService extends IntentService {
         }
 
         if (intent.hasExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION)) {
-            destination = intent.getIntExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, -1);
+            destination = intent.getIntExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, 0);
         }
 
         // Check if we're in a low battery situation.
@@ -164,6 +166,10 @@ public class PlaceUpdaterService extends IntentService {
         editor.putLong(Constants.LAST_UPDATED_LATITUDE, Double.doubleToLongBits(location.getLatitude()));
         editor.putLong(Constants.LAST_UPDATED_LONGITUDE, Double.doubleToLongBits(location.getLongitude()));
         editor.commit();
+
+        Log.i(TAG, "Location received: "
+                + location.getProvider() + " -> " + location.getLatitude() + ", " + location.getLongitude());
+
         switch (destination) {
             case Constants.TWITTER_UPDATE_DESTINATION:
                 requestTwitterPlaceUpdate();
@@ -172,8 +178,8 @@ public class PlaceUpdaterService extends IntentService {
                 requestFacebookPlaceUpdate();
                 break;
             default:
-                requestFacebookPlaceUpdate();
                 requestTwitterPlaceUpdate();
+                requestFacebookPlaceUpdate();
                 break;
         }
     }

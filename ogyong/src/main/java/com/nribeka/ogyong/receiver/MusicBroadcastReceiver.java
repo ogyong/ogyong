@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.service.StatusUpdaterService;
@@ -18,6 +19,8 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "Executing receiver ...");
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         boolean automatePosting = preferences.getBoolean("automate_status_update", false);
         boolean isPlaying = intent.getBooleanExtra("playing", false);

@@ -165,6 +165,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private void postStatusUpdate() {
         Intent updateServiceIntent = new Intent(getActivity(), StatusUpdaterService.class);
+        updateServiceIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.TWITTER_UPDATE_DESTINATION);
         getActivity().startService(updateServiceIntent);
     }
 

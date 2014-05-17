@@ -45,6 +45,8 @@ public class TwitterPlaceUpdaterService extends IntentService {
 
     @Override
     protected void onHandleIntent(final Intent intent) {
+        Log.i(TAG, "Executing service ...");
+
         boolean inTwitter = preferences.getBoolean(Constants.TWITTER_LOGGED_IN, false);
         boolean includeLocation = preferences.getBoolean(Constants.TWITTER_INCLUDE_LOCATION, false);
         boolean randomize = preferences.getBoolean(Constants.TWITTER_RANDOMIZE_LOCATION, false);
@@ -55,6 +57,8 @@ public class TwitterPlaceUpdaterService extends IntentService {
 
             String latLong = String.valueOf(location.getLatitude()) + ", " + String.valueOf(location.getLongitude());
             String hashValue = OgyongUtils.generateHash(latLong);
+
+            Log.i(TAG, "Location received: " + location.getProvider() + " -> " + latLong);
 
             if (inTwitter && includeLocation) {
                 String placeId = preferences.getString("twitter:id:" + hashValue, Constants.EMPTY_STRING);
@@ -89,7 +93,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
         }
     }
 
-    private int getSelection(int selectionSize, boolean randomize) {
+    private int getSelection(final int selectionSize, final boolean randomize) {
         int selection = 0;
         if (randomize) {
             Random random = new Random();
@@ -98,7 +102,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
         return selection;
     }
 
-    private void saveTwitterLocation(String hashValue, Place place) {
+    private void saveTwitterLocation(final String hashValue, final Place place) {
         // we need to remove the oldest location
         int locationCount = preferences.getInt(Constants.TWITTER_LOCATION_COUNT, 0);
         // when it's empty, this will be initialized with hash value of the current location

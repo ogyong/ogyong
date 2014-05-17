@@ -121,6 +121,7 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
 
     private void postStatusUpdate() {
         Intent updateServiceIntent = new Intent(getActivity(), StatusUpdaterService.class);
+        updateServiceIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.FACEBOOK_UPDATE_DESTINATION);
         getActivity().startService(updateServiceIntent);
     }
 

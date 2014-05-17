@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.utils.LocationUpdateRequester;
@@ -18,8 +19,13 @@ import com.nribeka.ogyong.utils.LocationUpdateRequester;
  * updates should be enabled after a reboot.
  */
 public class BootReceiver extends BroadcastReceiver {
+
+    private static final String TAG = BootReceiver.class.getSimpleName();
+
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "Executing receiver ...");
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         boolean runOnce = preferences.getBoolean(Constants.RUN_ONCE, false);
 

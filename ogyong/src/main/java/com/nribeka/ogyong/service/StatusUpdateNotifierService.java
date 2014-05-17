@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.R;
@@ -41,6 +42,8 @@ public class StatusUpdateNotifierService extends IntentService {
      */
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.i(TAG, "Executing service ...");
+
         String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
 
         Intent resultIntent = new Intent(this, PostActivity.class);

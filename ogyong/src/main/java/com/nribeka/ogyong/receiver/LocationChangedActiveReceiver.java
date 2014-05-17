@@ -28,6 +28,8 @@ public class LocationChangedActiveReceiver extends BroadcastReceiver {
      */
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "Executing receiver ...");
+
         String locationKey = LocationManager.KEY_LOCATION_CHANGED;
         if (intent.hasExtra(locationKey)) {
             Location location = (Location) intent.getExtras().get(locationKey);
