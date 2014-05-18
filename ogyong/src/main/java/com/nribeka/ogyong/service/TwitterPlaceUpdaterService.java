@@ -86,7 +86,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
                     Log.i(TAG, "Twitter place found in cache: " + placeId + " -> " + placeName);
                 }
 
-                editor.putLong(Constants.TWITTER_LATITUDE, Double.doubleToLongBits(location.getLongitude()));
+                editor.putLong(Constants.TWITTER_LATITUDE, Double.doubleToLongBits(location.getLatitude()));
                 editor.putLong(Constants.TWITTER_LONGITUDE, Double.doubleToLongBits(location.getLongitude()));
                 editor.commit();
             }
