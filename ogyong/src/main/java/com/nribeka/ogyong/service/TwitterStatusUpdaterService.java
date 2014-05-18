@@ -10,6 +10,7 @@ import android.util.Log;
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.utils.OgyongUtils;
 
+import twitter4j.GeoLocation;
 import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -43,8 +44,8 @@ public class TwitterStatusUpdaterService extends IntentService {
     protected void onHandleIntent(final Intent intent) {
         Log.i(TAG, "Executing service ...");
 
-        double latitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LATITUDE, Long.MIN_VALUE));
-        double longitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LONGITUDE, Long.MIN_VALUE));
+        double latitude = Double.longBitsToDouble(preferences.getLong(Constants.TWITTER_LATITUDE, Long.MIN_VALUE));
+        double longitude = Double.longBitsToDouble(preferences.getLong(Constants.TWITTER_LONGITUDE, Long.MIN_VALUE));
         String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
         String hashValue = OgyongUtils.generateHash(latLong);
 
@@ -71,14 +72,14 @@ public class TwitterStatusUpdaterService extends IntentService {
                     hasMessage = statusMessage.length() > TWITTER_MAX_LENGTH || statusMessage.length() > end;
                     String message = hasMessage ? statusMessage.substring(start, end) + "... (cont)" : statusMessage;
                     StatusUpdate statusUpdate = new StatusUpdate(message);
-                    Log.i(TAG, "Location info: " + place + "-> " + latitude + ", " + longitude);
-                    if (includeLocation && !Constants.EMPTY_STRING.equals(place)) {
-                        statusUpdate.setPlaceId(place);
+                    if (includeLocation) {
+                        statusUpdate.setLocation(new GeoLocation(latitude, longitude));
                     }
                     twitter.updateStatus(statusUpdate);
                 }
-                Intent notifierIntent = new Intent(Constants.INTENT_STATUS_POSTED_ACTION);
+                Intent notifierIntent = new Intent(Constants.INTENT_STATUS_UPDATED);
                 notifierIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, "twitter");
+                notifierIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.TWITTER_UPDATE_DESTINATION);
                 context.sendBroadcast(notifierIntent);
             } catch (TwitterException e) {
                 Log.e(TAG, "Unable to send status update due to: " + e.getLocalizedMessage(), e);

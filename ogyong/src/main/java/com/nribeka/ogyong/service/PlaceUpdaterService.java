@@ -169,6 +169,7 @@ public class PlaceUpdaterService extends IntentService {
 
         Log.i(TAG, "Location received: "
                 + location.getProvider() + " -> " + location.getLatitude() + ", " + location.getLongitude());
+        Log.i(TAG, location.getProvider() + "->" + location.getLatitude() + ", " + location.getLongitude());
 
         switch (destination) {
             case Constants.TWITTER_UPDATE_DESTINATION:

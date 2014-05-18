@@ -49,9 +49,9 @@ public class OgyongUtils {
                 && !NOT_AVAILABLE.equals(artist)) {
             String images = "*•♫♪჻♪♫•*¨*•♪♫ ☼ ♫ ♪჻♪♫•";
             statusMessage = preferences.getString(Constants.STATUS_TEMPLATE, DEFAULT_FORMAT);
-            statusMessage = statusMessage.replace("@artist", album);
+            statusMessage = statusMessage.replace("@artist", artist);
             statusMessage = statusMessage.replace("@track", track);
-            statusMessage = statusMessage.replace("@album", artist);
+            statusMessage = statusMessage.replace("@album", album);
         }
         return statusMessage;
     }

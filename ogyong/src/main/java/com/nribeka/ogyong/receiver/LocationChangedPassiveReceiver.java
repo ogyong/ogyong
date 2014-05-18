@@ -12,6 +12,7 @@ import android.util.Log;
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.service.PlaceUpdaterService;
 import com.nribeka.ogyong.utils.LastLocationFinder;
+import com.nribeka.ogyong.utils.OgyongUtils;
 
 /**
  * This Receiver class is used to listen for Broadcast Intents that announce
@@ -65,12 +66,38 @@ public class LocationChangedPassiveReceiver extends BroadcastReceiver {
 
         // Start the Service used to find nearby points of interest based on the last detected location.
         if (location != null) {
-            Log.d(TAG, "Passively updating place list.");
-            Intent updateServiceIntent = new Intent(context, PlaceUpdaterService.class);
-            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_LOCATION, location);
-            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_RADIUS, Constants.LOCATION_DEFAULT_RADIUS);
-            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_FORCE_REFRESH, false);
-            context.startService(updateServiceIntent);
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean facebookIncludeLocation = preferences.getBoolean(Constants.FACEBOOK_INCLUDE_LOCATION, false);
+            if (facebookIncludeLocation) {
+                boolean facebookRandomizeLocation = preferences.getBoolean(Constants.FACEBOOK_RANDOMIZE_LOCATION, false);
+                if (facebookRandomizeLocation) {
+                    location = OgyongUtils.getRandomLocation(context);
+                }
+                Log.d(TAG, "Starting service from passive receiver to update facebook place list!");
+                Intent updateServiceIntent = new Intent(context, PlaceUpdaterService.class);
+                updateServiceIntent.putExtra(Constants.INTENT_EXTRA_LOCATION, location);
+                updateServiceIntent.putExtra(Constants.INTENT_EXTRA_RADIUS, Constants.LOCATION_DEFAULT_RADIUS);
+                updateServiceIntent.putExtra(
+                        Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.FACEBOOK_UPDATE_DESTINATION);
+                updateServiceIntent.putExtra(Constants.INTENT_EXTRA_FORCE_REFRESH, false);
+                context.startService(updateServiceIntent);
+            }
+
+            boolean twitterIncludeLocation = preferences.getBoolean(Constants.TWITTER_INCLUDE_LOCATION, false);
+            if (twitterIncludeLocation) {
+                boolean twitterRandomizeLocation = preferences.getBoolean(Constants.TWITTER_RANDOMIZE_LOCATION, false);
+                if (twitterRandomizeLocation) {
+                    location = OgyongUtils.getRandomLocation(context);
+                }
+                Log.d(TAG, "Starting service from passive receiver to update twitter place list!");
+                Intent updateServiceIntent = new Intent(context, PlaceUpdaterService.class);
+                updateServiceIntent.putExtra(Constants.INTENT_EXTRA_LOCATION, location);
+                updateServiceIntent.putExtra(Constants.INTENT_EXTRA_RADIUS, Constants.LOCATION_DEFAULT_RADIUS);
+                updateServiceIntent.putExtra(
+                        Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.TWITTER_UPDATE_DESTINATION);
+                updateServiceIntent.putExtra(Constants.INTENT_EXTRA_FORCE_REFRESH, false);
+                context.startService(updateServiceIntent);
+            }
         }
     }
 }

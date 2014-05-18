@@ -95,7 +95,8 @@ public class FacebookPlaceUpdaterService extends IntentService {
                             JSONArray jsonArray = graphObject.getInnerJSONObject().getJSONArray("data");
                             if (jsonArray.length() > 0) {
                                 JSONObject jsonObject = jsonArray.getJSONObject(getSelection(jsonArray.length(), randomize));
-                                saveFacebookLocation(hashValue, jsonObject);
+                                saveFacebookLocation(hashValue, jsonObject, location.getLatitude(), location.getLongitude());
+                                // location persisted and also the place information
                                 locationFound = true;
                             }
                         } catch (JSONException e) {
@@ -123,7 +124,8 @@ public class FacebookPlaceUpdaterService extends IntentService {
         return selection;
     }
 
-    private void saveFacebookLocation(String hashValue, JSONObject jsonObject) throws JSONException {
+    private void saveFacebookLocation(final String hashValue, final JSONObject jsonObject,
+                                      final double latitude, final double longitude) throws JSONException {
         // we need to remove the oldest location
         int locationCount = preferences.getInt(Constants.FACEBOOK_LOCATION_COUNT, 0);
         // when it's empty, this will be initialized with hash value of the current location
@@ -143,6 +145,9 @@ public class FacebookPlaceUpdaterService extends IntentService {
             locationHashes = locationHashes + "|" + hashValue;
         }
         editor.putString(Constants.FACEBOOK_LOCATION_HASHES, locationHashes);
+        // Save the last update time and place to the Shared Preferences.
+        editor.putLong(Constants.FACEBOOK_LATITUDE, Double.doubleToLongBits(latitude));
+        editor.putLong(Constants.FACEBOOK_LONGITUDE, Double.doubleToLongBits(longitude));
         editor.commit();
     }
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context=".TwitterPostFragment">
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            tools:context=".TwitterPostFragment">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -19,7 +19,7 @@
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/twitter_handle_text_view"
@@ -30,7 +30,7 @@
             android:text="@string/twitter_loading_handle"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/twitter_name_text_view"
@@ -40,7 +40,7 @@
             android:layout_centerHorizontal="true"
             android:text="@string/twitter_loading_name"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <ImageButton
             android:id="@+id/twitter_login_button"
@@ -48,12 +48,12 @@
             android:layout_height="32dp"
             android:layout_below="@+id/twitter_name_text_view"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:background="@android:color/transparent"
             android:padding="0dp"
             android:scaleType="fitXY"
             android:src="@drawable/sign_in_twitter"
-            android:visibility="visible" />
+            android:visibility="visible"/>
 
         <ImageButton
             android:id="@+id/twitter_logout_button"
@@ -61,11 +61,11 @@
             android:layout_height="32dp"
             android:layout_below="@+id/twitter_login_button"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:background="@android:color/transparent"
             android:padding="0dp"
             android:scaleType="fitXY"
-            android:src="@drawable/sign_out_twitter" />
+            android:src="@drawable/sign_out_twitter"/>
 
         <CheckBox
             android:id="@+id/twitter_include_location_cb"
@@ -74,10 +74,10 @@
             android:layout_alignLeft="@+id/twitter_randomize_location_cb"
             android:layout_alignStart="@+id/twitter_randomize_location_cb"
             android:layout_below="@+id/twitter_logout_button"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:checked="false"
             android:text="@string/twitter_include_location"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <CheckBox
             android:id="@+id/twitter_randomize_location_cb"
@@ -85,11 +85,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/twitter_include_location_cb"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:checked="false"
             android:enabled="false"
             android:text="@string/twitter_randomize_location"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/twitter_lat_long_text_view"
@@ -97,12 +97,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@id/twitter_randomize_location_cb"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:text="Loading location ..."
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="italic"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/twitter_place_text_view"
@@ -110,19 +110,19 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/twitter_lat_long_text_view"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:text="Loading place ..."
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textStyle="bold|italic"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/twitter_place_text_view"
-            android:layout_margin="8dp">
+            android:layout_margin="10dp">
 
             <EditText
                 android:id="@+id/twitter_status_edit_text"
@@ -131,7 +131,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:inputType="textMultiLine"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/long_text_warning_text_view"
@@ -139,10 +139,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@id/twitter_status_edit_text"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="10dp"
                 android:text="Multiple tweets (longer than 140)."
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
         </RelativeLayout>
 

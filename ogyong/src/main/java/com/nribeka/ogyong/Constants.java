@@ -41,9 +41,9 @@ public interface Constants {
 
     int LOCATION_DEFAULT_RADIUS = 100;
     int LOCATION_MAX_DISTANCE = LOCATION_DEFAULT_RADIUS / 2;
-    int LOCATION_PASSIVE_MAX_DISTANCE = LOCATION_MAX_DISTANCE;
+    int LOCATION_PASSIVE_MAX_DISTANCE = LOCATION_MAX_DISTANCE * 4;
     long LOCATION_MAX_TIME = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
-    long LOCATION_PASSIVE_MAX_TIME = LOCATION_MAX_TIME;
+    long LOCATION_PASSIVE_MAX_TIME = LOCATION_MAX_TIME * 4;
 
     String LAST_UPDATED_TIME = "location.last_updated_time";
     String LAST_UPDATED_LATITUDE = "location.last_updated_latitude";
@@ -51,11 +51,13 @@ public interface Constants {
     String CONSTRUCTED_LOCATION_PROVIDER = "location_provider.constructed";
 
     String INTENT_MUSIC_UPDATED = "com.nribeka.ogyong.INTENT_MUSIC_UPDATED";
-    String INTENT_STATUS_POSTED_ACTION = "com.nribeka.ogyong.INTENT_STATUS_POSTED";
-    String SINGLE_LOCATION_UPDATE_ACTION = "com.nribeka.ogyong.SINGLE_LOCATION_UPDATE_ACTION";
+    String INTENT_STATUS_UPDATED = "com.nribeka.ogyong.INTENT_STATUS_UPDATED";
+    String INTENT_STATUS_UPDATE_FAILED = "com.nribeka.ogyong.INTENT_STATUS_UPDATE_FAILED";
+    String INTENT_SINGLE_LOCATION_UPDATE = "com.nribeka.ogyong.INTENT_SINGLE_LOCATION_UPDATE";
 
     String INTENT_EXTRA_RADIUS = "intent_extra.radius";
     String INTENT_EXTRA_LOCATION = "intent_extra.location";
+    String INTENT_EXTRA_ERROR_MESSAGE = "intent_extra.error_message";
     String INTENT_EXTRA_FORCE_REFRESH = "intent_extra.force_refresh";
     String INTENT_EXTRA_MESSAGE_DESTINATION = "intent_extra.message_destination";
     String INTENT_EXTRA_UPDATE_DESTINATION = "intent_extra.update_destination";
@@ -76,4 +78,9 @@ public interface Constants {
 
     String INTENT_TWITTER_LOCATION_UPDATED = "com.nribeka.ogyong.INTENT_TWITTER_LOCATION_UPDATED";
     String INTENT_FACEBOOK_LOCATION_UPDATED = "com.nribeka.ogyong.INTENT_FACEBOOK_LOCATION_UPDATED";
+
+    String TWITTER_LATITUDE = "twitter.latitude";
+    String TWITTER_LONGITUDE = "twitter.longitude";
+    String FACEBOOK_LATITUDE = "facebook.latitude";
+    String FACEBOOK_LONGITUDE = "facebook.longitude";
 }

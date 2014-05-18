@@ -44,8 +44,8 @@ public class FacebookStatusUpdaterService extends IntentService {
     protected void onHandleIntent(final Intent intent) {
         Log.i(TAG, "Executing service ...");
 
-        double latitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LATITUDE, Long.MIN_VALUE));
-        double longitude = Double.longBitsToDouble(preferences.getLong(Constants.LAST_UPDATED_LONGITUDE, Long.MIN_VALUE));
+        double latitude = Double.longBitsToDouble(preferences.getLong(Constants.FACEBOOK_LATITUDE, Long.MIN_VALUE));
+        double longitude = Double.longBitsToDouble(preferences.getLong(Constants.FACEBOOK_LONGITUDE, Long.MIN_VALUE));
         String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
         String hashValue = OgyongUtils.generateHash(latLong);
 
@@ -73,8 +73,9 @@ public class FacebookStatusUpdaterService extends IntentService {
             );
             Response response = request.executeAndWait();
             if (response != null) {
-                Intent notifierIntent = new Intent(Constants.INTENT_STATUS_POSTED_ACTION);
+                Intent notifierIntent = new Intent(Constants.INTENT_STATUS_UPDATED);
                 notifierIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, "facebook");
+                notifierIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.FACEBOOK_UPDATE_DESTINATION);
                 context.sendBroadcast(notifierIntent);
             }
         }

@@ -77,7 +77,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
                         ResponseList<Place> places = twitter.searchPlaces(geoQuery);
                         if (!places.isEmpty()) {
                             Place place = places.get(getSelection(places.size(), randomize));
-                            saveTwitterLocation(hashValue, place);
+                            saveTwitterLocation(hashValue, place, latitude, longitude);
                         }
                     } catch (TwitterException e) {
                         Log.e(TAG, "Unable to fetch places based on the current location.", e);
@@ -102,7 +102,8 @@ public class TwitterPlaceUpdaterService extends IntentService {
         return selection;
     }
 
-    private void saveTwitterLocation(final String hashValue, final Place place) {
+    private void saveTwitterLocation(final String hashValue, final Place place,
+                                     final double latitude, final double longitude) {
         // we need to remove the oldest location
         int locationCount = preferences.getInt(Constants.TWITTER_LOCATION_COUNT, 0);
         // when it's empty, this will be initialized with hash value of the current location
@@ -123,6 +124,8 @@ public class TwitterPlaceUpdaterService extends IntentService {
             locationHashes = locationHashes + "|" + hashValue;
         }
         editor.putString(Constants.TWITTER_LOCATION_HASHES, locationHashes);
+        editor.putLong(Constants.TWITTER_LATITUDE, Double.doubleToLongBits(latitude));
+        editor.putLong(Constants.TWITTER_LONGITUDE, Double.doubleToLongBits(longitude));
         editor.commit();
     }
 }

@@ -67,7 +67,7 @@ public class LastLocationFinder {
 
         // Construct the Pending Intent that will be broadcast by the oneshot
         // location update.
-        Intent updateIntent = new Intent(Constants.SINGLE_LOCATION_UPDATE_ACTION);
+        Intent updateIntent = new Intent(Constants.INTENT_SINGLE_LOCATION_UPDATE);
         singleUpatePI = PendingIntent.getBroadcast(context, 0, updateIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }
@@ -115,7 +115,7 @@ public class LastLocationFinder {
         // location updates every [minTime] and [minDistance].
         if (locationListener != null && (bestTime < minTime || bestAccuracy > minDistance)) {
             IntentFilter locIntentFilter = new IntentFilter(Constants
-                    .SINGLE_LOCATION_UPDATE_ACTION);
+                    .INTENT_SINGLE_LOCATION_UPDATE);
             context.registerReceiver(singleUpdateReceiver, locIntentFilter);
             locationManager.requestSingleUpdate(criteria, singleUpatePI);
         }

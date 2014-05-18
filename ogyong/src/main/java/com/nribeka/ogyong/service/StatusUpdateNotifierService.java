@@ -45,6 +45,7 @@ public class StatusUpdateNotifierService extends IntentService {
         Log.i(TAG, "Executing service ...");
 
         String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
+        int destinationCode = intent.getIntExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, 0);
 
         Intent resultIntent = new Intent(this, PostActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
@@ -58,7 +59,6 @@ public class StatusUpdateNotifierService extends IntentService {
         builder.setContentText("Music player information posted to " + destination + "!");
         builder.setContentIntent(resultPendingIntent);
 
-        int notifyId = Constants.STATUS_NOTIFICATION;
-        notificationManager.notify(notifyId, builder.build());
+        notificationManager.notify(destinationCode, builder.build());
     }
 }

@@ -29,6 +29,7 @@ import com.nribeka.ogyong.listener.LocationSelectionListener;
 import com.nribeka.ogyong.service.StatusUpdaterService;
 import com.nribeka.ogyong.utils.OgyongUtils;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -234,6 +235,21 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         int locationVisible = (isOpened && includeLocation) ? View.VISIBLE : View.GONE;
         placeTextView.setVisibility(locationVisible);
         latLongTextView.setVisibility(locationVisible);
+        if (locationVisible == View.VISIBLE) {
+            double latitude = Double.longBitsToDouble(preferences.getLong(Constants.FACEBOOK_LATITUDE, Long.MIN_VALUE));
+            double longitude = Double.longBitsToDouble(preferences.getLong(Constants.FACEBOOK_LONGITUDE, Long.MIN_VALUE));
+
+            String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
+            String hashValue = OgyongUtils.generateHash(latLong);
+
+            String facebookPlace = preferences.getString("facebook:name:" + hashValue, Constants.PLACE_UNKNOWN);
+
+            DecimalFormat decimalFormat = new DecimalFormat("#.000000");
+            String latLongText = decimalFormat.format(latitude) + ", " + decimalFormat.format(longitude);
+
+            setLatLongTextView(latLongText);
+            setPlaceTextView(facebookPlace);
+        }
     }
 
     @Override
