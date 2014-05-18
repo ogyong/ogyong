@@ -167,8 +167,6 @@ public class PlaceUpdaterService extends IntentService {
         editor.putLong(Constants.LAST_UPDATED_LONGITUDE, Double.doubleToLongBits(location.getLongitude()));
         editor.commit();
 
-        Log.i(TAG, "Location received: "
-                + location.getProvider() + " -> " + location.getLatitude() + ", " + location.getLongitude());
         Log.i(TAG, location.getProvider() + "->" + location.getLatitude() + ", " + location.getLongitude());
 
         switch (destination) {

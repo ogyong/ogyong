@@ -11,14 +11,9 @@ import android.util.Log;
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
-import com.facebook.model.GraphObject;
 import com.facebook.model.GraphPlace;
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.utils.OgyongUtils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 import java.util.Random;
@@ -34,6 +29,7 @@ public class FacebookPlaceUpdaterService extends IntentService {
     protected SharedPreferences.Editor editor;
     protected int searchRadius = 50;
     protected int searchSelection = 10;
+    protected List<GraphPlace> graphPlaces;
 
     public FacebookPlaceUpdaterService() {
         super(TAG);
@@ -80,33 +76,32 @@ public class FacebookPlaceUpdaterService extends IntentService {
                     int count = 0;
                     boolean locationFound = false;
                     while (!locationFound && count < 5) {
-                        try {
-                            Request request = Request.newPlacesSearchRequest(
-                                    session, location, searchRadius + (searchRadius * count), searchSelection,
-                                    Constants.EMPTY_STRING, new Request.GraphPlaceListCallback() {
-                                        @Override
-                                        public void onCompleted(List<GraphPlace> places, Response response) {
-                                            Log.i(TAG, "Facebook request executed!");
-                                        }
+                        Request request = Request.newPlacesSearchRequest(
+                                session, location, searchRadius + (searchRadius * count), searchSelection,
+                                Constants.EMPTY_STRING, new Request.GraphPlaceListCallback() {
+                                    @Override
+                                    public void onCompleted(List<GraphPlace> places, Response response) {
+                                        Log.i(TAG, "Number of places returned by facebook: " + places.size());
+                                        graphPlaces = places;
                                     }
-                            );
-                            Response response = request.executeAndWait();
-                            GraphObject graphObject = response.getGraphObject();
-                            JSONArray jsonArray = graphObject.getInnerJSONObject().getJSONArray("data");
-                            if (jsonArray.length() > 0) {
-                                JSONObject jsonObject = jsonArray.getJSONObject(getSelection(jsonArray.length(), randomize));
-                                saveFacebookLocation(hashValue, jsonObject, location.getLatitude(), location.getLongitude());
-                                // location persisted and also the place information
-                                locationFound = true;
-                            }
-                        } catch (JSONException e) {
-                            Log.e(TAG, "Unable to fetch data from json based on the current location.", e);
+                                }
+                        );
+                        Response response = request.executeAndWait();
+                        if (response != null && graphPlaces != null && !graphPlaces.isEmpty()) {
+                            GraphPlace graphPlace = graphPlaces.get(getSelection(graphPlaces.size(), randomize));
+                            saveFacebookLocation(hashValue, graphPlace);
+                            locationFound = true;
                         }
                         count++;
                     }
                 } else {
                     Log.i(TAG, "Facebook place found in cache: " + facebookPlaceId + " -> " + facebookPlace);
                 }
+
+                // Save the last update time and place to the Shared Preferences.
+                editor.putLong(Constants.FACEBOOK_LATITUDE, Double.doubleToLongBits(location.getLatitude()));
+                editor.putLong(Constants.FACEBOOK_LONGITUDE, Double.doubleToLongBits(location.getLongitude()));
+                editor.commit();
             }
 
             Intent updatePlaceIntent = new Intent();
@@ -124,8 +119,7 @@ public class FacebookPlaceUpdaterService extends IntentService {
         return selection;
     }
 
-    private void saveFacebookLocation(final String hashValue, final JSONObject jsonObject,
-                                      final double latitude, final double longitude) throws JSONException {
+    private void saveFacebookLocation(final String hashValue, final GraphPlace graphPlace) {
         // we need to remove the oldest location
         int locationCount = preferences.getInt(Constants.FACEBOOK_LOCATION_COUNT, 0);
         // when it's empty, this will be initialized with hash value of the current location
@@ -138,16 +132,13 @@ public class FacebookPlaceUpdaterService extends IntentService {
             editor.remove("facebook:id:" + theFirstHash);
             editor.remove("facebook:name:" + theFirstHash);
         }
-        editor.putString("facebook:id:" + hashValue, jsonObject.getString("id"));
-        editor.putString("facebook:name:" + hashValue, jsonObject.getString("name"));
+        editor.putString("facebook:id:" + hashValue, graphPlace.getId());
+        editor.putString("facebook:name:" + hashValue, graphPlace.getName());
         editor.putInt(Constants.FACEBOOK_LOCATION_COUNT, locationCount + 1);
         if (locationCount > 0) {
             locationHashes = locationHashes + "|" + hashValue;
         }
         editor.putString(Constants.FACEBOOK_LOCATION_HASHES, locationHashes);
-        // Save the last update time and place to the Shared Preferences.
-        editor.putLong(Constants.FACEBOOK_LATITUDE, Double.doubleToLongBits(latitude));
-        editor.putLong(Constants.FACEBOOK_LONGITUDE, Double.doubleToLongBits(longitude));
         editor.commit();
     }
 }
