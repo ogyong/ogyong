@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.facebook.FacebookRequestError;
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
@@ -54,7 +55,7 @@ public class FacebookStatusUpdaterService extends IntentService {
             statusMessage = intent.getStringExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE);
         }
 
-        if (Constants.BLANK.equalsIgnoreCase(statusMessage)) {
+        if (OgyongUtils.isBlank(statusMessage)) {
             statusMessage = OgyongUtils.generateStatus(getApplicationContext());
         }
 
@@ -66,7 +67,7 @@ public class FacebookStatusUpdaterService extends IntentService {
 
             String place = preferences.getString(key, Constants.BLANK);
             boolean includeLocation = preferences.getBoolean(Constants.FACEBOOK_INCLUDE_LOCATION, false);
-            if (includeLocation && !Constants.BLANK.equals(place)) {
+            if (includeLocation && !OgyongUtils.isBlank(place)) {
                 graphPlace = new GraphPlaceImpl(place);
             }
 
@@ -83,11 +84,18 @@ public class FacebookStatusUpdaterService extends IntentService {
             );
             Response response = request.executeAndWait();
             // if there's a response and the error in the response is null
-            if (response != null && response.getError() == null) {
-                Intent notifierIntent = new Intent(Constants.INTENT_STATUS_UPDATED);
-                notifierIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, "facebook");
-                notifierIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.FACEBOOK_UPDATE_DESTINATION);
-                context.sendBroadcast(notifierIntent);
+            if (response != null) {
+                FacebookRequestError facebookRequestError = response.getError();
+                if (facebookRequestError == null) {
+                    Intent notifierIntent = new Intent(Constants.INTENT_STATUS_UPDATED);
+                    notifierIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, "facebook");
+                    notifierIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.FACEBOOK_UPDATE_DESTINATION);
+                    context.sendBroadcast(notifierIntent);
+                } else {
+                    Intent notifierIntent = new Intent(Constants.INTENT_STATUS_UPDATE_FAILED);
+                    notifierIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, "facebook");
+                    context.sendBroadcast(notifierIntent);
+                }
             }
         }
     }

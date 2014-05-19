@@ -44,17 +44,16 @@ public class TwitterStatusUpdaterService extends IntentService {
     protected void onHandleIntent(final Intent intent) {
         Log.i(TAG, "Executing service ...");
 
+        boolean includeLocation = preferences.getBoolean(Constants.TWITTER_INCLUDE_LOCATION, false);
         double latitude = Double.longBitsToDouble(preferences.getLong(Constants.TWITTER_LATITUDE, Long.MIN_VALUE));
         double longitude = Double.longBitsToDouble(preferences.getLong(Constants.TWITTER_LONGITUDE, Long.MIN_VALUE));
-        String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
-        String hashValue = OgyongUtils.generateHash(latLong);
 
         String statusMessage = null;
         if (intent.hasExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE)) {
             statusMessage = intent.getStringExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE);
         }
 
-        if (Constants.BLANK.equalsIgnoreCase(statusMessage)) {
+        if (OgyongUtils.isBlank(statusMessage)) {
             statusMessage = OgyongUtils.generateStatus(getApplicationContext());
         }
 
@@ -68,9 +67,6 @@ public class TwitterStatusUpdaterService extends IntentService {
             twitter.setOAuthAccessToken(accessToken);
 
             try {
-                String key = "twitter:id:" + hashValue;
-                String place = preferences.getString(key, Constants.BLANK);
-                boolean includeLocation = preferences.getBoolean(Constants.TWITTER_INCLUDE_LOCATION, false);
 
                 int count = 0;
                 while (hasMessage) {
@@ -89,7 +85,10 @@ public class TwitterStatusUpdaterService extends IntentService {
                 notifierIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.TWITTER_UPDATE_DESTINATION);
                 context.sendBroadcast(notifierIntent);
             } catch (TwitterException e) {
-                Log.e(TAG, "Unable to send status update due to.: " + e.getLocalizedMessage(), e);
+                Log.e(TAG, "Unable to send status update. " + e.getErrorMessage(), e);
+                Intent notifierIntent = new Intent(Constants.INTENT_STATUS_UPDATE_FAILED);
+                notifierIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, "twitter");
+                context.sendBroadcast(notifierIntent);
             }
         }
     }

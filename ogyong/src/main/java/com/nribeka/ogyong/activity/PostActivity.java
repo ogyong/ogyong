@@ -155,8 +155,9 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
             boolean providerDisabled = !intent.getBooleanExtra(
                     LocationManager.KEY_PROVIDER_ENABLED, false);
             // Re-register the location listeners using the best available Location Provider.
-            if (providerDisabled)
+            if (providerDisabled) {
                 enableLocationUpdates();
+            }
         }
     };
     private ActionBar actionBar;
@@ -181,8 +182,8 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
         @Override
         public void onReceive(final Context context, final Intent intent) {
             String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
-            String message = "Music player information posted to " + destination;
-            Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+            String toastMessage = "Music player information posted to " + destination;
+            Toast toast = Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG);
             toast.show();
         }
     };
@@ -190,13 +191,9 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
     private BroadcastReceiver statusUpdateFailedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(final Context context, final Intent intent) {
-            String destination = intent.getStringExtra(Constants.INTENT_EXTRA_ERROR_MESSAGE);
-            String errorMessage = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
-            String message = "Unable to post update to " + destination + ".";
-            if (!Constants.BLANK.equalsIgnoreCase(errorMessage)) {
-                message = message + " Error message to: " + errorMessage;
-            }
-            Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+            String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
+            String toastMessage = "Unable to post update to " + destination + ".";
+            Toast toast = Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG);
             toast.show();
         }
     };
@@ -374,8 +371,15 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
                 // Find the last known location, specifying a required accuracy of within the min
                 // distance between updates
                 // and a required latency of the minimum time required between updates.
-                Location lastKnownLocation = lastLocationFinder.getLastBestLocation(
-                        Constants.LOCATION_MAX_DISTANCE, System.currentTimeMillis() - Constants.LOCATION_MAX_TIME);
+                boolean twitterRandomizeLocation = preferences.getBoolean(Constants.TWITTER_RANDOMIZE_LOCATION, false);
+                boolean facebookRandomizeLocation = preferences.getBoolean(Constants.FACEBOOK_RANDOMIZE_LOCATION, false);
+                Location location = null;
+                if (twitterRandomizeLocation || facebookRandomizeLocation) {
+                    location = OgyongUtils.getRandomLocation(getApplicationContext());
+                } else {
+                    location = lastLocationFinder.getLastBestLocation(
+                            Constants.LOCATION_MAX_DISTANCE, System.currentTimeMillis() - Constants.LOCATION_MAX_TIME);
+                }
 
                 // Update the place list based on the last known location within a defined radius.
                 // Note that this is *not* a forced update. The Place List Service has settings to
@@ -385,7 +389,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
                 // so we don't want to flood the server
                 // unless the location has changed or a minimum latency or distance has been
                 // covered.
-                updatePlaces(lastKnownLocation, Constants.LOCATION_DEFAULT_RADIUS, Constants.UNSPECIFIED_UPDATE_DESTINATION, false);
+                updatePlaces(location, Constants.LOCATION_DEFAULT_RADIUS, Constants.UNSPECIFIED_UPDATE_DESTINATION, false);
                 return null;
             }
         };

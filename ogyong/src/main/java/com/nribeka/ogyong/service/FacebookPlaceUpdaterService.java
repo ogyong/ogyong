@@ -70,9 +70,9 @@ public class FacebookPlaceUpdaterService extends IntentService {
             Log.i(TAG, "Location received: " + location.getProvider() + " -> " + latLong);
 
             if (inFacebook && includeLocation) {
-                String facebookPlace = preferences.getString("facebook:name:" + hashValue, Constants.BLANK);
-                String facebookPlaceId = preferences.getString("facebook:id:" + hashValue, Constants.BLANK);
-                if (Constants.BLANK.equals(facebookPlaceId)) {
+                String placeId = preferences.getString("facebook:id:" + hashValue, Constants.BLANK);
+                String placeName = preferences.getString("facebook:name:" + hashValue, Constants.BLANK);
+                if (OgyongUtils.isBlank(placeId)) {
                     int count = 0;
                     boolean locationFound = false;
                     while (!locationFound && count < 5) {
@@ -88,13 +88,13 @@ public class FacebookPlaceUpdaterService extends IntentService {
                         Response response = request.executeAndWait();
                         if (response != null && graphPlaces != null && !graphPlaces.isEmpty()) {
                             GraphPlace graphPlace = graphPlaces.get(getSelection(graphPlaces.size(), randomize));
-                            saveFacebookLocation(hashValue, graphPlace);
+                            saveFacebookPlace(hashValue, graphPlace);
                             locationFound = true;
                         }
                         count++;
                     }
                 } else {
-                    Log.i(TAG, "Facebook place found in cache: " + facebookPlaceId + " -> " + facebookPlace);
+                    Log.i(TAG, "Facebook place found in cache: " + placeId + " -> " + placeName);
                 }
 
                 // Save the last update time and place to the Shared Preferences.
@@ -118,7 +118,7 @@ public class FacebookPlaceUpdaterService extends IntentService {
         return selection;
     }
 
-    private void saveFacebookLocation(final String hashValue, final GraphPlace graphPlace) {
+    private void saveFacebookPlace(final String hashValue, final GraphPlace graphPlace) {
         // we need to remove the oldest location
         int locationCount = preferences.getInt(Constants.FACEBOOK_LOCATION_COUNT, 0);
         // when it's empty, this will be initialized with hash value of the current location

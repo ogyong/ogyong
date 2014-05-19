@@ -276,7 +276,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private boolean isOauthVerified() {
         String oauthVerifier = preferences.getString(Constants.TWITTER_OAUTH_VERIFIER, Constants.BLANK);
-        return !Constants.BLANK.equals(oauthVerifier);
+        return !OgyongUtils.isBlank(oauthVerifier);
     }
 
     /**

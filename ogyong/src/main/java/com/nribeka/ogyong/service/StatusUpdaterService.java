@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
+import com.nribeka.ogyong.utils.OgyongUtils;
 
 /**
  */
@@ -46,7 +47,7 @@ public class StatusUpdaterService extends IntentService {
 
     private void sendFacebookUpdate(final String statusMessage) {
         Intent updateServiceIntent = new Intent(this, FacebookStatusUpdaterService.class);
-        if (!Constants.BLANK.equals(statusMessage)) {
+        if (!OgyongUtils.isBlank(statusMessage)) {
             updateServiceIntent.putExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE, statusMessage);
         }
         startService(updateServiceIntent);
@@ -54,7 +55,7 @@ public class StatusUpdaterService extends IntentService {
 
     private void sendTwitterUpdate(final String statusMessage) {
         Intent updateServiceIntent = new Intent(this, TwitterStatusUpdaterService.class);
-        if (!Constants.BLANK.equals(statusMessage)) {
+        if (!OgyongUtils.isBlank(statusMessage)) {
             updateServiceIntent.putExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE, statusMessage);
         }
         startService(updateServiceIntent);

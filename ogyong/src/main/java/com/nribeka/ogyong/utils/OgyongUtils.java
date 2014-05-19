@@ -116,4 +116,8 @@ public class OgyongUtils {
         }
         return decimalLatLong;
     }
+
+    public static boolean isBlank(String string) {
+        return string == null || Constants.BLANK.equals(string);
+    }
 }

@@ -63,7 +63,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
             if (inTwitter && includeLocation) {
                 String placeId = preferences.getString("twitter:id:" + hashValue, Constants.BLANK);
                 String placeName = preferences.getString("twitter:name:" + hashValue, Constants.BLANK);
-                if (Constants.BLANK.equals(placeId)) {
+                if (OgyongUtils.isBlank(placeId)) {
                     String token = preferences.getString(Constants.TWITTER_ACCESS_TOKEN, Constants.BLANK);
                     String tokenSecret = preferences.getString(Constants.TWITTER_ACCESS_TOKEN_SECRET, Constants.BLANK);
 
@@ -77,7 +77,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
                         ResponseList<Place> places = twitter.searchPlaces(geoQuery);
                         if (!places.isEmpty()) {
                             Place place = places.get(getSelection(places.size(), randomize));
-                            saveTwitterLocation(hashValue, place);
+                            saveTwitterPlace(hashValue, place);
                         }
                     } catch (TwitterException e) {
                         Log.e(TAG, "Unable to fetch places based on the current location.", e);
@@ -106,7 +106,7 @@ public class TwitterPlaceUpdaterService extends IntentService {
         return selection;
     }
 
-    private void saveTwitterLocation(final String hashValue, final Place place) {
+    private void saveTwitterPlace(final String hashValue, final Place place) {
         // we need to remove the oldest location
         int locationCount = preferences.getInt(Constants.TWITTER_LOCATION_COUNT, 0);
         // when it's empty, this will be initialized with hash value of the current location
