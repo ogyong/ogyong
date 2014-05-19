@@ -49,30 +49,41 @@ public class FacebookStatusUpdaterService extends IntentService {
         String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
         String hashValue = OgyongUtils.generateHash(latLong);
 
-        String statusMessage = OgyongUtils.generateStatus(getApplicationContext());
+        String statusMessage = null;
+        if (intent.hasExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE)) {
+            statusMessage = intent.getStringExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE);
+        }
+
+        if (Constants.BLANK.equalsIgnoreCase(statusMessage)) {
+            statusMessage = OgyongUtils.generateStatus(getApplicationContext());
+        }
+
         Session session = Session.getActiveSession();
-        if (session != null && session.isOpened()) {
+        boolean hasMessage = statusMessage != null && statusMessage.length() > 0;
+        if (session != null && session.isOpened() && hasMessage) {
             GraphPlace graphPlace = null;
             String key = "facebook:id:" + hashValue;
 
-            String place = preferences.getString(key, Constants.EMPTY_STRING);
+            String place = preferences.getString(key, Constants.BLANK);
             boolean includeLocation = preferences.getBoolean(Constants.FACEBOOK_INCLUDE_LOCATION, false);
-            if (includeLocation && !Constants.EMPTY_STRING.equals(place)) {
+            if (includeLocation && !Constants.BLANK.equals(place)) {
                 graphPlace = new GraphPlaceImpl(place);
             }
 
             Request request = Request.newStatusUpdateRequest(
-                    session, statusMessage, graphPlace,
-                    Collections.<GraphUser>emptyList(),
+                    session, statusMessage, graphPlace, Collections.<GraphUser>emptyList(),
                     new Request.Callback() {
                         @Override
                         public void onCompleted(Response response) {
-                            Log.i(TAG, "Posting status succeed!");
+                            if (response != null && response.getError() == null) {
+                                Log.i(TAG, "Facebook status update posted!");
+                            }
                         }
                     }
             );
             Response response = request.executeAndWait();
-            if (response != null) {
+            // if there's a response and the error in the response is null
+            if (response != null && response.getError() == null) {
                 Intent notifierIntent = new Intent(Constants.INTENT_STATUS_UPDATED);
                 notifierIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, "facebook");
                 notifierIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.FACEBOOK_UPDATE_DESTINATION);

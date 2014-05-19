@@ -112,7 +112,7 @@
         </receiver>
         <receiver android:name=".receiver.StatusUpdatedReceiver">
             <intent-filter>
-                <action android:name="com.nribeka.ogyong.INTENT_STATUS_POSTED"/>
+                <action android:name="com.nribeka.ogyong.INTENT_STATUS_UPDATED"/>
             </intent-filter>
         </receiver>
         <receiver android:name=".receiver.BootReceiver">

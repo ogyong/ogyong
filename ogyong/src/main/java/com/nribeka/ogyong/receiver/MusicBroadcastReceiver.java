@@ -30,7 +30,7 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
             String track = intent.getStringExtra("track");
             String generatedHash = OgyongUtils.generateHash(artist, album, track);
 
-            String savedHash = preferences.getString(Constants.MEDIA_SIGNATURE, Constants.EMPTY_STRING);
+            String savedHash = preferences.getString(Constants.MEDIA_SIGNATURE, Constants.BLANK);
             if (!generatedHash.equals(savedHash)) {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString(Constants.MEDIA_TRACK, track);

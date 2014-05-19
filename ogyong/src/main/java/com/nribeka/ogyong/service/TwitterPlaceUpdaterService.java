@@ -61,11 +61,11 @@ public class TwitterPlaceUpdaterService extends IntentService {
             Log.i(TAG, "Location received: " + location.getProvider() + " -> " + latLong);
 
             if (inTwitter && includeLocation) {
-                String placeId = preferences.getString("twitter:id:" + hashValue, Constants.EMPTY_STRING);
-                String placeName = preferences.getString("twitter:name:" + hashValue, Constants.EMPTY_STRING);
-                if (Constants.EMPTY_STRING.equals(placeId)) {
-                    String token = preferences.getString(Constants.TWITTER_ACCESS_TOKEN, Constants.EMPTY_STRING);
-                    String tokenSecret = preferences.getString(Constants.TWITTER_ACCESS_TOKEN_SECRET, Constants.EMPTY_STRING);
+                String placeId = preferences.getString("twitter:id:" + hashValue, Constants.BLANK);
+                String placeName = preferences.getString("twitter:name:" + hashValue, Constants.BLANK);
+                if (Constants.BLANK.equals(placeId)) {
+                    String token = preferences.getString(Constants.TWITTER_ACCESS_TOKEN, Constants.BLANK);
+                    String tokenSecret = preferences.getString(Constants.TWITTER_ACCESS_TOKEN_SECRET, Constants.BLANK);
 
                     AccessToken accessToken = new AccessToken(token, tokenSecret);
                     Twitter twitter = OgyongUtils.getTwitterInstance();

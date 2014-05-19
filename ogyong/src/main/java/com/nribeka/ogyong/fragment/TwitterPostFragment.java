@@ -166,9 +166,10 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     }
 
     private void postStatusUpdate() {
-        Intent updateServiceIntent = new Intent(getActivity(), StatusUpdaterService.class);
-        updateServiceIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.TWITTER_UPDATE_DESTINATION);
-        getActivity().startService(updateServiceIntent);
+        Intent statusUpdaterIntent = new Intent(getActivity(), StatusUpdaterService.class);
+        statusUpdaterIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.TWITTER_UPDATE_DESTINATION);
+        statusUpdaterIntent.putExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE, statusEditText.getText().toString());
+        getActivity().startService(statusUpdaterIntent);
     }
 
     @Override
@@ -242,8 +243,8 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
                 randomizeLocationCb.setEnabled(true);
             }
 
-            String name = preferences.getString(Constants.TWITTER_NAME, Constants.EMPTY_STRING);
-            String handle = "@" + preferences.getString(Constants.TWITTER_SCREEN_NAME, Constants.EMPTY_STRING);
+            String name = preferences.getString(Constants.TWITTER_NAME, Constants.BLANK);
+            String handle = "@" + preferences.getString(Constants.TWITTER_SCREEN_NAME, Constants.BLANK);
             nameTextView.setText(name);
             handleTextView.setText(handle);
             statusEditText.setText(OgyongUtils.generateStatus(getActivity()));
@@ -274,8 +275,8 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     }
 
     private boolean isOauthVerified() {
-        String oauthVerifier = preferences.getString(Constants.TWITTER_OAUTH_VERIFIER, Constants.EMPTY_STRING);
-        return !Constants.EMPTY_STRING.equals(oauthVerifier);
+        String oauthVerifier = preferences.getString(Constants.TWITTER_OAUTH_VERIFIER, Constants.BLANK);
+        return !Constants.BLANK.equals(oauthVerifier);
     }
 
     /**
@@ -332,11 +333,11 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     }
 
     private void startDownloadingAccessToken() {
-        String token = preferences.getString(Constants.TWITTER_REQUEST_TOKEN, Constants.EMPTY_STRING);
-        String tokenSecret = preferences.getString(Constants.TWITTER_REQUEST_TOKEN_SECRET, Constants.EMPTY_STRING);
+        String token = preferences.getString(Constants.TWITTER_REQUEST_TOKEN, Constants.BLANK);
+        String tokenSecret = preferences.getString(Constants.TWITTER_REQUEST_TOKEN_SECRET, Constants.BLANK);
         RequestToken requestToken = new RequestToken(token, tokenSecret);
 
-        String oauthVerifier = preferences.getString(Constants.TWITTER_OAUTH_VERIFIER, Constants.EMPTY_STRING);
+        String oauthVerifier = preferences.getString(Constants.TWITTER_OAUTH_VERIFIER, Constants.BLANK);
         DownloadAccessTokenTask downloadAccessTokenTask = new DownloadAccessTokenTask(requestToken, oauthVerifier);
         downloadAccessTokenTask.setDownloadAccessTokenListener(new TwitterAccessTokenListener());
         downloadAccessTokenTask.execute();
@@ -344,8 +345,8 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
 
     private void startDownloadingUser() {
         // start downloading user information
-        String token = preferences.getString(Constants.TWITTER_ACCESS_TOKEN, Constants.EMPTY_STRING);
-        String tokenSecret = preferences.getString(Constants.TWITTER_ACCESS_TOKEN_SECRET, Constants.EMPTY_STRING);
+        String token = preferences.getString(Constants.TWITTER_ACCESS_TOKEN, Constants.BLANK);
+        String tokenSecret = preferences.getString(Constants.TWITTER_ACCESS_TOKEN_SECRET, Constants.BLANK);
 
         AccessToken accessToken = new AccessToken(token, tokenSecret);
         DownloadUserTask downloadUserTask = new DownloadUserTask(accessToken);
@@ -354,7 +355,7 @@ public class TwitterPostFragment extends Fragment implements View.OnClickListene
     }
 
     private void startDownloadingBitmap() {
-        String profileImageUrl = preferences.getString(Constants.TWITTER_PROFILE_PICTURE, Constants.EMPTY_STRING);
+        String profileImageUrl = preferences.getString(Constants.TWITTER_PROFILE_PICTURE, Constants.BLANK);
         DownloadBitmapTask downloadBitmapTask = new DownloadBitmapTask(profileImageUrl);
         downloadBitmapTask.setBitmapDownloadListener(new TwitterBitmapListener());
         downloadBitmapTask.execute();

@@ -27,11 +27,12 @@ public class StatusUpdatedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.i(TAG, "Executing receiver ...");
-
         String destination = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
+        int destinationCode = intent.getIntExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, 0);
         if (destination != null) {
             Intent serviceIntent = new Intent(context, StatusUpdateNotifierService.class);
             serviceIntent.putExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION, destination);
+            serviceIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, destinationCode);
             context.startService(serviceIntent);
         }
     }

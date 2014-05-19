@@ -193,7 +193,7 @@ public class PostActivity extends ActionBarActivity implements ActionBar.TabList
             String destination = intent.getStringExtra(Constants.INTENT_EXTRA_ERROR_MESSAGE);
             String errorMessage = intent.getStringExtra(Constants.INTENT_EXTRA_MESSAGE_DESTINATION);
             String message = "Unable to post update to " + destination + ".";
-            if (!Constants.EMPTY_STRING.equalsIgnoreCase(errorMessage)) {
+            if (!Constants.BLANK.equalsIgnoreCase(errorMessage)) {
                 message = message + " Error message to: " + errorMessage;
             }
             Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);

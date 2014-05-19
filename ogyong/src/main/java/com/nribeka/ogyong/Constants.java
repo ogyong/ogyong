@@ -9,7 +9,8 @@ public interface Constants {
     String TWITTER_CONSUMER_SECRET = "XZ04eK6iNp6IZBQwPkgximLLGobWzOGKsFkloNGPWC3S3K7rBm";
     String TWITTER_CALLBACK = "oauth://oauthUri";
 
-    String EMPTY_STRING = "";
+    int ZERO = 0;
+    String BLANK = "";
     String PLACE_UNKNOWN = "-No place info-";
 
     String TWITTER_NAME = "twitter.name";
@@ -51,8 +52,6 @@ public interface Constants {
     String CONSTRUCTED_LOCATION_PROVIDER = "location_provider.constructed";
 
     String INTENT_MUSIC_UPDATED = "com.nribeka.ogyong.INTENT_MUSIC_UPDATED";
-    String INTENT_STATUS_UPDATED = "com.nribeka.ogyong.INTENT_STATUS_UPDATED";
-    String INTENT_STATUS_UPDATE_FAILED = "com.nribeka.ogyong.INTENT_STATUS_UPDATE_FAILED";
     String INTENT_SINGLE_LOCATION_UPDATE = "com.nribeka.ogyong.INTENT_SINGLE_LOCATION_UPDATE";
 
     String INTENT_EXTRA_RADIUS = "intent_extra.radius";
@@ -65,7 +64,6 @@ public interface Constants {
     String APP_IN_BACKGROUND = "app.in_background";
     boolean USE_GPS_WHEN_ACTIVITY_VISIBLE = true;
     boolean DISABLE_PASSIVE_LOCATION_WHEN_USER_EXIT = true;
-    int STATUS_NOTIFICATION = 0;
 
     String TWITTER_LOCATION_COUNT = "twitter.location_count";
     String TWITTER_LOCATION_HASHES = "twitter.location_hashes";
@@ -74,8 +72,11 @@ public interface Constants {
 
     int TWITTER_UPDATE_DESTINATION = 2;
     int FACEBOOK_UPDATE_DESTINATION = 1;
-    int UNSPECIFIED_UPDATE_DESTINATION = 0;
+    int UNSPECIFIED_UPDATE_DESTINATION = 999;
 
+    String INTENT_STATUS_UPDATED = "com.nribeka.ogyong.INTENT_STATUS_UPDATED";
+    String INTENT_EXTRA_STATUS_MESSAGE = "com.nribeka.ogyong.INTENT_STATUS_MESSAGE";
+    String INTENT_STATUS_UPDATE_FAILED = "com.nribeka.ogyong.INTENT_STATUS_UPDATE_FAILED";
     String INTENT_TWITTER_LOCATION_UPDATED = "com.nribeka.ogyong.INTENT_TWITTER_LOCATION_UPDATED";
     String INTENT_FACEBOOK_LOCATION_UPDATED = "com.nribeka.ogyong.INTENT_FACEBOOK_LOCATION_UPDATED";
 

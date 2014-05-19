@@ -17,7 +17,7 @@ public class StatusUpdaterService extends IntentService {
     }
 
     @Override
-    protected void onHandleIntent(Intent intent) {
+    protected void onHandleIntent(final Intent intent) {
         Log.i(TAG, "Executing service ...");
 
         int updateDestination = 0;
@@ -25,27 +25,38 @@ public class StatusUpdaterService extends IntentService {
             updateDestination = intent.getIntExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, 0);
         }
 
+        String statusMessage = Constants.BLANK;
+        if (intent.hasExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE)) {
+            statusMessage = intent.getStringExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE);
+        }
+
         switch (updateDestination) {
             case Constants.TWITTER_UPDATE_DESTINATION:
-                sendTwitterUpdate();
+                sendTwitterUpdate(statusMessage);
                 break;
             case Constants.FACEBOOK_UPDATE_DESTINATION:
-                sendFacebookUpdate();
+                sendFacebookUpdate(statusMessage);
                 break;
             default:
-                sendTwitterUpdate();
-                sendFacebookUpdate();
+                sendTwitterUpdate(statusMessage);
+                sendFacebookUpdate(statusMessage);
                 break;
         }
     }
 
-    private void sendFacebookUpdate() {
+    private void sendFacebookUpdate(final String statusMessage) {
         Intent updateServiceIntent = new Intent(this, FacebookStatusUpdaterService.class);
+        if (!Constants.BLANK.equals(statusMessage)) {
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE, statusMessage);
+        }
         startService(updateServiceIntent);
     }
 
-    private void sendTwitterUpdate() {
+    private void sendTwitterUpdate(final String statusMessage) {
         Intent updateServiceIntent = new Intent(this, TwitterStatusUpdaterService.class);
+        if (!Constants.BLANK.equals(statusMessage)) {
+            updateServiceIntent.putExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE, statusMessage);
+        }
         startService(updateServiceIntent);
     }
 }

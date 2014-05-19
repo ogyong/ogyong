@@ -43,7 +43,7 @@ public class OgyongUtils {
         String track = preferences.getString(Constants.MEDIA_TRACK, NOT_AVAILABLE);
         String artist = preferences.getString(Constants.MEDIA_ARTIST, NOT_AVAILABLE);
 
-        String statusMessage = Constants.EMPTY_STRING;
+        String statusMessage = Constants.BLANK;
         if (!NOT_AVAILABLE.equals(album)
                 && !NOT_AVAILABLE.equals(track)
                 && !NOT_AVAILABLE.equals(artist)) {

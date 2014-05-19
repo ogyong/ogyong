@@ -58,7 +58,7 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
     private UiLifecycleHelper uiHelper;
     private ProfilePictureView profilePictureView;
 
-    private EditText facebookStatusEditText;
+    private EditText statusEditText;
 
     private TextView placeTextView;
     private TextView latLongTextView;
@@ -88,8 +88,8 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         editor = preferences.edit();
 
-        facebookStatusEditText = (EditText) view.findViewById(R.id.facebook_status_edit_text);
-        facebookStatusEditText.setOnFocusChangeListener(new StatusFocusListener());
+        statusEditText = (EditText) view.findViewById(R.id.facebook_status_edit_text);
+        statusEditText.setOnFocusChangeListener(new StatusFocusListener());
         profilePictureView = (ProfilePictureView) view.findViewById(R.id.facebook_profile_picture);
 
         includeLocationCb = (CheckBox) view.findViewById(R.id.facebook_include_location_cb);
@@ -121,9 +121,10 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
     }
 
     private void postStatusUpdate() {
-        Intent updateServiceIntent = new Intent(getActivity(), StatusUpdaterService.class);
-        updateServiceIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.FACEBOOK_UPDATE_DESTINATION);
-        getActivity().startService(updateServiceIntent);
+        Intent statusUpdaterIntent = new Intent(getActivity(), StatusUpdaterService.class);
+        statusUpdaterIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.FACEBOOK_UPDATE_DESTINATION);
+        statusUpdaterIntent.putExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE, statusEditText.getText().toString());
+        getActivity().startService(statusUpdaterIntent);
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
@@ -219,12 +220,12 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
         int visible = isOpened ? View.VISIBLE : View.GONE;
         includeLocationCb.setVisibility(visible);
         randomizeLocationCb.setVisibility(visible);
-        facebookStatusEditText.setVisibility(visible);
+        statusEditText.setVisibility(visible);
 
         boolean includeLocation = preferences.getBoolean(Constants.FACEBOOK_INCLUDE_LOCATION, false);
         boolean randomizeLocation = preferences.getBoolean(Constants.FACEBOOK_RANDOMIZE_LOCATION, false);
         if (visible == View.VISIBLE) {
-            facebookStatusEditText.setText(OgyongUtils.generateStatus(getActivity()));
+            statusEditText.setText(OgyongUtils.generateStatus(getActivity()));
             includeLocationCb.setChecked(includeLocation);
             randomizeLocationCb.setChecked(randomizeLocation);
             if (includeLocation) {
@@ -300,7 +301,7 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
     }
 
     public void setStatusMessage(String statusMessage) {
-        facebookStatusEditText.setText(statusMessage);
+        statusEditText.setText(statusMessage);
     }
 
     private class StatusFocusListener implements View.OnFocusChangeListener {

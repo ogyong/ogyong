@@ -70,18 +70,17 @@ public class FacebookPlaceUpdaterService extends IntentService {
             Log.i(TAG, "Location received: " + location.getProvider() + " -> " + latLong);
 
             if (inFacebook && includeLocation) {
-                String facebookPlace = preferences.getString("facebook:name:" + hashValue, Constants.EMPTY_STRING);
-                String facebookPlaceId = preferences.getString("facebook:id:" + hashValue, Constants.EMPTY_STRING);
-                if (Constants.EMPTY_STRING.equals(facebookPlaceId)) {
+                String facebookPlace = preferences.getString("facebook:name:" + hashValue, Constants.BLANK);
+                String facebookPlaceId = preferences.getString("facebook:id:" + hashValue, Constants.BLANK);
+                if (Constants.BLANK.equals(facebookPlaceId)) {
                     int count = 0;
                     boolean locationFound = false;
                     while (!locationFound && count < 5) {
                         Request request = Request.newPlacesSearchRequest(
                                 session, location, searchRadius + (searchRadius * count), searchSelection,
-                                Constants.EMPTY_STRING, new Request.GraphPlaceListCallback() {
+                                Constants.BLANK, new Request.GraphPlaceListCallback() {
                                     @Override
                                     public void onCompleted(List<GraphPlace> places, Response response) {
-                                        Log.i(TAG, "Number of places returned by facebook: " + places.size());
                                         graphPlaces = places;
                                     }
                                 }

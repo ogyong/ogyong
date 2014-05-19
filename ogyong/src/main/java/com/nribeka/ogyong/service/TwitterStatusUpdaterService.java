@@ -49,23 +49,30 @@ public class TwitterStatusUpdaterService extends IntentService {
         String latLong = String.valueOf(latitude) + ", " + String.valueOf(longitude);
         String hashValue = OgyongUtils.generateHash(latLong);
 
-        String statusMessage = OgyongUtils.generateStatus(getApplicationContext());
+        String statusMessage = null;
+        if (intent.hasExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE)) {
+            statusMessage = intent.getStringExtra(Constants.INTENT_EXTRA_STATUS_MESSAGE);
+        }
 
+        if (Constants.BLANK.equalsIgnoreCase(statusMessage)) {
+            statusMessage = OgyongUtils.generateStatus(getApplicationContext());
+        }
+
+        boolean hasMessage = statusMessage != null && statusMessage.length() > 0;
         boolean inTwitter = preferences.getBoolean(Constants.TWITTER_LOGGED_IN, false);
-        if (inTwitter) {
-            String token = preferences.getString(Constants.TWITTER_ACCESS_TOKEN, Constants.EMPTY_STRING);
-            String tokenSecret = preferences.getString(Constants.TWITTER_ACCESS_TOKEN_SECRET, Constants.EMPTY_STRING);
+        if (inTwitter && hasMessage) {
+            String token = preferences.getString(Constants.TWITTER_ACCESS_TOKEN, Constants.BLANK);
+            String tokenSecret = preferences.getString(Constants.TWITTER_ACCESS_TOKEN_SECRET, Constants.BLANK);
             AccessToken accessToken = new AccessToken(token, tokenSecret);
             Twitter twitter = OgyongUtils.getTwitterInstance();
             twitter.setOAuthAccessToken(accessToken);
 
             try {
                 String key = "twitter:id:" + hashValue;
-                String place = preferences.getString(key, Constants.EMPTY_STRING);
+                String place = preferences.getString(key, Constants.BLANK);
                 boolean includeLocation = preferences.getBoolean(Constants.TWITTER_INCLUDE_LOCATION, false);
 
                 int count = 0;
-                boolean hasMessage = statusMessage.length() > 0;
                 while (hasMessage) {
                     int start = SUBSTRING_LENGTH * count;
                     int end = SUBSTRING_LENGTH * ++count;
@@ -82,7 +89,7 @@ public class TwitterStatusUpdaterService extends IntentService {
                 notifierIntent.putExtra(Constants.INTENT_EXTRA_UPDATE_DESTINATION, Constants.TWITTER_UPDATE_DESTINATION);
                 context.sendBroadcast(notifierIntent);
             } catch (TwitterException e) {
-                Log.e(TAG, "Unable to send status update due to: " + e.getLocalizedMessage(), e);
+                Log.e(TAG, "Unable to send status update due to.: " + e.getLocalizedMessage(), e);
             }
         }
     }

@@ -78,7 +78,7 @@ public class TemplateActivity extends ActionBarActivity {
         public void onResume() {
             super.onResume();
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            String currentTemplate = sharedPreferences.getString("status_template", Constants.EMPTY_STRING);
+            String currentTemplate = sharedPreferences.getString("status_template", Constants.BLANK);
             templateEditText.setText(currentTemplate);
             templateEditText.selectAll();
         }
