@@ -25,14 +25,16 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
         boolean automatePosting = preferences.getBoolean("automate_status_update", false);
         boolean isPlaying = intent.getBooleanExtra("playing", false);
         if (isPlaying) {
-            String artist = intent.getStringExtra("artist");
+            long id = intent.getLongExtra("id", 0);
             String album = intent.getStringExtra("album");
             String track = intent.getStringExtra("track");
+            String artist = intent.getStringExtra("artist");
             String generatedHash = OgyongUtils.generateHash(artist, album, track);
 
             String savedHash = preferences.getString(Constants.MEDIA_SIGNATURE, Constants.BLANK);
             if (!generatedHash.equals(savedHash)) {
                 SharedPreferences.Editor editor = preferences.edit();
+                editor.putLong(Constants.MEDIA_ID, id);
                 editor.putString(Constants.MEDIA_TRACK, track);
                 editor.putString(Constants.MEDIA_ALBUM, album);
                 editor.putString(Constants.MEDIA_ARTIST, artist);
@@ -49,4 +51,5 @@ public class MusicBroadcastReceiver extends BroadcastReceiver {
             }
         }
     }
+
 }

@@ -1,18 +1,23 @@
 package com.nribeka.ogyong.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.location.Location;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.nribeka.ogyong.Constants;
 import com.nribeka.ogyong.R;
+import com.nribeka.ogyong.receiver.MusicBroadcastReceiver;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Set;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
@@ -119,5 +124,20 @@ public class OgyongUtils {
 
     public static boolean isBlank(String string) {
         return string == null || Constants.BLANK.equals(string);
+    }
+
+    public static void dumpIntent(Intent intent) {
+
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            Set<String> keys = bundle.keySet();
+            Iterator<String> it = keys.iterator();
+            Log.i(TAG, "Dumping intent start");
+            while (it.hasNext()) {
+                String key = it.next();
+                Log.e(TAG, "[" + key + "=" + bundle.get(key) + "]");
+            }
+            Log.i(TAG, "Dumping intent end");
+        }
     }
 }

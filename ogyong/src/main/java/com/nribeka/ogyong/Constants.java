@@ -24,6 +24,7 @@ public interface Constants {
     String TWITTER_ACCESS_TOKEN = "twitter.access_token";
     String TWITTER_ACCESS_TOKEN_SECRET = "twitter.access_token_secret";
 
+    String MEDIA_ID = "media.id";
     String MEDIA_TRACK = "media.track";
     String MEDIA_ALBUM = "media.album";
     String MEDIA_ARTIST = "media.artist";

@@ -228,9 +228,7 @@ public class FacebookPostFragment extends Fragment implements View.OnClickListen
             statusEditText.setText(OgyongUtils.generateStatus(getActivity()));
             includeLocationCb.setChecked(includeLocation);
             randomizeLocationCb.setChecked(randomizeLocation);
-            if (includeLocation) {
-                randomizeLocationCb.setEnabled(true);
-            }
+            randomizeLocationCb.setEnabled(includeLocation && randomizeLocation);
         }
 
         int locationVisible = (isOpened && includeLocation) ? View.VISIBLE : View.GONE;
