@@ -13,9 +13,6 @@ android {
     signingConfigs {
         release {
             storeFile file("ogyong-release.keystore")
-            storePassword "winwinmoron1604?"
-            keyAlias "ogyong"
-            keyPassword "winwinmoron1604?"
         }
     }
     buildTypes {
